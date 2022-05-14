@@ -10,11 +10,18 @@ set -g theme_hide_hostname no
 set -g theme_hostname always
 
 # aliases
-alias ls "ls -p -G"
-alias la "ls -A"
-alias ll "ls -l"
-alias lla "ll -A"
+alias ll "exa --long --across --tree --level=2 --classify --icons --all --list-dirs --reverse --group --group-directories-first --git --header"
 alias g git
+alias v vim
+alias c clear
+alias t tmux
+alias n npm
+alias nds "npm run dev:server"
+alias nda "npm run dev:assets"
+alias nb "npm build"
+alias ns "npm start"
+alias v-s "cd ~/.local/share/nvim/swap && rm *"
+alias h heroku
 command -qv nvim && alias vim nvim
 
 set -gx EDITOR nvim
