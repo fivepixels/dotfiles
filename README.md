@@ -12,15 +12,15 @@ If you want to configure my development enviroment, please read howto directory 
 
 1. Install [Homebrew](https://brew.sh)
 
-  ```bash
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  ```
+    ```bash
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    ```
 
 2. Install Applications
 
-  ```bash
-  brew install --cask iterm2 google-chrome github sourcetree discord keycastr numi
-  ```
+    ```bash
+    brew install --cask iterm2 google-chrome github sourcetree discord keycastr numi
+    ```
 
   - [iTerm2](https://iterm2.com/)
   - [Google Chrome](https://www.google.com/chrome/)
@@ -32,9 +32,9 @@ If you want to configure my development enviroment, please read howto directory 
 
 3. Install Softwares
 
-  ```bash
-  brew install fish neovim tmux git
-  ```
+    ```bash
+    brew install fish neovim tmux git
+    ```
 
   - [Fish Shell](https://fishshell.com/)
   - [Neovim](https://neovim.io/)
@@ -43,9 +43,9 @@ If you want to configure my development enviroment, please read howto directory 
 
 4. Clone this repository and change directory.
 
-  ```bash
-  git clone https://github.com/Novelier-Webbelier/dotfiles.git
-  ```
+    ```bash
+    git clone https://github.com/Novelier-Webbelier/dotfiles.git
+    ```
 
 ### Configure
 
@@ -57,7 +57,7 @@ If you want to configure my development enviroment, please read howto directory 
 
   3. Go to Profiles > Colors and change value of Color Presets from Drak Background to `Solarized Dark`
 
-    - If `Solarized Dark` button is not exists, Import [this](./Novelier-Webbelier_Iterm2-colors.itermcolors).
+      - If `Solarized Dark` button is not exists, Import [this](./Novelier-Webbelier_Iterm2-colors.itermcolors).
 
   4. Go to Profiles > Window and change value of Transparency and Blur from 0, 0 to 10, 30
 
@@ -65,15 +65,15 @@ If you want to configure my development enviroment, please read howto directory 
 
   1. Open your VIM and type `:` to run vim command
 
-    ```bash
-    :PlugInstall
-    ```
+      ```bash
+      :PlugInstall
+      ```
 
 3. Install Coc Extensions
 
   1. Open your VIM and type below
 
-    - Reference : [Here](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#implemented-coc-extensions) you can watch all of the coc extensions
+  - Reference : [Here](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#implemented-coc-extensions) you can watch all of the coc extensions
 
     ```bash
     :CocInstall coc-html coc-htmldjango coc-htmlhint coc-html-css-support coc-css coc-cssmodules coc-tsserver
