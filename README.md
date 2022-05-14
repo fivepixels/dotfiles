@@ -1,3 +1,7 @@
+# Dotfiles
+
+Warning : This repository is for macOS User, If you are window user, Don't use this repository.
+
 ## Contents
 
 - Vim Config
@@ -30,3 +34,5 @@ Requires Neovim (>= 0.5)
 - [Exa](https://the.exa.website/) - `ls` replacement
 - [ghq](https://github.com/x-motemen/ghq) - Local Git repository organizer
 - [peco](https://github.com/peco/peco) - Interactive filtering
+
+### If you want to configure my development environment, Please checkout [here](./howto)
