@@ -44,8 +44,8 @@ if has('nvim')
   set inccommand=split
 endif
 
-
 autocmd InsertLeave * set nopaste
+autocmd VimEnter * :NERDTree
 
 highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
 highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000
@@ -67,7 +67,6 @@ au BufNewFile,BufRead *.md set filetype=markdown
 au BufNewFile,BufRead *.mdx set filetype=markdown
 au BufNewFile,BufRead *.flow set filetype=javascript
 au BufNewFile,BufRead *.fish set filetype=fish
-
 
 autocmd FileType coffee setlocal shiftwidth=2 tabstop=2
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
