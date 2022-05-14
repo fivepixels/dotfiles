@@ -28,6 +28,17 @@ if has("nvim")
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'windwp/nvim-autopairs'
   Plug 'windwp/nvim-ts-autotag'
+  Plug 'preservim/nerdtree'
+  Plug 'vim-airline/vim-airline'
+  Plug 'ryanoasis/vim-devicons'
+  Plug 'pangloss/vim-javascript'
+  Plug 'mxw/vim-jsx'
+  Plug 'dense-analysis/ale'
+  Plug 'SirVer/ultisnips'
+  Plug 'preservim/nerdcommenter'
+  Plug 'honza/vim-snippets'
+  " CocInstall coc-
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 endif
 
 Plug 'groenewege/vim-less', { 'for': 'less' }
@@ -35,3 +46,4 @@ Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 
 call plug#end()
 
+let g:UltiSnipsSnippetsDir="/Users/jeongwonchoi/.config/ultisnips"
