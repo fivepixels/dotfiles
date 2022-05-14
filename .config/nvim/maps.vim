@@ -46,7 +46,7 @@ map sl <C-w>l
 map su :w<Return>
 map sa :source %<Return>
 map sp :q<Return>
-nmap s<left> <C-w>>
-nmap s<right> <C-w><
+nmap s<left> <C-w><
+nmap s<right> <C-w>>
 nmap s<up> <C-w>+
 nmap s<down> <C-w>-

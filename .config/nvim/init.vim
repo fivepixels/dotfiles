@@ -1,12 +1,17 @@
+" Fundamentals "{{{
+" ---------------------------------------------------------------------
+
+" init autocmd
 autocmd!
+" set script encoding
 scriptencoding utf-8
+" stop loading config if it's on tiny or small
 if !1 | finish | endif
 
-syntax enable
 set nocompatible
-set t_BE=
-set mat=2
 set number
+set relativenumber
+syntax enable
 set fileencodings=utf-8,sjis,euc-jp,latin
 set encoding=utf-8
 set title
@@ -19,44 +24,56 @@ set cmdheight=1
 set laststatus=2
 set scrolloff=10
 set expandtab
+"let loaded_matchparen = 1
 set shell=fish
 set backupskip=/tmp/*,/private/tmp/*
-set clipboard+=unnamedplus
-set inccommand=split
+
+" incremental substitution (neovim)
+if has('nvim')
+  set inccommand=split
+endif
+
+" Suppress appending <PasteStart> and <PasteEnd> when pasting
+set t_BE=
+
 set nosc noru nosm
+" Don't redraw while executing macros (good performance config)
 set lazyredraw
+"set showmatch
+" How many tenths of a second to blink when matching brackets
+"set mat=2
+" Ignore case when searching
 set ignorecase
+" Be smart when using tabs ;)
 set smarttab
+" indents
+filetype plugin indent on
 set shiftwidth=2
 set tabstop=2
-set ai
-set si
-set nowrap
+set ai "Auto indent
+set si "Smart indent
+set nowrap "No Wrap lines
 set backspace=start,eol,indent
+" Finding files - Search down into subfolders
 set path+=**
 set wildignore+=*/node_modules/*
-set formatoptions+=r
-set cursorline
-set exrc
-set termguicolors
-set winblend=0
-set wildoptions=pum
-set pumblend=5
-set background=dark
-set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md
 
-let loaded_matchparen = 1
-let s:uname = system("uname -s")
-let g:neosolarized_termtrans=1
-
+" Turn off paste mode when leaving insert
 autocmd InsertLeave * set nopaste
-autocmd VimEnter * :NERDTreeToggle
-autocmd VimEnter * :source ~/.config/nvim/init.vim
-autocmd FileType coffee setlocal shiftwidth=2 tabstop=2
-autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
-autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
 
+" Add asterisks in block comments
+set formatoptions+=r
+
+"}}}
+
+" Highlights "{{{
+" ---------------------------------------------------------------------
+set cursorline
+"set cursorcolumn
+
+" Set cursor line color on visual mode
 highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
+
 highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000
 
 augroup BgHighlight
@@ -70,16 +87,69 @@ if &term =~ "screen"
   autocmd VimLeave * silent!  exe '!echo -n "\ek[`hostname`:`basename $PWD`]\e\\"'
 endif
 
+"}}}
+
+" File types "{{{
+" ---------------------------------------------------------------------
+" JavaScript
 au BufNewFile,BufRead *.es6 setf javascript
+" TypeScript
 au BufNewFile,BufRead *.tsx setf typescriptreact
+" Markdown
 au BufNewFile,BufRead *.md set filetype=markdown
 au BufNewFile,BufRead *.mdx set filetype=markdown
+" Flow
 au BufNewFile,BufRead *.flow set filetype=javascript
+" Fish
 au BufNewFile,BufRead *.fish set filetype=fish
 
-runtime ./plug.vim
-runtime ./maps.vim
-runtime ./macos.vim
-runtime ./colors/NeoSolarized.vim
+set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md
 
-colorscheme NeoSolarized
+autocmd FileType coffee setlocal shiftwidth=2 tabstop=2
+autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
+autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
+
+"}}}
+
+" Imports "{{{
+" ---------------------------------------------------------------------
+runtime ./plug.vim
+if has("unix")
+  let s:uname = system("uname -s")
+  " Do Mac stuff
+  if s:uname == "Darwin\n"
+    runtime ./macos.vim
+  endif
+endif
+if has('win32')
+  runtime ./windows.vim
+endif
+
+runtime ./maps.vim
+"}}}
+
+" Syntax theme "{{{
+" ---------------------------------------------------------------------
+
+" true color
+if exists("&termguicolors") && exists("&winblend")
+  syntax enable
+  set termguicolors
+  set winblend=0
+  set wildoptions=pum
+  set pumblend=5
+  set background=dark
+  " Use NeoSolarized
+  let g:neosolarized_termtrans=1
+  runtime ./colors/NeoSolarized.vim
+  colorscheme NeoSolarized
+endif
+
+"}}}
+
+" Extras "{{{
+" ---------------------------------------------------------------------
+set exrc
+"}}}
+
+" vim: set foldmethod=marker foldlevel=0:

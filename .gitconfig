@@ -39,7 +39,7 @@
 [hub]
   protocol = https
 [github]
-	user = craftzdog
+  user = Novelier-Webbelier
 [diff]
   tool = nvimdiff
 [difftool "nvimdiff"]

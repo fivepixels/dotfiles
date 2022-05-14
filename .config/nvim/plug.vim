@@ -37,7 +37,6 @@ if has("nvim")
   Plug 'SirVer/ultisnips'
   Plug 'preservim/nerdcommenter'
   Plug 'honza/vim-snippets'
-  " CocInstall coc-
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 endif
 

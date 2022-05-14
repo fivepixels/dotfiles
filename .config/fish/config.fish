@@ -10,7 +10,7 @@ set -g theme_hide_hostname no
 set -g theme_hostname always
 
 # aliases
-alias ll "exa --long --across --tree --level=2 --classify --icons --all --list-dirs --reverse --group --group-directories-first --git --header"
+alias ll "exa --header --long --across --tree --level=2 --classify --icons --all --list-dirs --reverse --group --group-directories-first"
 alias g git
 alias v vim
 alias c clear
