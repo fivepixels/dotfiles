@@ -1,6 +1,6 @@
-# HOW TO
+# How to Install
 
-How do I configure my development environment.
+Install Applications and Software
 
 ## Install HomeBrew for install all of the programs
 - Install [HomeBrew](https://github.com/Homebrew)
@@ -25,15 +25,24 @@ How do I configure my development environment.
 ## Install Software
 
 - Install Fish, Neovim Tmux, Etc.
+  - Cloning Dotfiles 
   - `git clone https://github.com/Novelier-Webbelier/dotfiles.git ~/.dotfiles`
-  - `brew install fish neovim tmux git`
+
+  - Fish, Neovim, Tmux, Git, Fisher
+  - `brew install fish neovim tmux git fisher`
+
+  - Tide
+  - `fisher install IlanCosman/tide@v5`
 
   - WebSites
 
-     - [Fish](https://fishshell.com/)
-     - [Neovim](https://neovim.io/)
-     - [Tmux](https://github.com/tmux/tmux)
-     - [Git](https://git-scm.com/)
+    - [Fish Shell](https://fishshell.com/)
+    - [Fisher](https://github.com/jorgebucaran/fisher) - Plugin manager
+    - [Neovim](https://neovim.io/)
+    - [Tmux](https://github.com/tmux/tmux)
+    - [Git](https://git-scm.com/)
+    - [Tide](https://github.com/IlanCosman/tide) - Shell theme. Use version 5: `fisher install ilancosman/tide@v5`
+
 
 ## configure
 
