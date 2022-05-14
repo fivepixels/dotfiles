@@ -1,29 +1,39 @@
 # HOW TO
 
-How do I configure my development enviroment.
+How do I configure my development environment.
 
-
+## Install HomeBrew for install all of the programs
 - Install [HomeBrew](https://github.com/Homebrew)
-  - Copy and paste to your terminal : 
   - `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 
 ## Install Applications
 
-- Install iTerm2, KeyCastr
-  - Copy and paste to your terminal : 
-  - `brew install iterm2 keycastr numi --cask`
+- Install my most used Applications
+  - If you want to searching the applications, visit [here](https://brew.sh) for search.
+  - `brew install --cask iterm2 google-chrome github sourcetree discord keycastr numi`
+
+  - WebSites
+
+    - [iTerm2](https://iterm2.com/)
+    - [Google Chrome](https://google.com/chrome)
+    - [Github Desktop](https://desktop.github.com/)
+    - [SourceTree](https://www.sourcetreeapp.com/)
+    - [Discord](https://discord.com/)
+    - [keycastr](https://github.com/keycastr/keycastr)
+    - [numi](https://numi.app/)
 
 ## Install Software
 
-- Install git
-  - Copy and paste to you terminal : 
-  - `brew install git`
-
 - Install Fish, Neovim Tmux, Etc.
-  - Cloning this repository
   - `git clone https://github.com/Novelier-Webbelier/dotfiles.git ~/.dotfiles`
+  - `brew install fish neovim tmux git`
 
-  - `brew install fish neovim tmux`
+  - WebSites
+
+     - [Fish](https://fishshell.com/)
+     - [Neovim](https://neovim.io/)
+     - [Tmux](https://github.com/tmux/tmux)
+     - [Git](https://git-scm.com/)
 
 ## configure
 

@@ -1,6 +1,6 @@
 # Dotfiles
 
-Warning : This repository is for macOS User, If you are window user, Don't use this repository.
+**Warning** : This repository is for macOS User, If you are window user, Don't use this repository.
 
 ## Contents
 
