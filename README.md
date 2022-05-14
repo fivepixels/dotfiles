@@ -1,6 +1,3 @@
-# Dotfiles
-
-**Warning** : This repository is for macOS User, If you are window user, Don't use this repository.
 
 ## Contents
 
@@ -32,7 +29,5 @@ Requires Neovim (>= 0.5)
 - [Nerd fonts](https://github.com/ryanoasis/nerd-fonts) - Powerline-patched fonts. I use Hack.
 - [z for fish](https://github.com/jethrokuan/z) - Directory jumping
 - [Exa](https://the.exa.website/) - `ls` replacement
-- [ghq](https://github.com/x-motemen/ghq) - Local Git repository organizer
-- [peco](https://github.com/peco/peco) - Interactive filtering
 
-### If you want to configure my development environment, Please checkout [here](./howto)
+### If you want to configure my development enviroment, Please checkout [here](./howto)
