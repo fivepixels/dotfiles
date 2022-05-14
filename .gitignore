@@ -32,13 +32,6 @@ Session.vim
 .vim/ftdetect/Dockerfile.vim
 .vim/syntax/Dockerfile.vim
 .vim/snippets/
-.config/coc/
-.config/iterm2/
-.config/fish/completions/
-.config/fish/conf.d/
-.config/fish/fish_plugins
-.config/fish/fish_variables
-
 
 # Xcode
 build/
@@ -70,3 +63,6 @@ Pods/
 # Fish local config
 .config/fish/config-local.fish
 .config/fish/fish_variables.x86_64
+
+# Karabiner
+.config/karabiner/automatic_backups

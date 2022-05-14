@@ -33,20 +33,30 @@ vnoremap <silent> # :<C-U>
 "-----------------------------
 " Tabs
 
+" Open current directory
 nmap te :tabedit 
 nmap <S-Tab> :tabprev<Return>
 nmap <Tab> :tabnext<Return>
+
+"------------------------------
+" Windows
+
+" Split window
 nmap ss :split<Return><C-w>w
 nmap sv :vsplit<Return><C-w>w
+" Move window
 nmap <Space> <C-w>w
+map s<left> <C-w>h
+map s<up> <C-w>k
+map s<down> <C-w>j
+map s<right> <C-w>l
 map sh <C-w>h
 map sk <C-w>k
 map sj <C-w>j
 map sl <C-w>l
-map su :w<Return>
-map sa :source %<Return>
-map sp :q<Return>
-nmap s<left> <C-w><
-nmap s<right> <C-w>>
-nmap s<up> <C-w>+
-nmap s<down> <C-w>-
+" Resize window
+nmap <C-w><left> <C-w><
+nmap <C-w><right> <C-w>>
+nmap <C-w><up> <C-w>+
+nmap <C-w><down> <C-w>-
+

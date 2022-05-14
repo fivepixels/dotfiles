@@ -10,7 +10,6 @@ if !1 | finish | endif
 
 set nocompatible
 set number
-set relativenumber
 syntax enable
 set fileencodings=utf-8,sjis,euc-jp,latin
 set encoding=utf-8
