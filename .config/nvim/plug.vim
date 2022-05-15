@@ -4,6 +4,9 @@ endif
 
 call plug#begin()
 
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+
 if has("nvim")
   Plug 'hoob3rt/lualine.nvim'
   Plug 'kristijanhusak/defx-git'
@@ -29,5 +32,10 @@ if has("nvim")
   Plug 'ryanoasis/vim-devicons'
   Plug 'kyazdani42/nvim-web-devicons'
 endif
+
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'groenewege/vim-less', { 'for': 'less' }
+Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 
 call plug#end()

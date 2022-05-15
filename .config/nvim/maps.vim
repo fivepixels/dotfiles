@@ -39,12 +39,12 @@ map sh <C-w>h
 map sk <C-w>k
 map sj <C-w>j
 map sl <C-w>l
-map su :w<Return>
+map su :w<Return>:CocCommand prettier.formatFile<Return>
 map sa :source %<Return>
 map sp <C-w>q
 map sn :NERDTreeToggle
-nmap <C-w><left> <C-w><
-nmap <C-w><right> <C-w>>
-nmap <C-w><up> <C-w>+
-nmap <C-w><down> <C-w>-
-
+map sr <C-w>r
+nmap s<left <C-w><
+nmap s<right> <C-w>>
+nmap s<up> <C-w>+
+nmap s<down> <C-w>-

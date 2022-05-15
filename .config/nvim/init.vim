@@ -47,6 +47,8 @@ endif
 autocmd InsertLeave * set nopaste
 autocmd VimEnter * :NERDTree
 
+command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
+
 highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
 highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000
 
