@@ -12,11 +12,12 @@ set -g theme_hostname always
 # aliases
 alias ll "exa --header --long --all --binary --git --group --group-directories-first --icons --tree --level=2"
 alias v vim
-alias c clean
+alias c clear
 alias t tmux
 alias nds "npm run dev:server"
 alias nda "npm run dev:assets"
 alias g git
+alias h heroku
 command -qv nvim && alias vim nvim
 
 set -gx EDITOR nvim

@@ -42,9 +42,13 @@ map sl <C-w>l
 map su :w<Return>:CocCommand prettier.formatFile<Return>
 map sa :source %<Return>
 map sp <C-w>q
-map sn :NERDTreeToggle
+map sn :NERDTreeToggle<Return>
 map sr <C-w>r
-nmap s<left <C-w><
+nmap s<left> <C-w><
 nmap s<right> <C-w>>
 nmap s<up> <C-w>+
 nmap s<down> <C-w>-
+
+map tl :bn<Return>
+map th :bp<Return>
+map tp :bdelete<Return>

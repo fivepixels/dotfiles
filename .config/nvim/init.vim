@@ -16,7 +16,7 @@ set hlsearch
 set showcmd
 set cmdheight=1
 set laststatus=2
-set scrolloff=10
+set scrolloff=15
 set expandtab
 set shell=fish
 set backupskip=/tmp/*,/private/tmp/*
@@ -46,6 +46,7 @@ endif
 
 autocmd InsertLeave * set nopaste
 autocmd VimEnter * :NERDTree
+autocmd VimEnter * :source ~/.dotfiles/.config/nvim/init.vim
 
 command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 
@@ -64,6 +65,8 @@ if &term =~ "screen"
 endif
 
 au BufNewFile,BufRead *.es6 setf javascript
+au BufNewFile,BufRead *.js setf javascript
+au BufNewFile,BufRead *.jsx setf javascriptreact
 au BufNewFile,BufRead *.tsx setf typescriptreact
 au BufNewFile,BufRead *.md set filetype=markdown
 au BufNewFile,BufRead *.mdx set filetype=markdown
@@ -76,6 +79,22 @@ autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
 
 runtime ./plug.vim
 runtime ./maps.vim
+
+autocmd VimEnter * :source ~/.config/nvim/after/plugin/autopairs.rc.lua
+autocmd VimEnter * :source ~/.config/nvim/after/plugin/cmp.rc.vim
+autocmd VimEnter * :source ~/.config/nvim/after/plugin/defx.rc.vim
+autocmd VimEnter * :source ~/.config/nvim/after/plugin/fugitive.rc.vim
+autocmd VimEnter * :source ~/.config/nvim/after/plugin/lsp-colors.rc.vim
+autocmd VimEnter * :source ~/.config/nvim/after/plugin/lsp-installer.lua
+autocmd VimEnter * :source ~/.config/nvim/after/plugin/lspconfig.rc.vim
+autocmd VimEnter * :source ~/.config/nvim/after/plugin/lspkind.rc.lua
+autocmd VimEnter * :source ~/.config/nvim/after/plugin/lspsaga.rc.vim
+autocmd VimEnter * :source ~/.config/nvim/after/plugin/lualine.rc.lua
+autocmd VimEnter * :source ~/.config/nvim/after/plugin/tabline.rc.vim
+autocmd VimEnter * :source ~/.config/nvim/after/plugin/telescope.rc.vim
+autocmd VimEnter * :source ~/.config/nvim/after/plugin/treesitter.rc.vim
+autocmd VimEnter * :source ~/.config/nvim/after/plugin/ts-autotag.rc.lua
+autocmd VimEnter * :source ~/.config/nvim/after/plugin/web-devicons.rc.vim
 
 if has("unix")
   let s:uname = system("uname -s")

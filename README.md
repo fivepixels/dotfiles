@@ -81,7 +81,6 @@ If you want to configure my development enviroment, please read howto directory 
   :CocInstall coc-flutter coc-go coc-golines coc-sourcekit
   :CocInstall coc-prettier
   :CocInstall coc-json coc-xml coc-yaml coc-snippets
-  :CocInstall coc-prettier
   ```
 
 3. Restart your iTerm

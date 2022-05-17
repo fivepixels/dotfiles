@@ -31,6 +31,8 @@ if has("nvim")
   Plug 'preservim/nerdtree'
   Plug 'ryanoasis/vim-devicons'
   Plug 'kyazdani42/nvim-web-devicons'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
 endif
 
 Plug 'pangloss/vim-javascript'
@@ -39,3 +41,5 @@ Plug 'groenewege/vim-less', { 'for': 'less' }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 
 call plug#end()
+
+let g:airline#extensions#tabline#enabled = 1
