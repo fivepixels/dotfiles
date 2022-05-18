@@ -47,6 +47,7 @@ endif
 autocmd InsertLeave * set nopaste
 autocmd VimEnter * :NERDTree
 autocmd VimEnter * :source ~/.dotfiles/.config/nvim/init.vim
+autocmd VimEnter * :AirlineTheme base16
 
 highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
 highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000
