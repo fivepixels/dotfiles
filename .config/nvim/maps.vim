@@ -39,7 +39,7 @@ map sh <C-w>h
 map sk <C-w>k
 map sj <C-w>j
 map sl <C-w>l
-map su :w<Return>:CocCommand prettier.formatFile<Return>
+map su :w<Return>
 map sa :source %<Return>
 map sp <C-w>q
 map sn :NERDTreeToggle<Return>
