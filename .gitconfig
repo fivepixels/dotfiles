@@ -40,7 +40,7 @@
   protocol = https
 [github]
 	user = Novelier-Webbelier
-  email = novelier.webbelier@gmail.com
+	email = novelier.webbelier@gmail.com
 [user]
   name = Novelier-Webbelier
   email = novelier.webbelier@gmail.com

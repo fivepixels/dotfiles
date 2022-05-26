@@ -34,6 +34,7 @@ if has("nvim")
   Plug 'vim-airline/vim-airline-themes'
   Plug 'preservim/vim-markdown'
   Plug 'godlygeek/tabular'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 endif
 
 Plug 'mattn/emmet-vim'

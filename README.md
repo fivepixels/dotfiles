@@ -33,7 +33,7 @@ If you want to configure my development enviroment, please read howto directory 
 3. Install Softwares
 
    ```bash
-   brew install fish neovim tmux git
+   brew install fish neovim tmux git node yarn heroku
    ```
 
 - [Fish Shell](https://fishshell.com/)
