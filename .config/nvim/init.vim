@@ -37,8 +37,11 @@ set formatoptions+=r
 set cursorline
 set exrc
 set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md
-
+set clipboard+=unnamedplus
 set t_BE=
+
+runtime ./plug.vim
+runtime ./maps.vim
 
 if has('nvim')
   set inccommand=split
@@ -76,9 +79,6 @@ autocmd FileType coffee setlocal shiftwidth=2 tabstop=2
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
 
-runtime ./plug.vim
-runtime ./maps.vim
-
 autocmd VimEnter * :source ~/.config/nvim/after/plugin/autopairs.rc.lua
 autocmd VimEnter * :source ~/.config/nvim/after/plugin/cmp.rc.vim
 autocmd VimEnter * :source ~/.config/nvim/after/plugin/defx.rc.vim
@@ -95,21 +95,12 @@ autocmd VimEnter * :source ~/.config/nvim/after/plugin/treesitter.rc.vim
 autocmd VimEnter * :source ~/.config/nvim/after/plugin/ts-autotag.rc.lua
 autocmd VimEnter * :source ~/.config/nvim/after/plugin/web-devicons.rc.vim
 
-if has("unix")
-  let s:uname = system("uname -s")
-  if s:uname == "Darwin\n"
-    runtime ./macos.vim
-  endif
-endif
-
-if exists("&termguicolors") && exists("&winblend")
-  syntax enable
-  set termguicolors
-  set winblend=0
-  set wildoptions=pum
-  set pumblend=5
-  set background=dark
-  let g:neosolarized_termtrans=1
-  runtime ./colors/NeoSolarized.vim
-  colorscheme NeoSolarized
-endif
+syntax enable
+set termguicolors
+set winblend=0
+set wildoptions=pum
+set pumblend=5
+set background=dark
+let g:neosolarized_termtrans=1
+runtime ./colors/NeoSolarized.vim
+colorscheme NeoSolarized

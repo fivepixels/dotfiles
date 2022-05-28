@@ -11,17 +11,9 @@ set -g theme_hostname always
 
 # aliases
 alias ll "exa --header --long --all --binary --git --group --group-directories-first --icons --tree --level=2"
-alias v vim
-alias c clear
-alias t tmux
 alias tl "tmux ls"
 alias tn "tmux new -s"
 alias ta "tmux a -t"
-alias nds "npm run dev:server"
-alias nda "npm run dev:assets"
-alias g git
-alias h heroku
-alias hl "heroku logs --tail --app"
 alias setup "npm init -y && npm i --save-dev eslint prettier eslint-plug-prettier eslint-config-prettier && touch .eslintrc.json prettier.config.js .prettierignore"
 command -qv nvim && alias vim nvim
 

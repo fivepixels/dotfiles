@@ -2,8 +2,6 @@
 
 This is my personal dotfiles which are for my Development Environment setup.
 
-If you want to configure my development enviroment, please read howto directory where you can see how to install and configure.
-
 **Warnings** : This repo is for only macOS User, If you are windows user, please checkout other dotfiles repository.
 
 ## How to Install and configure
@@ -22,13 +20,13 @@ If you want to configure my development enviroment, please read howto directory 
    brew install --cask iterm2 google-chrome github sourcetree discord keycastr numi
    ```
 
-- [iTerm2](https://iterm2.com/)
-- [Google Chrome](https://www.google.com/chrome/)
-- [Github Desktop](https://desktop.github.com/)
-- [SourceTree](https://www.sourcetreeapp.com/)
-- [Discord](https://discord.com/)
-- [keyCastr](https://github.com/keycastr/keycastr)
-- [numi](https://numi.app/)
+    - [iTerm2](https://iterm2.com/)
+    - [Google Chrome](https://www.google.com/chrome/)
+    - [Github Desktop](https://desktop.github.com/)
+    - [SourceTree](https://www.sourcetreeapp.com/)
+    - [Discord](https://discord.com/)
+    - [keyCastr](https://github.com/keycastr/keycastr)
+    - [numi](https://numi.app/)
 
 3. Install Softwares
 
@@ -36,10 +34,13 @@ If you want to configure my development enviroment, please read howto directory 
    brew install fish neovim tmux git node yarn heroku
    ```
 
-- [Fish Shell](https://fishshell.com/)
-- [Neovim](https://neovim.io/)
-- [Tmux](https://github.com/tmux/tmux)
-- [Git](https://git-scm.com)
+    - [Fish Shell](https://fishshell.com/)
+    - [Neovim](https://neovim.io/)
+    - [Tmux](https://github.com/tmux/tmux)
+    - [Git](https://git-scm.com)
+    - [Node](https://nodejs.org/)
+    - [Yarn](https://yarnpkg.com/)
+    - [Heroku](https://heroku.com/)
 
 4. Clone this repository and change directory.
 
@@ -51,36 +52,37 @@ If you want to configure my development enviroment, please read howto directory 
 
 1. iTerm
 
-1. Create Profile
+     1. Create Profile
 
-1. Go to Appearace > General and change value of Theme from Regular to Minimal
+     2. Go to Appearace > General and change value of Theme from Regular to Minimal
 
-1. Go to Profiles > Colors and change value of Color Presets from Drak Background to `Solarized Dark`
+     3. Go to Profiles > Colors and change value of Color Presets from Drak Background to `Solarized Dark`.
 
-   - If `Solarized Dark` button is not exists, Import [this](./Novelier-Webbelier_Iterm2-colors.itermcolors).
+        - If `Solarized Dark` button is not exists, Import [this](./Novelier-Webbelier_Iterm2-colors.itermcolors).
 
-1. Go to Profiles > Window and change value of Transparency and Blur from 0, 0 to 10, 30
+     4. Go to Profiles > Window and change value of Transparency and Blur from 0, 0 to 25, 35
 
-1. VIM
+2. VIM
 
-1. Open your VIM and type `:` to run vim command
+     1. Open your VIM and type `:` to run vim command
 
-   ```bash
-   :PlugInstall
-   ```
+        ```bash
+        :PlugInstall
+        ```
 
-1. Install Coc Extensions
+     2. Install Coc Extensions
 
-1. Open your VIM and type below
+         - Open your VIM and type below
 
-- Reference : [Here](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#implemented-coc-extensions) you can watch all of the coc extensions
+             - Reference : [Here](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#implemented-coc-extensions) you can watch all of the coc extensions
 
-  ```bash
-  :CocInstall coc-html coc-htmldjango coc-htmlhint coc-html-css-support coc-css coc-cssmodules coc-tsserver
-  :CocInstall @yaegassy/coc-pylsp coc-pyright coc-python
-  :CocInstall coc-flutter coc-go coc-golines coc-sourcekit
-  :CocInstall coc-prettier
-  :CocInstall coc-json coc-xml coc-yaml coc-snippets
-  ```
+               ```bash
+               :CocInstall coc-html coc-htmldjango coc-htmlhint coc-html-css-support coc-css coc-cssmodules coc-tsserver
+               :CocInstall @yaegassy/coc-pylsp coc-pyright coc-python
+               :CocInstall coc-flutter coc-go coc-golines coc-sourcekit
+               :CocInstall coc-prettier
+               :CocInstall coc-json coc-xml coc-yaml coc-snippets
+               ```
 
 3. Restart your iTerm
+
