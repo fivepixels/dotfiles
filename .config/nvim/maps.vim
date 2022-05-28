@@ -7,6 +7,8 @@ nnoremap - <C-x>
 
 nnoremap dw vb"_d
 
+nnoremap gp :silent %!prettier --stdin-filepath %<CR>
+
 nmap <C-a> gg<S-v>G
 
 command! W w !sudo tee > /dev/null %

@@ -35,6 +35,7 @@ if has("nvim")
   Plug 'preservim/vim-markdown'
   Plug 'godlygeek/tabular'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'w0rp/ale'
 endif
 
 Plug 'mattn/emmet-vim'
@@ -51,3 +52,10 @@ call plug#end()
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='base16'
 let g:airline#extensions#tabline#formatter = 'default'
+
+let g:ale_fixers = {
+ \ 'javascript': ['prettier', 'eslint']
+ \ }
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
+let g:ale_fix_on_save = 1

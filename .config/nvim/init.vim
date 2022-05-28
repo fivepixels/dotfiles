@@ -52,6 +52,8 @@ autocmd VimEnter * :NERDTree
 autocmd VimEnter * :source ~/.dotfiles/.config/nvim/init.vim
 autocmd VimEnter * :AirlineTheme base16
 
+command! -nargs=0 Prettier :call CocAction("runCommand", "prettier.formatFile")
+
 highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
 highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000
 
@@ -102,5 +104,5 @@ set wildoptions=pum
 set pumblend=5
 set background=dark
 let g:neosolarized_termtrans=1
-runtime ./colors/NeoSolarized.vim
 colorscheme NeoSolarized
+runtime ./colors/NeoSolarized.vim
