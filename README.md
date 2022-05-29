@@ -17,7 +17,7 @@ This is my personal dotfiles which are for my Development Environment setup.
 2. Install Applications
 
    ```bash
-   brew install --cask iterm2 google-chrome github sourcetree discord keycastr numi
+   brew install --cask iterm2 google-chrome github sourcetree discord keycastr numi min
    ```
 
     - [iTerm2](https://iterm2.com/)
@@ -27,11 +27,12 @@ This is my personal dotfiles which are for my Development Environment setup.
     - [Discord](https://discord.com/)
     - [keyCastr](https://github.com/keycastr/keycastr)
     - [numi](https://numi.app/)
+    - [min](https://minbrowser.org/)
 
 3. Install Softwares
 
    ```bash
-   brew install fish neovim tmux git node yarn heroku
+   brew install fish neovim tmux git node yarn heroku exa && fisher install jethrokuan/z IlanCosman/tide@v5
    ```
 
     - [Fish Shell](https://fishshell.com/)
@@ -41,6 +42,9 @@ This is my personal dotfiles which are for my Development Environment setup.
     - [Node](https://nodejs.org/)
     - [Yarn](https://yarnpkg.com/)
     - [Heroku](https://heroku.com/)
+    - [exa](https://github.com/ogham/exa)
+    - [z](https://github.com/jethrokuan/z)
+    - [tide](https://github.com/IlanCosman/tide)
 
 4. Clone this repository and change directory.
 
