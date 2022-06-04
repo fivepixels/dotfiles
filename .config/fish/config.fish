@@ -14,7 +14,7 @@ alias ll "exa --header --long --all --binary --git --group --group-directories-f
 alias tl "tmux ls"
 alias tn "tmux new -s"
 alias ta "tmux a -t"
-alias setup "npm init -y && npm i --save-dev eslint prettier eslint-plug-prettier eslint-config-prettier && touch .eslintrc.json prettier.config.js .prettierignore"
+alias tk "tmux kill-session -t"
 command -qv nvim && alias vim nvim
 
 set -gx EDITOR nvim

@@ -6,6 +6,7 @@ call plug#begin()
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
+Plug 'airblade/vim-gitgutter'
 
 if has("nvim")
   Plug 'hoob3rt/lualine.nvim'
@@ -36,6 +37,7 @@ if has("nvim")
   Plug 'godlygeek/tabular'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'w0rp/ale'
+  Plug 'preservim/nerdcommenter'
 endif
 
 Plug 'mattn/emmet-vim'
