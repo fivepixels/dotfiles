@@ -96,6 +96,7 @@ autocmd VimEnter * :source ~/.config/nvim/after/plugin/telescope.rc.vim
 autocmd VimEnter * :source ~/.config/nvim/after/plugin/treesitter.rc.vim
 autocmd VimEnter * :source ~/.config/nvim/after/plugin/ts-autotag.rc.lua
 autocmd VimEnter * :source ~/.config/nvim/after/plugin/web-devicons.rc.vim
+autocmd VimEnter * :source ~/.dotfiles/.config/nvim/plug.vim
 
 syntax enable
 set termguicolors

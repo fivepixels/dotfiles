@@ -84,7 +84,7 @@ This is my personal dotfiles which are for my Development Environment setup.
           :CocInstall coc-html coc-htmldjango coc-htmlhint coc-html-css-support coc-css coc-cssmodules coc-tsserver
           :CocInstall @yaegassy/coc-pylsp coc-pyright coc-python
           :CocInstall coc-flutter coc-go coc-golines coc-sourcekit
-          :CocInstall coc-prettier
+          :CocInstall coc-prettier coc-eslint
           :CocInstall coc-json coc-xml coc-yaml coc-snippets
           ```
 
