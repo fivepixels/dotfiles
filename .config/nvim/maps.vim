@@ -44,7 +44,6 @@ map sl <C-w>l
 map su :w<Return>
 map sa :source %<Return>
 map sp <C-w>q
-map sn :NERDTreeToggle<Return>
 map sr <C-w>r
 nmap s<left> <C-w><
 nmap s<right> <C-w>>

@@ -81,7 +81,7 @@ This is my personal dotfiles which are for my Development Environment setup.
         - Reference : [Here](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#implemented-coc-extensions) you can watch all of the coc extensions
 
           ```bash
-          :CocInstall coc-html coc-htmldjango coc-htmlhint coc-html-css-support coc-css coc-cssmodules coc-tsserver
+          :CocInstall coc-html coc-htmldjango coc-htmlhint coc-html-css-support coc-css coc-cssmodules coc-styled-components coc-tsserver
           :CocInstall @yaegassy/coc-pylsp coc-pyright coc-python
           :CocInstall coc-flutter coc-go coc-golines coc-sourcekit
           :CocInstall coc-prettier coc-eslint

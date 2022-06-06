@@ -23,5 +23,3 @@ telescope.setup{
   }
 }
 EOF
-
-
