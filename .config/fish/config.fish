@@ -15,9 +15,11 @@ alias tl "tmux ls"
 alias tn "tmux new -s"
 alias ta "tmux a -t"
 alias tk "tmux kill-session -t"
+alias remove-swap "rm -rf ~/.local/share/nvim/swap"
 
 alias project-init "yarn init && git init"
 alias project-config "yarn add -D eslint prettier eslint-config-prettier eslint-plugin-prettier && touch .prettierrc .eslintrc && eslint --init"
+
 command -qv nvim && alias vim nvim
 
 set -gx EDITOR nvim

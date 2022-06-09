@@ -72,8 +72,7 @@ set cursorline
 
 " Set cursor line color on visual mode
 highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
-
-highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000
+highlight LineNr cterm=NONE ctermfg=240 guifg=#2b506e guibg=#000000
 
 augroup BgHighlight
   autocmd!
@@ -113,17 +112,7 @@ autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
 " Imports "{{{
 " ---------------------------------------------------------------------
 runtime ./plug.vim
-if has("unix")
-  let s:uname = system("uname -s")
-  " Do Mac stuff
-  if s:uname == "Darwin\n"
-    runtime ./macos.vim
-  endif
-endif
-if has('win32')
-  runtime ./windows.vim
-endif
-
+runtime ./macos.vim
 runtime ./maps.vim
 "}}}
 
@@ -150,5 +139,7 @@ endif
 " ---------------------------------------------------------------------
 set exrc
 "}}}
+
+autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
 
 " vim: set foldmethod=marker foldlevel=0:
