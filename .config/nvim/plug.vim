@@ -4,10 +4,10 @@ endif
 
 call plug#begin()
 
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
-
 if has("nvim")
+  Plug 'tpope/vim-fugitive'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'tpope/vim-rhubarb'
   Plug 'hoob3rt/lualine.nvim'
   Plug 'kristijanhusak/defx-git'
   Plug 'kristijanhusak/defx-icons'
@@ -28,9 +28,7 @@ if has("nvim")
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'windwp/nvim-autopairs'
   Plug 'windwp/nvim-ts-autotag'
+  Plug 'lukas-reineke/lsp-format.nvim'
 endif
-
-Plug 'groenewege/vim-less', { 'for': 'less' }
-Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 
 call plug#end()

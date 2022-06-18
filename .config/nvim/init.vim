@@ -10,6 +10,7 @@ if !1 | finish | endif
 
 set nocompatible
 set number
+set relativenumber
 syntax enable
 set fileencodings=utf-8,sjis,euc-jp,latin
 set encoding=utf-8
@@ -106,7 +107,6 @@ set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md
 autocmd FileType coffee setlocal shiftwidth=2 tabstop=2
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
-
 "}}}
 
 " Imports "{{{
@@ -139,7 +139,5 @@ endif
 " ---------------------------------------------------------------------
 set exrc
 "}}}
-
-autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
 
 " vim: set foldmethod=marker foldlevel=0:

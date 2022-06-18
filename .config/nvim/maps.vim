@@ -48,7 +48,6 @@ nmap s<left> <C-w><
 nmap s<right> <C-w>>
 nmap s<up> <C-w>+
 nmap s<down> <C-w>-
-map sa :source %<Return>
 
 map te :tabedit<Return>
 map tl :bn<Return>

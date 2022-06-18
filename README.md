@@ -73,29 +73,4 @@ This is my personal dotfiles which are for my Development Environment setup.
       ```bash
       :PlugInstall
       ```
-
-   2. Install Coc Extensions
-
-      - Open your VIM and type below
-
-        - Reference : [Here](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#implemented-coc-extensions) you can watch all of the coc extensions
-
-          ```bash
-          :CocInstall coc-html coc-htmldjango coc-htmlhint coc-html-css-support coc-css coc-cssmodules coc-styled-components coc-tsserver
-          :CocInstall @yaegassy/coc-pylsp coc-pyright coc-python
-          :CocInstall coc-flutter coc-go coc-golines coc-sourcekit
-          :CocInstall coc-prettier coc-eslint
-          :CocInstall coc-json coc-xml coc-yaml coc-snippets
-          ```
-
-   3. Install Tree Sitter Plugins
-
-      - Open your VIM and type below
-
-        - Reference : [Here](https://github.com/nvim-treesitter/nvim-treesitter#supported-languages)
-
-          ```bash
-          :TSInstall all
-          ```
-
 3. Restart your iTerm

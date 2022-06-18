@@ -14,15 +14,17 @@ require'nvim-treesitter.configs'.setup {
     disable = {},
   },
   ensure_installed = {
+    "html",
+    "scss",
+    "typescript",
     "tsx",
-    "toml",
-    "fish",
-    "php",
+    "javascript",
+    "jsx",
+    "python",
     "json",
     "yaml",
-    "swift",
-    "html",
-    "scss"
+    "toml",
+    "fish"
   },
   autotag = {
     enable = true,
