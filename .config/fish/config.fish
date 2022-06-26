@@ -19,7 +19,7 @@ alias tk "tmux kill-session -t"
 alias remove-swap "rm -rf ~/.local/share/nvim/swap"
 
 alias project-init "yarn init && git init"
-alias project-config "yarn add -D eslint prettier eslint-config-prettier eslint-plugin-prettier && touch .prettierrc .eslintrc && eslint --init"
+alias project-config "yarn add -D eslint prettier eslint-config-prettier eslint-plugin-prettier husky pretty-quick && touch .prettierrc.js .prettierignore .eslintrc.js .eslintignore .gitignore .gitattributes AUTHORS.md CONTRIBUTING.md CODE_OF_CONDUCT.md LICENSE && mkdir .github && eslint --init && npx mrm lint-staged"
 
 command -qv nvim && alias vim nvim
 

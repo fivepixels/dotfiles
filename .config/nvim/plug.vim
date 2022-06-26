@@ -6,7 +6,6 @@ call plug#begin()
 
 if has("nvim")
   Plug 'tpope/vim-fugitive'
-  Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-rhubarb'
   Plug 'hoob3rt/lualine.nvim'
   Plug 'kristijanhusak/defx-git'
@@ -28,7 +27,6 @@ if has("nvim")
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'windwp/nvim-autopairs'
   Plug 'windwp/nvim-ts-autotag'
-  Plug 'lukas-reineke/lsp-format.nvim'
 endif
 
 call plug#end()
