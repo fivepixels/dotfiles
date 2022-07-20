@@ -6,8 +6,8 @@ call plug#begin()
 
 if has("nvim")
   Plug 'tpope/vim-fugitive'
-  Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-rhubarb'
+  Plug 'airblade/vim-gitgutter'
   Plug 'hoob3rt/lualine.nvim'
   Plug 'kristijanhusak/defx-git'
   Plug 'kristijanhusak/defx-icons'

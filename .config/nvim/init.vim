@@ -1,11 +1,8 @@
 " Fundamentals "{{{
 " ---------------------------------------------------------------------
 
-" init autocmd
 autocmd!
-" set script encoding
 scriptencoding utf-8
-" stop loading config if it's on tiny or small
 if !1 | finish | endif
 
 set nocompatible
@@ -24,41 +21,31 @@ set cmdheight=1
 set laststatus=2
 set scrolloff=10
 set expandtab
-"let loaded_matchparen = 1
+let loaded_matchparen=1
 set shell=fish
 set backupskip=/tmp/*,/private/tmp/*
 
-" incremental substitution (neovim)
 if has('nvim')
   set inccommand=split
 endif
 
-" Suppress appending <PasteStart> and <PasteEnd> when pasting
 set t_BE=
-
 set nosc noru nosm
-" Don't redraw while executing macros (good performance config)
 set lazyredraw
-"set showmatch
-" How many tenths of a second to blink when matching brackets
-"set mat=2
-" Ignore case when searching
+set showmatch
+set mat=1
 set ignorecase
-" Be smart when using tabs ;)
 set smarttab
-" indents
 filetype plugin indent on
 set shiftwidth=2
 set tabstop=2
-set ai "Auto indent
-set si "Smart indent
-set nowrap "No Wrap lines
+set ai
+set si
+set nowrap
 set backspace=start,eol,indent
-" Finding files - Search down into subfolders
 set path+=**
 set wildignore+=*/node_modules/*
 
-" Turn off paste mode when leaving insert
 autocmd InsertLeave * set nopaste
 
 " Add asterisks in block comments
@@ -69,9 +56,7 @@ set formatoptions+=r
 " Highlights "{{{
 " ---------------------------------------------------------------------
 set cursorline
-"set cursorcolumn
 
-" Set cursor line color on visual mode
 highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
 highlight LineNr cterm=NONE ctermfg=240 guifg=#2b506e guibg=#000000
 
@@ -107,12 +92,12 @@ set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md
 autocmd FileType coffee setlocal shiftwidth=2 tabstop=2
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
+
 "}}}
 
 " Imports "{{{
 " ---------------------------------------------------------------------
 runtime ./plug.vim
-runtime ./macos.vim
 runtime ./maps.vim
 "}}}
 
@@ -127,7 +112,7 @@ if exists("&termguicolors") && exists("&winblend")
   set wildoptions=pum
   set pumblend=5
   set background=dark
-  " Use NeoSolarized
+
   let g:neosolarized_termtrans=1
   runtime ./colors/NeoSolarized.vim
   colorscheme NeoSolarized
@@ -138,6 +123,8 @@ endif
 " Extras "{{{
 " ---------------------------------------------------------------------
 set exrc
+set clipboard+=unnamedplus
+set clipboard+=autoselect
 "}}}
 
 " vim: set foldmethod=marker foldlevel=0:

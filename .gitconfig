@@ -37,7 +37,7 @@
   add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
 
 [hub]
-  protocol = https
+  protocol = ssh
 [github]
 	user = Novelier-Webbelier
 	email = novelier.webbelier@gmail.com
