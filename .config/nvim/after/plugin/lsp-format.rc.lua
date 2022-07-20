@@ -4,7 +4,7 @@ if (not status_lsp_format) then return end
 if (not status_lspconfig) then return end
 
 lsp_format.setup {
-  typescript = { tab_width = 4 },
+  typescript = { tab_width = 2 },
   yaml = { tab_width = 2 },
 }
 

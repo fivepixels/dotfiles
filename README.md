@@ -32,17 +32,18 @@ This is my personal dotfiles which are for my Development Environment setup.
 3. Install Softwares
 
    ```bash
-   brew install fish neovim tmux git node yarn heroku exa && fisher install jethrokuan/z IlanCosman/tide@v5
+   brew install node nvm git yarn exa fish neovim tmux heroku && fisher install jethrokuan/z IlanCosman/tide@v5
    ```
 
+   - [Node](https://nodejs.org/)
+   - [nvm](https://github.com/nvm-sh/nvm/)
+   - [Git](https://git-scm.com)
+   - [Yarn](https://yarnpkg.com/)
+   - [exa](https://github.com/ogham/exa)
    - [Fish Shell](https://fishshell.com/)
    - [Neovim](https://neovim.io/)
    - [Tmux](https://github.com/tmux/tmux)
-   - [Git](https://git-scm.com)
-   - [Node](https://nodejs.org/)
-   - [Yarn](https://yarnpkg.com/)
    - [Heroku](https://heroku.com/)
-   - [exa](https://github.com/ogham/exa)
    - [z](https://github.com/jethrokuan/z)
    - [tide](https://github.com/IlanCosman/tide)
 

@@ -16,10 +16,12 @@ alias tl "tmux ls"
 alias tn "tmux new -s"
 alias ta "tmux a -t"
 alias tk "tmux kill-session -t"
-alias remove-swap "rm -rf ~/.local/share/nvim/swap"
+alias remove "rm -rf ~/.local/share/nvim/swap && rm ~/.cache/nvim/lsp.log"
+alias gitignore-not-working "git rm -rf --cached . && git add ."
 
 alias project-init "yarn init && git init"
-alias project-config "yarn add -D eslint prettier eslint-config-prettier eslint-plugin-prettier husky pretty-quick && touch .prettierrc.js .prettierignore .eslintrc.js .eslintignore .gitignore .gitattributes AUTHORS.md CONTRIBUTING.md CODE_OF_CONDUCT.md LICENSE && mkdir .github && eslint --init && npx mrm lint-staged"
+alias project-config-deep "yarn add -D eslint prettier eslint-config-prettier eslint-plugin-prettier pretty-quick husky && touch .prettierrc.js .prettierignore .eslintrc.js .eslintignore .gitignore .gitattributes AUTHORS.md CONTRIBUTING.md CODE_OF_CONDUCT.md LICENSE && mkdir .github && eslint --init && npx mrm lint-staged"
+alias project-config "yarn add -D eslint prettier eslint-config-prettier eslint-plugin-prettier pretty-quick husky && touch .prettierrc.js .prettierignore .eslintrc.js .eslintignore .gitignore && eslint --init && npx mrm lint-staged"
 
 command -qv nvim && alias vim nvim
 
