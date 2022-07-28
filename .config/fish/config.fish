@@ -10,19 +10,11 @@ set -g theme_hide_hostname no
 set -g theme_hostname always
 
 # aliases
-alias lf "exa --header --long --all --binary --git --group --group-directories-first --icons"
-alias ls "exa --header --long --all --binary --git --group --group-directories-first --icons --tree --level=3"
-alias tl "tmux ls"
-alias tn "tmux new -s"
-alias ta "tmux a -t"
-alias tk "tmux kill-session -t"
-alias remove "rm -rf ~/.local/share/nvim/swap && rm ~/.cache/nvim/lsp.log"
-alias gitignore-not-working "git rm -rf --cached . && git add ."
-
-alias project-init "yarn init && git init"
-alias project-config-deep "yarn add -D eslint prettier eslint-config-prettier eslint-plugin-prettier pretty-quick husky && touch .prettierrc.js .prettierignore .eslintrc.js .eslintignore .gitignore .gitattributes AUTHORS.md CONTRIBUTING.md CODE_OF_CONDUCT.md LICENSE && mkdir .github && eslint --init && npx mrm lint-staged"
-alias project-config "yarn add -D eslint prettier eslint-config-prettier eslint-plugin-prettier pretty-quick husky && touch .prettierrc.js .prettierignore .eslintrc.js .eslintignore .gitignore && eslint --init && npx mrm lint-staged"
-
+alias ls "ls -p -G"
+alias la "ls -A"
+alias ll "ls -l"
+alias lla "ll -A"
+alias g git
 command -qv nvim && alias vim nvim
 
 set -gx EDITOR nvim

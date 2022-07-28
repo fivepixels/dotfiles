@@ -1,3 +1,5 @@
+" Description: My custom tabline settings
+
 function MyTabLine()
   let s = ''
   for i in range(tabpagenr('$'))

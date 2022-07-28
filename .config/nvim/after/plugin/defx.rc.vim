@@ -1,16 +1,18 @@
 if !exists('g:loaded_defx') | finish | endif
 
 " Define mappings
-cnoreabbrev sf Defx -listed -new
-      \ -columns=indent:mark:icon:icons:filename:git:size
-      \ -buffer-name=tab`tabpagenr()`<CR>
-nnoremap <silent>sf :<C-u>Defx -listed -resume -show-ignored-files
+"cnoreabbrev sf Defx -listed -new
+"      \ -columns=indent:mark:icon:icons:filename:git:size
+"      \ -buffer-name=tab`tabpagenr()`<CR>
+nnoremap <silent>sf :<C-u>Defx -listed -resume
       \ -columns=indent:mark:icon:icons:filename:git:size
       \ -buffer-name=tab`tabpagenr()`
       \ `expand('%:p:h')` -search=`expand('%:p')`<CR>
+nnoremap <silent>fi :<C-u>Defx -new `expand('%:p:h')` -search=`expand('%:p')`<CR>
 
 autocmd FileType defx call s:defx_my_settings()
 	function! s:defx_my_settings() abort
+	  " Define mappings
 	  nnoremap <silent><buffer><expr> <CR>
 	  \ defx#do_action('open')
 	  nnoremap <silent><buffer><expr> c
@@ -89,4 +91,3 @@ call defx#custom#column('git', 'indicators', {
   \ 'Deleted'   : '✖',
   \ 'Unknown'   : '?'
   \ })
-

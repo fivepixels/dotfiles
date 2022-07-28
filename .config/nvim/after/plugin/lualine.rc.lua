@@ -40,3 +40,4 @@ lualine.setup {
   tabline = {},
   extensions = {'fugitive'}
 }
+

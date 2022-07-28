@@ -1,0 +1,44 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": ["*"],
+  "cssmodules.hintName": "CssModules",
+  "eslint.packageManager": "yarn",
+  "eslint.trace.server": "verbose",
+  "eslint.autoFixOnSave": true,
+  "eslint.probe": [
+    "html",
+    "css",
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "markdown"
+  ],
+  "eslint.format.enable": true,
+  "git.issueFormat": "# %i\n\n%t\n\n%b\n\nRepository name : %r\nOrganization or Owner name : %o\nIssue Url : %u\nCreated at %c\nCreated by %a",
+  "git.addedSign.hlGroup": "GitGutterAdd",
+  "git.changedSign.hlGroup": "GitGutterChange",
+  "git.removedSign.hlGroup": "GitGutterDelete",
+  "git.topRemovedSign.hlGroup": "GitGutterDelete",
+  "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+  "colors.filetypes": ["*"],
+  "json.trace.server": "verbose",
+  "prettier.requireConfig": true,
+  "prettier.arrowParens": "avoid",
+  "prettier.endOfLine": "lf",
+  "prettier.singleQuote": true,
+  "snippets.trace": "verbose",
+  "snippets.extends": {
+    "typescript": ["typescript"],
+    "typescriptreact": ["typescriptreact"]
+  },
+  "tailwindCSS.trace.server": "verbose",
+  "tsserver.log": "verbose",
+  "languageserver": {
+    "go": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "trace.server": "verbose",
+      "filetypes": ["go"]
+     }
+  }
+}
