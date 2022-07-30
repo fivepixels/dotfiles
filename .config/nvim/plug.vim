@@ -8,6 +8,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
 if has("nvim")
+  Plug 'arcticicestudio/nord-vim'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'lewis6991/gitsigns.nvim'
   Plug 'hoob3rt/lualine.nvim'
   Plug 'kristijanhusak/defx-git'
   Plug 'kristijanhusak/defx-icons'
@@ -27,7 +30,14 @@ if has("nvim")
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'windwp/nvim-autopairs'
+  Plug 'jose-elias-alvarez/null-ls.nvim'
   Plug 'windwp/nvim-ts-autotag'
+  Plug 'MunifTanjim/prettier.nvim'
 endif
 
+Plug 'groenewege/vim-less', { 'for': 'less' }
+Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
 call plug#end()
+

@@ -10,11 +10,20 @@ set -g theme_hide_hostname no
 set -g theme_hostname always
 
 # aliases
-alias ls "ls -p -G"
+alias ls "ls -p -G -l"
 alias la "ls -A"
-alias ll "ls -l"
 alias lla "ll -A"
-alias g git
+
+alias tl "tmux ls"
+alias tn "tmux new -s"
+alias tk "tmux kill-session -t"
+alias ta "tmux a -t"
+
+alias remove "rm -rf ~/.local/share/nvim/swap && rm ~/.cache/nvim/lsp.log"
+alias gitignore-not-working "git rm -rf --cached . && git add ."
+
+alias project-config "yarn add -D prettier eslint eslint-config-prettier eslint-plugin-prettier pretty-quick && touch .prettierrc.js .prettierignore .eslintrc.js .eslintignore .gitignore && npx mrm lint-staged && eslint --init"
+
 command -qv nvim && alias vim nvim
 
 set -gx EDITOR nvim
@@ -38,15 +47,6 @@ function __check_rvm --on-variable PWD --description 'Do nvm stuff'
     nvm use
   else
   end
-end
-
-switch (uname)
-  case Darwin
-    source (dirname (status --current-filename))/config-osx.fish
-  case Linux
-    source (dirname (status --current-filename))/config-linux.fish
-  case '*'
-    source (dirname (status --current-filename))/config-windows.fish
 end
 
 set LOCAL_CONFIG (dirname (status --current-filename))/config-local.fish
