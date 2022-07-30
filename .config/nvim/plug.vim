@@ -17,7 +17,7 @@ if has("nvim")
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'neovim/nvim-lspconfig'
   Plug 'williamboman/nvim-lsp-installer'
-  Plug 'tami5/lspsaga.nvim'
+  Plug 'glepnir/lspsaga.nvim'
   Plug 'folke/lsp-colors.nvim'
   Plug 'L3MON4D3/LuaSnip'
   Plug 'hrsh7th/cmp-nvim-lsp'
@@ -30,7 +30,6 @@ if has("nvim")
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'windwp/nvim-autopairs'
-  Plug 'jose-elias-alvarez/null-ls.nvim'
   Plug 'windwp/nvim-ts-autotag'
   Plug 'MunifTanjim/prettier.nvim'
 endif

@@ -10,9 +10,7 @@ set -g theme_hide_hostname no
 set -g theme_hostname always
 
 # aliases
-alias ls "ls -p -G -l"
-alias la "ls -A"
-alias lla "ll -A"
+alias list "exa -@ -a -B -g -h -l -x --git --git-ignore --group-directories-first --header --icons --octal-permissions"
 
 alias tl "tmux ls"
 alias tn "tmux new -s"

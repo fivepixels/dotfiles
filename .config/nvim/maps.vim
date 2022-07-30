@@ -62,5 +62,16 @@ nmap <C-w><right> <C-w>>
 nmap <C-w><up> <C-w>+
 nmap <C-w><down> <C-w>-
 
-" Format
-nmap <silent> pf <Plug>(prettier-format)
+" Lspsaga
+
+nnoremap gp :Lspsaga preview_definition<Return>
+nnoremap gk :Lspsaga hover_doc<Return>
+
+nnoremap gj :Lspsaga diagnostic_jump_next<Return>
+nnoremap gh :Lspsaga diagnostic_jump_prev<Return>
+
+nnoremap go :Lspsaga open_floaterm<Return>
+nnoremap gc :Lspsaga close_floaterm<Return>
+nnoremap gi :Lspsaga implement<Return>
+nnoremap gf :Lspsaga lsp_finder<Return>
+nnoremap gr :Lspsaga rename<Return>

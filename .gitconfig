@@ -39,11 +39,11 @@
 [hub]
   protocol = ssh
 [github]
-	user = Novelier-Webbelier
-	email = novelier.webbelier@gmail.com
+	user = tenacious-novel
+	email = tenacious.novel@gmail.com
 [user]
-  name = Novelier-Webbelier
-  email = novelier.webbelier@gmail.com
+	user = tenacious-novel
+	email = tenacious.novel@gmail.com
 [diff]
   tool = nvimdiff
 [difftool "nvimdiff"]
