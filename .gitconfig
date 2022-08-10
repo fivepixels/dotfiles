@@ -39,11 +39,12 @@
 [hub]
   protocol = ssh
 [github]
-	user = tenacious-novel
-	email = tenacious.novel@gmail.com
+	user = craftz-cat
+	email = craftzcat.ss@gmail.com
 [user]
-	user = tenacious-novel
-	email = tenacious.novel@gmail.com
+	user = craftz-cat
+	email = craftzcat.ss@gmail.com
+
 [diff]
   tool = nvimdiff
 [difftool "nvimdiff"]
