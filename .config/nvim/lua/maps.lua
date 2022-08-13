@@ -26,7 +26,9 @@ keymap.set('', 'sh', '<C-w>h')
 keymap.set('', 'sk', '<C-w>k')
 keymap.set('', 'sj', '<C-w>j')
 keymap.set('', 'sl', '<C-w>l')
+-- Exit and Save window
 keymap.set('', 'sp', '<C-w>q')
+keymap.set('', 'su', ':w!<Return>')
 
 -- Resize window
 keymap.set('n', '<C-w><left>', '<C-w><')
