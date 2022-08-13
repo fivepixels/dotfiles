@@ -49,29 +49,4 @@ This is my personal dotfiles which are for my Development Environment setup.
 
 4. Clone this repository and change directory.
 
-   ```bash
-   git clone https://github.com/Novelier-Webbelier/dotfiles.git
-   ```
-
-### Configure
-
-1. iTerm
-
-   1. Create Profile
-
-   2. Go to Appearace > General and change value of Theme from Regular to Minimal
-
-   3. Go to Profiles > Colors and change value of Color Presets from Drak Background to `Solarized Dark`.
-
-      - If `Solarized Dark` button is not exists, Import [this](./Novelier-Webbelier_Iterm2-colors.itermcolors).
-
-   4. Go to Profiles > Window and change value of Transparency and Blur from 0, 0 to 25, 35
-
-2. VIM
-
-   1. Open your VIM and type `:` to run vim command
-
-      ```bash
-      :PlugInstall
-      ```
-3. Restart your iTerm
+5. Restart your iTerm
