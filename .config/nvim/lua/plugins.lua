@@ -37,6 +37,7 @@ packer.startup(function(use)
   use 'windwp/nvim-ts-autotag'
   use 'norcalli/nvim-colorizer.lua'
   use 'folke/zen-mode.nvim'
+  use 'folke/tokyonight.nvim'
   use({
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
