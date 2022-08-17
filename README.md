@@ -32,7 +32,7 @@ This is my personal dotfiles which are for my Development Environment setup.
 3. Install Softwares
 
    ```bash
-   brew install node nvm git yarn exa fish neovim tmux heroku && fisher install jethrokuan/z IlanCosman/tide@v5
+   brew install node nvm git yarn exa fish neovim tmux heroku && fisher install jethrokuan/z IlanCosman/tide@v5 && git clone --depth 1 https://github.com/wbthomason/packer.nvim\ ~/.local/share/nvim/site/pack/packer/start/packer.nvim && yarn global add diagnostic-languageserver typescript-language-server typescript
    ```
 
    - [Node](https://nodejs.org/)
@@ -46,7 +46,18 @@ This is my personal dotfiles which are for my Development Environment setup.
    - [Heroku](https://heroku.com/)
    - [z](https://github.com/jethrokuan/z)
    - [tide](https://github.com/IlanCosman/tide)
+   - [Packer](https://github.com/wbthomason/packer.nvim)
+   - [diagnostic-lsp](https://github.com/iamcco/diagnostic-languageserver)
+   - [Typescript-lsp](https://github.com/typescript-language-server/typescript-language-server)
 
 4. Clone this repository and change directory.
 
 5. Restart your iTerm
+
+6. Install NVIM Plugins
+
+  ```bash
+  :PackerInstall
+  ```
+
+  - [Plugins List](./.config/nvim/lua/plugins.lua)

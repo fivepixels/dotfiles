@@ -16,7 +16,14 @@ alias ll "ls -l"
 alias lla "ll -A"
 alias g git
 
-alias start_coding "brew update"
+alias tl "tmux ls"
+alias tn "tmux new -s"
+alias ta "tmux a -t"
+alias tk "tmux kill-session -t"
+
+alias remove "rm -rf ~/.local/share/nvim/swap && rm ~/.cache/nvim/lsp.log"
+alias gitignore-fix "git rm -rf --cached . && git add ."
+alias start-coding "brew update"
 
 command -qv nvim && alias vim nvim
 
