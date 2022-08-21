@@ -24,6 +24,7 @@ alias tk "tmux kill-session -t"
 alias remove "rm -rf ~/.local/share/nvim/swap && rm ~/.cache/nvim/lsp.log"
 alias gitignore-fix "git rm -rf --cached . && git add ."
 alias start-coding "brew update"
+alias project-config "yarn add -D prettier eslint eslint-config-prettier eslint-plugin-prettier pretty-quick && touch .prettierrc.js .prettierignore .eslintrc.js .eslintignore .gitignore && eslint --init"
 
 command -qv nvim && alias vim nvim
 
