@@ -44,7 +44,6 @@
 [user]
 	user = craftz-cat
 	email = craftzcat.ss@gmail.com
-
 [diff]
   tool = nvimdiff
 [difftool "nvimdiff"]

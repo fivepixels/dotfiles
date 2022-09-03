@@ -38,3 +38,7 @@ keymap.set('n', '<C-w><left>', '<C-w><')
 keymap.set('n', '<C-w><right>', '<C-w>>')
 keymap.set('n', '<C-w><up>', '<C-w>+')
 keymap.set('n', '<C-w><down>', '<C-w>-')
+
+-- Control window
+keymap.set('n', 'sr', '<C-w>r')
+keymap.set('n', 's=', '<C-w>=')
