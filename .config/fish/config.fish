@@ -24,7 +24,9 @@ alias tk "tmux kill-session -t"
 alias remove "rm -rf ~/.local/share/nvim/swap && rm ~/.cache/nvim/lsp.log"
 alias gitignore-fix "git rm -rf --cached . && git add ."
 alias start-coding "brew update"
-alias project-config "yarn add -D prettier eslint eslint-config-prettier eslint-plugin-prettier pretty-quick && touch .prettierrc.js .prettierignore .eslintrc.js .eslintignore .gitignore && eslint --init"
+
+alias config-project-prettier "echo Watch Here - https://blog.devgenius.io/eslint-prettier-typescript-and-react-in-2022-e5021ebca2b1"
+alias config-project-nextjs "echo Watch Here - https://paulintrognon.fr/blog/typescript-prettier-eslint-next-js"
 
 command -qv nvim && alias vim nvim
 

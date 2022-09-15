@@ -49,4 +49,5 @@ packer.startup(function(use)
   use 'dinhhuy258/git.nvim' -- For git blame & browse
   use 'lukas-reineke/indent-blankline.nvim'
   use 'pantharshit00/vim-prisma'
+  use 'numToStr/Comment.nvim'
 end)
