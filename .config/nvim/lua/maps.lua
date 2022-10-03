@@ -42,3 +42,6 @@ keymap.set('n', '<C-w><down>', '<C-w>-')
 -- Control window
 keymap.set('n', 'sr', '<C-w>r')
 keymap.set('n', 's=', '<C-w>=')
+
+-- NvimTree
+keymap.set('t', ':NvimTreeOpen<Return>')

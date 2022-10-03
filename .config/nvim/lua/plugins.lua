@@ -50,4 +50,6 @@ packer.startup(function(use)
   use 'lukas-reineke/indent-blankline.nvim'
   use 'pantharshit00/vim-prisma'
   use 'numToStr/Comment.nvim'
+  use 'kyazdani42/nvim-web-devicons'
+  use 'kyazdani42/nvim-tree.lua'
 end)
