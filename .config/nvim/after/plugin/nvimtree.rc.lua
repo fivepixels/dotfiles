@@ -11,15 +11,7 @@ nvimtree.setup({
         { key = "i", action = "edit" },
         { key = "p", action = "preview" },
         { key = "n", action = "create" },
-        { key = "", action = "" },
-        { key = "", action = "" },
-        { key = "", action = "" },
-        { key = "", action = "" },
-        { key = "", action = "" },
-        { key = "", action = "" },
-        { key = "", action = "" },
-        { key = "", action = "" },
-        { key = "", action = "" },
+        { key = "s", action = "" },
       }
     }
   },

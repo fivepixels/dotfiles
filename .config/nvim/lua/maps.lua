@@ -43,5 +43,5 @@ keymap.set('n', '<C-w><down>', '<C-w>-')
 keymap.set('n', 'sr', '<C-w>r')
 keymap.set('n', 's=', '<C-w>=')
 
--- NvimTree
-keymap.set('t', ':NvimTreeOpen<Return>')
+-- Nvim Tree
+keymap.set('n', 'tt', ':NvimTreeOpen<Return>')
