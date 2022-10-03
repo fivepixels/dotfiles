@@ -4,8 +4,10 @@ if (not status) then return end
 nvimtree.setup({
   sort_by = "extension",
   view = {
-    adaptive_size = true,
+    adaptive_size = false,
+    centralize_selection = true,
     side = "left",
+    width = 20,
     mappings = {
       list = {
         { key = "i", action = "edit" },
@@ -13,12 +15,12 @@ nvimtree.setup({
         { key = "n", action = "create" },
         { key = "s", action = "" },
       }
-    }
+    },
   },
   renderer = {
     add_trailing = true,
-    full_name = false,
     highlight_git = true,
+    full_name = true,
   },
   diagnostics = {
     enable = true,
