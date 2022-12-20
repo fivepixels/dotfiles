@@ -15,6 +15,7 @@ alias la "ls -A"
 alias ll "ls -l"
 alias lla "ll -A"
 alias list "exa -a  -B -b -i -g -h -l -m -s type -U --git --header --icons"
+alias cls "clear"
 alias g git
 
 alias tl "tmux ls"

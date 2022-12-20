@@ -30,7 +30,7 @@ keymap.set('', 'sj', '<C-w>j')
 keymap.set('', 'sl', '<C-w>l')
 
 -- Exit and Save window
-keymap.set('', 'sp', '<C-w>q')
+keymap.set('', 'sp', ':q!<Return>')
 keymap.set('', 'su', ':w!<Return>')
 
 -- Resize window
