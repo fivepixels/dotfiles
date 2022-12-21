@@ -4,23 +4,11 @@ if (not status) then return end
 bufferline.setup({
   options = {
     mode = "tabs",
-    close_command = "tx",
-    numbers = "ordinal",
     separator_style = 'slant',
-    always_show_bufferline = true,
-    show_buffer_icons = true,
+    always_show_bufferline = false,
     show_buffer_close_icons = false,
     show_close_icon = false,
-    color_icons = true,
-    diagnostics = "nvim_lsp",
-    offsets = {
-      {
-        filetype = "Finder",
-        text = "Finder",
-        text_align = "center",
-        separator = true
-      }
-    },
+    color_icons = true
   },
   highlights = {
     separator = {
@@ -36,9 +24,7 @@ bufferline.setup({
     },
     buffer_selected = {
       fg = '#fdf6e3',
-      underline = true,
-      undercurl = true,
-      italic = true
+      bold = true,
     },
     fill = {
       bg = '#073642'
@@ -46,5 +32,12 @@ bufferline.setup({
   },
 })
 
-vim.keymap.set('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>', {})
-vim.keymap.set('n', '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', {})
+local keymap = vim.keymap
+keymap.set('n', 'tn', ":tabnew<Return>")
+keymap.set('n', 'th', ":tabprevious<Return>")
+keymap.set('n', 'tl', ":tabnext<Return>")
+keymap.set('n', 'tn', ":tabnew<Return>")
+keymap.set('n', 'te', ":tabedit<Return>")
+keymap.set('n', 'tx', ":tabclose<Return>")
+keymap.set('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>', {})
+keymap.set('n', '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', {})
