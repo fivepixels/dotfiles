@@ -66,3 +66,7 @@ Pods/
 
 # Karabiner
 .config/karabiner/automatic_backups
+
+# Planet Scale
+planetscale/*
+yarn/*

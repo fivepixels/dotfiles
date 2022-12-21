@@ -25,10 +25,7 @@ alias tk "tmux kill-session -t"
 
 alias remove "rm -rf ~/.local/share/nvim/swap && rm ~/.cache/nvim/lsp.log"
 alias gitignore-fix "git rm -rf --cached . && git add ."
-alias start-coding "brew update"
-
-alias config-project-prettier "echo Watch Here - https://blog.devgenius.io/eslint-prettier-typescript-and-react-in-2022-e5021ebca2b1"
-alias config-project-nextjs "echo Watch Here - https://paulintrognon.fr/blog/typescript-prettier-eslint-next-js"
+alias start-coding "Let\'s Start Coding! && brew update && brew upgrade"
 
 command -qv nvim && alias vim nvim
 
@@ -55,12 +52,10 @@ function __check_rvm --on-variable PWD --description 'Do nvm stuff'
   end
 end
 
-if type -q exa
-  alias ll "exa -l -g --icons"
-  alias lla "ll -a"
-end
-
 set LOCAL_CONFIG (dirname (status --current-filename))/config-local.fish
 if test -f $LOCAL_CONFIG
   source $LOCAL_CONFIG
 end
+
+# Generated for envman. Do not edit.
+test -s "$HOME/.config/envman/load.fish"; and source "$HOME/.config/envman/load.fish"
