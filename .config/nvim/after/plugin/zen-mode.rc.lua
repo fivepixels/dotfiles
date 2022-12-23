@@ -9,5 +9,3 @@ zenMode.setup {
   cursorline = true,
   cursorcolumn = true,
 }
-
-vim.keymap.set('n', '<C-w>o', '<cmd>ZenMode<CR>', { silent = true })

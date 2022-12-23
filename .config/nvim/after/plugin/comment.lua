@@ -1,4 +1,4 @@
-local status, comment = pcall(require, "comoment")
+local status, comment = pcall(require, "comment")
 if (not status) then return end
 
 comment.setup {

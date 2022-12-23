@@ -4,7 +4,7 @@ if (not status) then
   return
 end
 
-return require('packer').startup(function(use)
+packer.startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- Theme
@@ -37,6 +37,7 @@ return require('packer').startup(function(use)
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
   use 'glepnir/lspsaga.nvim'
+  use 'mfussenegger/nvim-dap'
 
   -- Cmp
   use 'hrsh7th/nvim-cmp'

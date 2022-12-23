@@ -20,15 +20,12 @@ telescope.setup {
   extensions = {
     file_browser = {
       theme = "dropdown",
-      -- disables netrw and use telescope-file-browser in its place
       hijack_netrw = true,
       mappings = {
-        -- your custom insert mode mappings
         ["i"] = {
           ["<C-w>"] = function() vim.cmd('normal vbd') end,
         },
         ["n"] = {
-          -- your custom normal mode mappings
           ["N"] = fb_actions.create,
           ["h"] = fb_actions.goto_parent_dir,
           ["/"] = function()
@@ -42,20 +39,20 @@ telescope.setup {
 
 telescope.load_extension("file_browser")
 
-vim.keymap.set('n', ';f',
+vim.keymap.set('n', '<leader>ef',
   function()
     builtin.find_files({
       no_ignore = false,
       hidden = true,
     })
   end)
-vim.keymap.set('n', ';r', function()
+vim.keymap.set('n', '<leader>er', function()
   builtin.live_grep()
 end)
-vim.keymap.set('n', ';b', function()
+vim.keymap.set('n', '<leader>eb', function()
   builtin.buffers()
 end)
-vim.keymap.set('n', ';d', function()
+vim.keymap.set('n', '<leader>ed', function()
   builtin.diagnostics()
 end)
 vim.keymap.set("n", "sf", function()
@@ -63,7 +60,7 @@ vim.keymap.set("n", "sf", function()
     path = "%:p:h",
     cwd = telescope_buffer_dir(),
     respect_gitignore = false,
-    hidden = true,
+    hidden = false,
     grouped = true,
     previewer = false,
     initial_mode = "normal",
