@@ -1,14 +1,17 @@
 local status, bufferline = pcall(require, "bufferline")
-if (not status) then return end
+if (not status) then
+  print("bufferline is not installed.")
+  return
+end
 
 bufferline.setup({
   options = {
     mode = "tabs",
     separator_style = 'slant',
-    always_show_bufferline = false,
+    always_show_bufferline = true,
     show_buffer_close_icons = false,
     show_close_icon = false,
-    color_icons = true
+    color_icons = true,
   },
   highlights = {
     separator = {
@@ -40,4 +43,4 @@ keymap.set('n', '<leader>tn', ":tabnew<Return>")
 keymap.set('n', '<leader>te', ":tabedit<Return>")
 keymap.set('n', '<leader>tx', ":tabclose<Return>")
 keymap.set('n', '<leader>t<Tab>', '<Cmd>BufferLineCycleNext<CR>', {})
-keymap.set('n', '<<leader>tS-Tab>', '<Cmd>BufferLineCyclePrev<CR>', {})
+keymap.set('n', '<leader>tS-Tab>', '<Cmd>BufferLineCyclePrev<CR>', {})

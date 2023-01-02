@@ -1,5 +1,9 @@
 local status, telescope = pcall(require, "telescope")
-if (not status) then return end
+if (not status) then
+  print("telescope is not installed.")
+  return
+end
+
 local actions = require('telescope.actions')
 local builtin = require("telescope.builtin")
 
@@ -39,28 +43,30 @@ telescope.setup {
 
 telescope.load_extension("file_browser")
 
-vim.keymap.set('n', '<leader>ef',
+local keymap = vim.keymap
+
+keymap.set('n', '<leader>ef',
   function()
     builtin.find_files({
       no_ignore = false,
       hidden = true,
     })
   end)
-vim.keymap.set('n', '<leader>er', function()
+keymap.set('n', '<leader>er', function()
   builtin.live_grep()
 end)
-vim.keymap.set('n', '<leader>eb', function()
+keymap.set('n', '<leader>eb', function()
   builtin.buffers()
 end)
-vim.keymap.set('n', '<leader>ed', function()
+keymap.set('n', '<leader>ed', function()
   builtin.diagnostics()
 end)
-vim.keymap.set("n", "sf", function()
+keymap.set("n", "<leader>ef", function()
   telescope.extensions.file_browser.file_browser({
     path = "%:p:h",
     cwd = telescope_buffer_dir(),
     respect_gitignore = false,
-    hidden = false,
+    hidden = true,
     grouped = true,
     previewer = false,
     initial_mode = "normal",

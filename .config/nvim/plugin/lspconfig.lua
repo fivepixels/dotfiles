@@ -1,7 +1,10 @@
 vim.lsp.set_log_level("debug")
 
 local status, nvim_lsp = pcall(require, "lspconfig")
-if (not status) then return end
+if (not status) then
+  print('nvim lsp is not installed.')
+  return
+end
 
 local protocol = require('vim.lsp.protocol')
 
@@ -26,6 +29,23 @@ local on_attach = function(client, bufnr)
 
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
   local opts = { noremap = true, silent = true }
+
+  -- Keymaps
+  buf_set_keymap('n', '<leader>sD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  buf_set_keymap('n', '<leader>sd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', '<leader>si', '<Cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  buf_set_keymap('n', '<leader>sh', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', '<C-f>', '<Cmd>lua vim.lsp.buf.format()<CR>', opts)
+
+  buf_set_keymap('n', '<C-n>', '<Cmd>Lspsaga diagnostic_jump_next<CR>', opts)
+  buf_set_keymap('n', '<C-p>', '<Cmd>Lspsaga diagnostic_jump_prev<CR>', opts)
+
+  buf_set_keymap('n', '<leader>lh', '<Cmd>Lspsaga hover_doc<CR>', opts)
+  buf_set_keymap('n', '<leader>lf', '<Cmd>Lspsaga lsp_finder<CR>', opts)
+  buf_set_keymap('n', '<leader>lq', '<Cmd>Lspsaga peek_definition<CR>', opts)
+  buf_set_keymap('n', '<leader>lr', '<Cmd>Lspsaga rename<CR>', opts)
+  buf_set_keymap('n', '<leader>lc', '<Cmd>Lspsaga code_action<CR>', opts)
+
 end
 
 protocol.CompletionItemKind = {
@@ -61,7 +81,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 nvim_lsp.flow.setup {
   on_attach = on_attach,
-  capabilities = capabilities
+  capabilities = capabilities,
 }
 
 nvim_lsp.tsserver.setup {

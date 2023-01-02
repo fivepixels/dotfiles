@@ -66,12 +66,13 @@ Pods/
 .config/fish/completions/*
 .config/fish/config-local.fish
 .config/fish/functions/*
-.config/fish/fish_variables.x86_64
 .config/fish/fish_variables
 
 # Karabiner
 .config/karabiner/automatic_backups
 
-# Planet Scale
-planetscale/*
-yarn/*
+# Etc
+.config/envman/*
+.config/planetscale/*
+.config/yarn/*
+.config/iterm2/*

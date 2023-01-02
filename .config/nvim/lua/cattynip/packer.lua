@@ -13,6 +13,7 @@ packer.startup(function(use)
   use 'nvim-lualine/lualine.nvim'
   use 'kyazdani42/nvim-web-devicons'
   use 'norcalli/nvim-colorizer.lua'
+  use 'folke/lsp-colors.nvim'
   use {
     'nvim-treesitter/nvim-treesitter',
     run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
@@ -34,7 +35,7 @@ packer.startup(function(use)
   use 'neovim/nvim-lspconfig'
   use 'onsails/lspkind-nvim'
   use 'jose-elias-alvarez/null-ls.nvim'
-  use 'williamboman/mason.nvim'
+  use { "williamboman/mason.nvim" }
   use 'williamboman/mason-lspconfig.nvim'
   use 'glepnir/lspsaga.nvim'
   use 'mfussenegger/nvim-dap'

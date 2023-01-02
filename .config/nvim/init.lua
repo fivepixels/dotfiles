@@ -1,4 +1,3 @@
-print("Let's start Coding!")
 require('cattynip.base')
 require("cattynip.maps")
 require('cattynip.packer')

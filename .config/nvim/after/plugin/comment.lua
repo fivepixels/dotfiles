@@ -1,5 +1,8 @@
 local status, comment = pcall(require, "comment")
-if (not status) then return end
+if (not status) then
+  print("comment is not installed.")
+  return
+end
 
 comment.setup {
   pre_hook = function(ctx)
