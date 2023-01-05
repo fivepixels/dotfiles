@@ -6,6 +6,11 @@ end
 
 icons.setup {
   override = {
+    astro = {
+      icon = "",
+      color = "#FFFFFF",
+      name = "astro",
+    }
   },
   default = true,
 }

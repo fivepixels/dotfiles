@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "/Users/craftzcat/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  lazygit = {
+    loaded = true,
+    path = "/Users/craftzcat/.local/share/nvim/site/pack/packer/start/lazygit",
+    url = "https://github.com/jesseduffield/lazygit"
+  },
   ["lsp-colors.nvim"] = {
     loaded = true,
     path = "/Users/craftzcat/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim",

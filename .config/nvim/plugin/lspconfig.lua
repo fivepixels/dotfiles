@@ -35,6 +35,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<leader>sd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', '<leader>si', '<Cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   buf_set_keymap('n', '<leader>sh', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', '<leader>sm', "<Cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
   buf_set_keymap('n', '<C-f>', '<Cmd>lua vim.lsp.buf.format()<CR>', opts)
 
   buf_set_keymap('n', '<C-n>', '<Cmd>Lspsaga diagnostic_jump_next<CR>', opts)
