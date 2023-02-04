@@ -1,6 +1,6 @@
 # Dotfiles
 
-This is my personal dotfiles which are for my Development Environment setup.
+This is my personal dotfiles which are for my Development Environment setup. If you want to set your development like me, you can folk this repository, and download to your computer.
 
 **Warnings** : This repo is for only macOS User, If you are windows user, please checkout other dotfiles repository.
 
@@ -17,7 +17,7 @@ This is my personal dotfiles which are for my Development Environment setup.
 2. Install Applications
 
    ```bash
-   brew install --cask iterm2 google-chrome github sourcetree discord keycastr numi min
+   brew install --cask iterm2 google-chrome github sourcetree discord keycastr
    ```
 
    - [iTerm2](https://iterm2.com/)
@@ -26,8 +26,6 @@ This is my personal dotfiles which are for my Development Environment setup.
    - [SourceTree](https://www.sourcetreeapp.com/)
    - [Discord](https://discord.com/)
    - [keyCastr](https://github.com/keycastr/keycastr)
-   - [numi](https://numi.app/)
-   - [min](https://minbrowser.org/)
 
 3. Install Softwares
 
@@ -56,8 +54,8 @@ This is my personal dotfiles which are for my Development Environment setup.
 
 6. Install NVIM Plugins
 
-  ```bash
-  :PackerInstall
-  ```
+```bash
+:PackerInstall
+```
 
-  - [Plugins List](./.config/nvim/lua/plugins.lua)
+- [Plugins List](./.config/nvim/lua/plugins.lua)
