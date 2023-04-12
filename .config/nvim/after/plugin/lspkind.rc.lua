@@ -1,12 +1,12 @@
 local status, lspkind = pcall(require, "lspkind")
-if (not status) then
-  print("lspkind is not installed.")
-  return
-end
+if (not status) then return end
+
+-- https://github.com/onsails/lspkind.nvim
 
 lspkind.init({
   mode = 'symbol',
   preset = 'codicons',
+  override = {},
   symbol_map = {
     Text = "",
     Method = "",

@@ -1,12 +1,6 @@
 local status, git = pcall(require, "git")
-if (not status) then
-  print("git is not installed.")
-  return
-end
+if (not status) then return end
 
-git.setup({
-  keymaps = {
-    blame = "<leader>gb",
-    browse = "<leader>gr"
-  }
-})
+-- https://github.com/dinhhuy258/git.nvim
+
+git.setup({ })

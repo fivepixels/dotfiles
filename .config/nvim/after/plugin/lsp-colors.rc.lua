@@ -1,8 +1,7 @@
 local status, colors = pcall(require, "lsp-colors")
-if (not status) then
-  print("lspcolors is not installed.")
-  return
-end
+if (not status) then return end
+
+-- https://github.com/folke/lsp-colors.nvim
 
 colors.setup {
   Error = "#db4b4b",

@@ -35,15 +35,14 @@
   edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
   # add conflicted file on merge
   add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
-
 [hub]
   protocol = ssh
 [github]
-	user = craftz-cat
-	email = craftzcat.ss@gmail.com
+	user = cattynip
+	email = cattynip@gmail.com
 [user]
-	user = craftz-cat
-	email = craftzcat.ss@gmail.com
+  user = cattynip
+	email = cattynip@gmail.com
 [diff]
   tool = nvimdiff
 [difftool "nvimdiff"]

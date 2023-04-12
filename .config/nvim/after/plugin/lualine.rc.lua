@@ -1,8 +1,7 @@
 local status, lualine = pcall(require, "lualine")
-if (not status) then
-  print("lua line is not installed.")
-  return
-end
+if (not status) then return end
+
+-- https://github.com/nvim-lualine/lualine.nvim
 
 lualine.setup {
   options = {
@@ -17,7 +16,7 @@ lualine.setup {
     lualine_b = { 'branch' },
     lualine_c = { {
       'filename',
-      file_status = true, -- displays file status (readonly status, modified status)
+      file_status = true,
       path = 1
     } },
     lualine_x = {
@@ -34,8 +33,8 @@ lualine.setup {
     lualine_b = {},
     lualine_c = { {
       'filename',
-      file_status = true, -- displays file status (readonly status, modified status)
-      path = 1 -- 0 = just filename, 1 = relative path, 2 = absolute path
+      file_status = true,
+      path = 1
     } },
     lualine_x = { 'location' },
     lualine_y = {},

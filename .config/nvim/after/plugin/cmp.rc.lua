@@ -1,12 +1,25 @@
 local status, cmp = pcall(require, "cmp")
-if (not status) then
-  print("cmp is not installed.")
-  return
-end
+if (not status) then return end
+local lspkind = require 'lspkind'
 
-local status2, lspkind = pcall(require, "lspkind")
-if (not status2) then
-  print("lspkind is not installed.")
+-- https://github.com/hrsh7th/cmp-nvim-lsp
+
+local function formatForTailwindCSS(entry, vim_item)
+  if vim_item.kind == 'Color' and entry.completion_item.documentation then
+    local _, _, r, g, b = string.find(entry.completion_item.documentation, '^rgb%((%d+), (%d+), (%d+)')
+    if r then
+      local color = string.format('%02x', r) .. string.format('%02x', g) .. string.format('%02x', b)
+      local group = 'Tw_' .. color
+      if vim.fn.hlID(group) < 1 then
+        vim.api.nvim_set_hl(0, group, { fg = '#' .. color })
+      end
+      vim_item.kind = "●"
+      vim_item.kind_hl_group = group
+      return vim_item
+    end
+  end
+  vim_item.kind = lspkind.symbolic(vim_item.kind) and lspkind.symbolic(vim_item.kind) or vim_item.kind
+  return vim_item
 end
 
 cmp.setup({
@@ -16,10 +29,10 @@ cmp.setup({
     end,
   },
   mapping = cmp.mapping.preset.insert({
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-j>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-k>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.close(),
+    ['<C-x>'] = cmp.mapping.close(),
     ['<CR>'] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Replace,
       select = true
@@ -30,15 +43,19 @@ cmp.setup({
     { name = 'buffer' },
   }),
   formatting = {
-    format = lspkind.cmp_format({ with_text = false, maxwidth = 50 })
+    format = lspkind.cmp_format({
+      maxwidth = 70,
+      before = function(entry, vim_item)
+        vim_item = formatForTailwindCSS(entry, vim_item)
+        return vim_item
+      end
+    })
   }
 })
+
+-- The more settings in lspsaga.lua in plugin/ folder
 
 vim.cmd [[
   set completeopt=menuone,noinsert,noselect
   highlight! default link CmpItemKind CmpItemMenuDefault
 ]]
-
--- " Use <Tab> and <S-Tab> to navigate through popup menu
--- inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
--- inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"

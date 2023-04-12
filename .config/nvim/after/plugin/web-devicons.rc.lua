@@ -1,16 +1,9 @@
-local status, icons = pcall(require, "nvim-web-devicons")
-if (not status) then
-  print("nvim-web-devicons is not installed.")
-  return
-end
+local status, icons = pcall(require, "nvim-web")
+if (not status) then return end
+
+-- https://github.com/ryanoasis/vim-devicons/blob/master/plugin/webdevicons.vim
 
 icons.setup {
-  override = {
-    astro = {
-      icon = "",
-      color = "#FFFFFF",
-      name = "astro",
-    }
-  },
+  override = { },
   default = true,
 }

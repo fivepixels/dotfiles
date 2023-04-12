@@ -1,56 +1,43 @@
-local vimOption = vim.opt
-
 vim.cmd("autocmd!")
 
-vim.scrptencoding = 'utf-8'
-vimOption.encoding = 'utf-8'
-vimOption.fileencoding = 'utf-8'
+vim.scriptencoding = 'utf-8'
+vim.opt.encoding = 'utf-8'
+vim.opt.fileencoding = 'utf-8'
 
 vim.wo.number = true
-vimOption.nu = true
-vimOption.relativenumber = true
+vim.wo.relativenumber = true
 
-vimOption.title = true
-vimOption.autoindent = true
-vimOption.smartindent = true
-vimOption.hlsearch = true
-vimOption.backup = false
-vimOption.showcmd = true
-vimOption.cmdheight = 1
-vimOption.laststatus = 2
-vimOption.expandtab = true
-vimOption.scrolloff = 10
-vimOption.shell = 'fish'
-vimOption.backupskip = { '/tmp/*', '/private/tmp/*' }
-vimOption.inccommand = 'split'
-vimOption.ignorecase = true
-vimOption.smarttab = true
-vimOption.breakindent = true
-vimOption.shiftwidth = 2
-vimOption.softtabstop = 2
-vimOption.tabstop = 2
-vimOption.wrap = false
-vimOption.swapfile = false
-vimOption.backspace = { 'start', 'eol', 'indent' }
-vimOption.path:append { '**' }
-vimOption.wildignore:append { '*/node_modules/*' }
-vimOption.expandtab = true
-vimOption.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vimOption.undofile = true
-vimOption.termguicolors = true
-vimOption.scrolloff = 8
-vimOption.signcolumn = "yes"
-vimOption.isfname:append("@-@")
-vimOption.updatetime = 50
-vimOption.colorcolumn = "80"
+vim.opt.title = true
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+vim.opt.hlsearch = true
+vim.opt.backup = false
+vim.opt.showcmd = true
+vim.opt.cmdheight = 1
+vim.opt.laststatus = 2
+vim.opt.expandtab = true
+vim.opt.scrolloff = 10
+vim.opt.shell = 'fish'
+vim.opt.backupskip = { '/tmp/*', '/private/tmp/*' }
+vim.opt.inccommand = 'split'
+vim.opt.ignorecase = true
+vim.opt.smarttab = true
+vim.opt.breakindent = true
+vim.expandtab = true
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+vim.opt.wrap = false
+vim.opt.backspace = { 'start', 'eol', 'indent' }
+vim.opt.path:append { '**' }
+vim.opt.wildignore:append { '*/node_modules/*' }
 
-vimOption.guicursor = ""
-vim.g.mapleader = " "
+vim.cmd([[let &t_Cs = "\e[4:3m"]])
+vim.cmd([[let &t_Ce = "\e[4:0m"]])
 
 vim.api.nvim_create_autocmd("InsertLeave", {
   pattern = '*',
   command = "set nopaste"
-});
+})
 
-vimOption.formatoptions:append { 'r' }
+vim.opt.formatoptions:append { 'r' }
 vim.opt.clipboard:append { 'unnamedplus' }

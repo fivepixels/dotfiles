@@ -1,10 +1,7 @@
-vim.lsp.set_log_level("debug")
-
 local status, nvim_lsp = pcall(require, "lspconfig")
-if (not status) then
-  print('nvim lsp is not installed.')
-  return
-end
+if (not status) then return end
+
+-- https://github.com/neovim/nvim-lspconfig
 
 local protocol = require('vim.lsp.protocol')
 
@@ -20,33 +17,17 @@ local enable_format_on_save = function(_, bufnr)
   })
 end
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
   local opts = { noremap = true, silent = true }
 
-  -- Keymaps
-  buf_set_keymap('n', '<leader>sD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', '<leader>sd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', '<leader>si', '<Cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', '<leader>sh', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', '<leader>sm', "<Cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
-  buf_set_keymap('n', '<C-f>', '<Cmd>lua vim.lsp.buf.format()<CR>', opts)
-
-  buf_set_keymap('n', '<C-n>', '<Cmd>Lspsaga diagnostic_jump_next<CR>', opts)
-  buf_set_keymap('n', '<C-p>', '<Cmd>Lspsaga diagnostic_jump_prev<CR>', opts)
-
-  buf_set_keymap('n', '<leader>lh', '<Cmd>Lspsaga hover_doc<CR>', opts)
-  buf_set_keymap('n', '<leader>lf', '<Cmd>Lspsaga lsp_finder<CR>', opts)
-  buf_set_keymap('n', '<leader>lq', '<Cmd>Lspsaga peek_definition<CR>', opts)
-  buf_set_keymap('n', '<leader>lr', '<Cmd>Lspsaga rename<CR>', opts)
-  buf_set_keymap('n', '<leader>lc', '<Cmd>Lspsaga code_action<CR>', opts)
-
+  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+  -- buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  -- buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  -- buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  -- buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
 end
 
 protocol.CompletionItemKind = {
@@ -77,12 +58,11 @@ protocol.CompletionItemKind = {
   '', -- TypeParameter
 }
 
--- Set up completion using nvim_cmp with LSP source
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 nvim_lsp.flow.setup {
   on_attach = on_attach,
-  capabilities = capabilities,
+  capabilities = capabilities
 }
 
 nvim_lsp.tsserver.setup {
@@ -97,7 +77,7 @@ nvim_lsp.sourcekit.setup {
   capabilities = capabilities,
 }
 
-nvim_lsp.sumneko_lua.setup {
+nvim_lsp.lua_ls.setup {
   capabilities = capabilities,
   on_attach = function(client, bufnr)
     on_attach(client, bufnr)
@@ -106,12 +86,9 @@ nvim_lsp.sumneko_lua.setup {
   settings = {
     Lua = {
       diagnostics = {
-        -- Get the language server to recognize the `vim` global
         globals = { 'vim' },
       },
-
       workspace = {
-        -- Make the server aware of Neovim runtime files
         library = vim.api.nvim_get_runtime_file("", true),
         checkThirdParty = false
       },
@@ -134,21 +111,15 @@ nvim_lsp.astro.setup {
   capabilities = capabilities
 }
 
-nvim_lsp.prismals.setup {
-  on_attach = on_attach,
-  capabilities = capabilities
-}
-
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
-  underline = true,
-  update_in_insert = false,
-  virtual_text = { spacing = 4, prefix = "●" },
-  severity_sort = true,
-}
+    underline = true,
+    update_in_insert = false,
+    virtual_text = { spacing = 4, prefix = "●" },
+    severity_sort = true,
+  }
 )
 
--- Diagnostic symbols in the sign column (gutter)
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
