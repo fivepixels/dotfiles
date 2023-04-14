@@ -24,10 +24,10 @@ local on_attach = function(client, bufnr)
   local opts = { noremap = true, silent = true }
 
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-  -- buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  -- buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  -- buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  -- buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', '<leader>gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  buf_set_keymap('n', '<leader>gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', '<leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  buf_set_keymap('n', '<leader>K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
 end
 
 protocol.CompletionItemKind = {
@@ -58,23 +58,57 @@ protocol.CompletionItemKind = {
   '', -- TypeParameter
 }
 
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-nvim_lsp.flow.setup {
+nvim_lsp.bashls.setup {
   on_attach = on_attach,
   capabilities = capabilities
+}
+
+nvim_lsp.cssls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    less = {
+      validate = true
+    }
+  }
+}
+
+nvim_lsp.dotls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+nvim_lsp.prismals.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
+nvim_lsp.sqlls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
+nvim_lsp.html.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
+nvim_lsp.tailwindcss.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "astro", "astro-markdown", "html", "markdown", "css", "less",
+    "postcss", "sass", "scss", "rescript",
+    "typescript", "typescriptreact" }
 }
 
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
-  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-  cmd = { "typescript-language-server", "--stdio" },
-  capabilities = capabilities
-}
-
-nvim_lsp.sourcekit.setup {
-  on_attach = on_attach,
   capabilities = capabilities,
+  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+  cmd = { "typescript-language-server", "--stdio" }
 }
 
 nvim_lsp.lua_ls.setup {
@@ -94,16 +128,6 @@ nvim_lsp.lua_ls.setup {
       },
     },
   },
-}
-
-nvim_lsp.tailwindcss.setup {
-  on_attach = on_attach,
-  capabilities = capabilities
-}
-
-nvim_lsp.cssls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities
 }
 
 nvim_lsp.astro.setup {
@@ -130,7 +154,7 @@ vim.diagnostic.config({
   virtual_text = {
     prefix = '●'
   },
-  update_in_insert = true,
+  update_in_insert = false,
   float = {
     source = "always",
   },

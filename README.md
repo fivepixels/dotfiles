@@ -11,15 +11,20 @@
 2. Install Applications
 
    ```bash
-   brew install --cask iterm2 google-chrome github sourcetree discord keycastr
+   brew install --cask iterm2 google-chrome firefox opera min github sourcetree discord keycastr grammarly grammarly-desktop
    ```
 
    - [iTerm2](https://iterm2.com/)
    - [Google Chrome](https://www.google.com/chrome/)
+   - [Firefox](https://www.mozilla.org/en-US/firefox/)
+   - [Opera](https://www.opera.com/)
+   - [Min](https://minbrowser.org/)
    - [Github Desktop](https://desktop.github.com/)
    - [SourceTree](https://www.sourcetreeapp.com/)
    - [Discord](https://discord.com/)
    - [keyCastr](https://github.com/keycastr/keycastr)
+   - [Grammarly](https://grammarly.com/)
+   - [Grammarly Desktop](https://grammarly.com/desktop)
 
 3. Install Softwares
 

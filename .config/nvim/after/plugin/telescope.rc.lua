@@ -20,7 +20,8 @@ telescope.setup {
     mappings = {
       i = {
         ["<C-q>"] = actions.close,
-        ["<C-c>"] = function() end,
+        ["<C-c>"] = function()
+        end,
         ["<C-s>"] = actions.select_horizontal,
         ["<C-v>"] = actions.select_vertical,
         ["<C-t>"] = actions.select_tab,
@@ -38,13 +39,8 @@ telescope.setup {
   },
   extensions = {
     file_browser = {
-      theme = "dropdown",
+      theme = "ivy",
       hijack_netrw = true,
-      mappings = {
-        ["i"] = {
-          ["<C-w>"] = function() vim.cmd('normal vbd') end,
-        },
-      },
     },
     http = {
       optn_url = 'open %s'
@@ -90,8 +86,8 @@ keymap.set('n', 'gf', function()
   })
 end)
 keymap.set('n', 'gm', function()
-  builtin.git_commits({
-    git_command = {"git", "log", "--pretty=oneline", "--abbrev-commit", "--", "."}
+  builtin.git_bcommits({
+    git_command = { "git", "log", "--pretty=oneline", "--abbrev-commit", "--", "." }
   })
 end)
 keymap.set('n', 'gs', function()

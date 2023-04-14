@@ -19,7 +19,6 @@ packer.startup(function(use)
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
-
   use 'glepnir/lspsaga.nvim'
   use 'L3MON4D3/LuaSnip'
   use {

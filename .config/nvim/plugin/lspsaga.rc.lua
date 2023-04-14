@@ -40,8 +40,8 @@ saga.setup({
     open_link = 'ex',
   },
   diagnostic = {
-    on_insert = true,
-    on_insert_follow = true,
+    on_insert = false,
+    on_insert_follow = false,
     extend_relatedInformation = true,
   },
   rename = {
@@ -49,7 +49,7 @@ saga.setup({
   },
   outline = {
     win_position = "left",
-    win_width = 18,
+    win_width = 20,
     preview_width = 0.3,
     keys = {
       expand_or_jump = "i",
@@ -57,18 +57,18 @@ saga.setup({
   },
 })
 
-local dagnostic = require("lspsaga.diagnostic")
+-- local dagnostic = require("lspsaga.diagnostic")
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
-keymap.set('n', 'ef', '<Cmd>Lspsaga lsp_finder<CR>', opts)
-keymap.set('n', 'ep', '<Cmd>Lspsaga peek_definition<CR>', opts)
-keymap.set('n', 'eg', '<Cmd>Lspsaga goto_definition<CR>', opts)
-keymap.set('n', 'eh', '<Cmd>Lspsaga hover_doc<CR>', opts)
-keymap.set('n', 'ek', '<Cmd>Lspsaga hover_doc ++keep<CR>', opts)
-keymap.set('n', 'es', '<Cmd>Lspsaga show_diagnostic<CR>', opts)
-keymap.set('n', 'er', '<Cmd>Lspsaga rename ++project<CR>', opts)
-keymap.set('n', 'eo', '<Cmd>Lspsaga outline<CR>', opts)
-keymap.set('n', 'ea', '<Cmd>Lspsaga show_workspace_diagnostics<CR>', opts)
+keymap.set('n', '<leader>ef', '<Cmd>Lspsaga lsp_finder<CR>', opts)
+keymap.set('n', '<leader>ep', '<Cmd>Lspsaga peek_definition<CR>', opts)
+keymap.set('n', '<leader>eg', '<Cmd>Lspsaga goto_definition<CR>', opts)
+keymap.set('n', '<leader>eh', '<Cmd>Lspsaga hover_doc<CR>', opts)
+keymap.set('n', '<leader>ek', '<Cmd>Lspsaga hover_doc ++keep<CR>', opts)
+keymap.set('n', '<leader>es', '<Cmd>Lspsaga show_diagnostic<CR>', opts)
+keymap.set('n', '<leader>er', '<Cmd>Lspsaga rename ++project<CR>', opts)
+keymap.set('n', '<leader>eo', '<Cmd>Lspsaga outline<CR>', opts)
+keymap.set('n', '<leader>ea', '<Cmd>Lspsaga show_workspace_diagnostics<CR>', opts)
 keymap.set('n', '<C-n>', '<Cmd>Lspsaga diagnostic_jump_next<CR>', opts)
 keymap.set('n', '<C-p>', '<Cmd>Lspsaga diagnostic_jump_prev<CR>', opts)
 
