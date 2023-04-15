@@ -41,8 +41,8 @@ saga.setup({
   },
   diagnostic = {
     on_insert = false,
-    on_insert_follow = false,
-    extend_relatedInformation = true,
+    on_insert_follow = true,
+    -- extend_relatedInformation = true,
   },
   rename = {
     quit = "<C-c>",
