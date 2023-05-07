@@ -10,7 +10,6 @@ packer.startup(function(use)
     requires = { 'tjdevries/colorbuddy.nvim' }
   }
   use 'nvim-lualine/lualine.nvim'
-  use 'nvim-lua/plenary.nvim'
   use 'onsails/lspkind-nvim'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-nvim-lsp'
@@ -44,4 +43,7 @@ packer.startup(function(use)
   use 'akinsho/nvim-bufferline.lua'
   use 'lewis6991/gitsigns.nvim'
   use 'dinhhuy258/git.nvim'
+  use 'nvim-lua/plenary.nvim'
+  use 'folke/todo-comments.nvim'
+  use 'folke/trouble.nvim'
 end)

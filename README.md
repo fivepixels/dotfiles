@@ -11,7 +11,7 @@
 2. Install Applications
 
    ```bash
-   brew install --cask iterm2 google-chrome firefox opera min github sourcetree discord keycastr grammarly grammarly-desktop
+   brew install --cask iterm2 google-chrome firefox opera min github sourcetree discord keycastr grammarly grammarly-desktop dropzone alt-tab monitorcontrol moom appcleaner cleanshot
    ```
 
    - [iTerm2](https://iterm2.com/)
@@ -25,6 +25,12 @@
    - [keyCastr](https://github.com/keycastr/keycastr)
    - [Grammarly](https://grammarly.com/)
    - [Grammarly Desktop](https://grammarly.com/desktop)
+   - [DropZone](https://aptonic.com/)
+   - [AltTab](https://alt-tab-macos.netlify.app/)
+   - [MonitorControl](https://github.com/MonitorControl/MonitorControl/)
+   - [Moom](https://manytricks.com/moom/)
+   - [AppCleaner](https://freemacsoft.net/appcleaner/)
+   - [CleanShot](https://getcleanshot.com/)
 
 3. Install Softwares
 
