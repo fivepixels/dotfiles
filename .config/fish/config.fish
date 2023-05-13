@@ -20,6 +20,7 @@ alias tn "tmux new -s"
 alias ta "tmux a -t"
 alias tk "tmux kill-session -t"
 alias devenv "tmux new -s devenv"
+alias screensaver "cmatrix -b -s"
 
 command -qv nvim && alias vim nvim
 

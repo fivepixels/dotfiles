@@ -11,7 +11,7 @@
 2. Install Applications
 
    ```bash
-   brew install --cask iterm2 google-chrome firefox opera min github sourcetree discord keycastr grammarly grammarly-desktop dropzone alt-tab monitorcontrol appcleaner cleanshot rectangle
+   brew install --cask iterm2 google-chrome firefox opera min github sourcetree discord keycastr grammarly grammarly-desktop microsoft-teams microsoft-word onedrive canva dropzone alt-tab monitorcontrol appcleaner cleanshot rectangle
    ```
 
    - [iTerm2](https://iterm2.com/)
@@ -25,6 +25,10 @@
    - [keyCastr](https://github.com/keycastr/keycastr)
    - [Grammarly](https://grammarly.com/)
    - [Grammarly Desktop](https://grammarly.com/desktop)
+   - [Microsoft Teams](https://www.microsoft.com/en-ca/microsoft-teams/group-chat-software)
+   - [Microsoft Words](https://www.microsoft.com/en-ca/microsoft-365/word?ms.officeurl=word&rtc=1&activetab=tabs%3afaqheaderregion3)
+   - [OneDrive](https://www.microsoft.com/en/microsoft-365/onedrive/online-cloud-storage)
+   - [Canva](https://canva.com/)
    - [DropZone](https://aptonic.com/)
    - [AltTab](https://alt-tab-macos.netlify.app/)
    - [MonitorControl](https://github.com/MonitorControl/MonitorControl/)
@@ -34,57 +38,54 @@
 
 3. Install Softwares
 
-   1. Download basic softwares
+4. Download basic softwares
 
-      ```bash
-      brew install node nvm git yarn exa fish neovim tmux planetscale/tap/pscale mysql-client microsoft-teams microsoft-word onedrive canva
-      ```
+   ```bash
+   brew install node nvm git yarn exa fish neovim tmux planetscale/tap/pscale mysql-client cmatrix
+   ```
 
-   2. Download Fisher
+5. Download Fisher
 
-      ```bash
-      curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
-      ```
+   ```bash
+   curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+   ```
 
-   3. Download Tide
+6. Download Tide
 
-      ```bash
-      fisher install jethrokuan/z IlanCosman/tide@v5
-      ```
+   ```bash
+   fisher install jethrokuan/z IlanCosman/tide@v5
+   ```
 
-   4. Download Packer
+7. Download Packer
 
-      ```bash
-      git clone --depth 1 https://github.com/wbthomason/packer.nvim\ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-      ```
+   ```bash
+   git clone --depth 1 https://github.com/wbthomason/packer.nvim\ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+   ```
 
-   5. Install Node global package
-      ```bash
-      yarn global add diagnostic-languageserver typescript-language-server typescript
-      ```
+8. Install Node global package
+   ```bash
+   yarn global add diagnostic-languageserver typescript-language-server typescript
+   ```
 
-   - [Node](https://nodejs.org/)
-   - [nvm](https://github.com/nvm-sh/nvm/)
-   - [Git](https://git-scm.com)
-   - [Yarn](https://yarnpkg.com/)
-   - [exa](https://github.com/ogham/exa)
-   - [Fish Shell](https://fishshell.com/)
-   - [Fisher](https://github.com/jorgebucaran/fisher)
-   - [Neovim](https://neovim.io/)
-   - [Tmux](https://github.com/tmux/tmux)
-   - [PlanetScale](https://planetscale.com/)
-   - [MySQL](https://www.mysql.com/)
-   - [Microsoft Teams](https://www.microsoft.com/en-ca/microsoft-teams/group-chat-software)
-   - [Microsoft Words](https://www.microsoft.com/en-ca/microsoft-365/word?ms.officeurl=word&rtc=1&activetab=tabs%3afaqheaderregion3)
-   - [OneDrive](https://www.microsoft.com/en/microsoft-365/onedrive/online-cloud-storage)
-   - [Canva](https://canva.com/)
-   - [z](https://github.com/jethrokuan/z)
-   - [tide](https://github.com/IlanCosman/tide)
-   - [Packer](https://github.com/wbthomason/packer.nvim)
-   - [diagnostic-lsp](https://github.com/iamcco/diagnostic-languageserver)
-   - [Typescript-lsp](https://github.com/typescript-language-server/typescript-language-server)
+- [Node](https://nodejs.org/)
+- [nvm](https://github.com/nvm-sh/nvm/)
+- [Git](https://git-scm.com)
+- [Yarn](https://yarnpkg.com/)
+- [exa](https://github.com/ogham/exa)
+- [Fish Shell](https://fishshell.com/)
+- [Fisher](https://github.com/jorgebucaran/fisher)
+- [Neovim](https://neovim.io/)
+- [Tmux](https://github.com/tmux/tmux)
+- [PlanetScale](https://planetscale.com/)
+- [MySQL](https://www.mysql.com/)
+- [cmatrix](https://github.com/abishekvashok/cmatrix/)
+- [z](https://github.com/jethrokuan/z/)
+- [tide](https://github.com/IlanCosman/tide/)
+- [Packer](https://github.com/wbthomason/packer.nvim/)
+- [diagnostic-lsp](https://github.com/iamcco/diagnostic-languageserver/)
+- [Typescript-lsp](https://github.com/typescript-language-server/typescript-language-server/)
 
-   > If you want to check whether you installed or not, you can check it by printing the version of the sowftwares or opening them.
+> If you want to check whether you installed or not, you can check it by printing the version of the sowftwares or opening them.
 
 4. Configure Rectangle
 
