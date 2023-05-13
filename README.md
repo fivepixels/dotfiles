@@ -11,7 +11,7 @@
 2. Install Applications
 
    ```bash
-   brew install --cask iterm2 google-chrome firefox opera min github sourcetree discord keycastr grammarly grammarly-desktop dropzone alt-tab monitorcontrol moom appcleaner cleanshot
+   brew install --cask iterm2 google-chrome firefox opera min github sourcetree discord keycastr grammarly grammarly-desktop dropzone alt-tab monitorcontrol appcleaner cleanshot rectangle
    ```
 
    - [iTerm2](https://iterm2.com/)
@@ -28,7 +28,7 @@
    - [DropZone](https://aptonic.com/)
    - [AltTab](https://alt-tab-macos.netlify.app/)
    - [MonitorControl](https://github.com/MonitorControl/MonitorControl/)
-   - [Moom](https://manytricks.com/moom/)
+   - [Rectangle](https://https://rectangleapp.com/)
    - [AppCleaner](https://freemacsoft.net/appcleaner/)
    - [CleanShot](https://getcleanshot.com/)
 
@@ -86,13 +86,20 @@
 
    > If you want to check whether you installed or not, you can check it by printing the version of the sowftwares or opening them.
 
-4. Configure Tide
+4. Configure Rectangle
+
+   1. Open the Rectangle App
+   2. Click the rightest cog icon
+   3. Click `Import` button to set my configuration
+   4. Select [RectangleConfig.json](./RectangleConfig.json)
+
+5. Configure Tide
 
    ```bash
    tide configure
    ```
 
-5. Configure iTerm
+6. Configure iTerm
 
    1. Go to [this link](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/readme.md#macos).
    2. Download the latest version of Hack Font.
@@ -103,12 +110,12 @@
    7. Go to `Profile` > `Window`, change the `Trancparency` value to 38, check the `Blur` button, and change the `Blur` value to the max, which is 64.
    8. Go to `Appearance` > `General`, and change the `Theme` to `Minimal`, and `Tab bar location` and `Status bar location` optional button to `Bottom`.
 
-6. Clone this repository and change directory.
+7. Clone this repository and change directory.
 
-7. Open Vim
+8. Open Vim
 
    1. Type `:PackerInstall` to install all of the plugins that this repository suggest you to use.
       - [Plugins List](./.config/nvim/lua/cattynip/plugins.lua)
    2. Go to [this folder](./.config/nvim/after/plugin/), check all of the files, and change the values to what you would like to use. You might be able to see the link at the top of the files, so you can go to the link to know what this plugin is doing. _This step is optional. You can just use by itself._
 
-8. Restart your computer and start your coding journey.
+9. Restart your computer and start your coding journey.
