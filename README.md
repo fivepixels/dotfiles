@@ -11,7 +11,7 @@
 2. Install Applications
 
    ```bash
-   brew install --cask iterm2 google-chrome firefox opera min github sourcetree discord keycastr grammarly grammarly-desktop microsoft-teams microsoft-word onedrive canva dropzone alt-tab monitorcontrol appcleaner cleanshot rectangle
+   brew install --cask iterm2 google-chrome firefox opera min github sourcetree discord keycastr grammarly grammarly-desktop microsoft-teams microsoft-word microsoft-outlook onedrive canva dropzone alt-tab monitorcontrol appcleaner cleanshot rectangle
    ```
 
    - [iTerm2](https://iterm2.com/)
@@ -27,6 +27,7 @@
    - [Grammarly Desktop](https://grammarly.com/desktop)
    - [Microsoft Teams](https://www.microsoft.com/en-ca/microsoft-teams/group-chat-software)
    - [Microsoft Words](https://www.microsoft.com/en-ca/microsoft-365/word?ms.officeurl=word&rtc=1&activetab=tabs%3afaqheaderregion3)
+   - [Microsoft Outlook](https://products.office.com/en-us/outlook/email-and-calendar-software-microsoft-outlook)
    - [OneDrive](https://www.microsoft.com/en/microsoft-365/onedrive/online-cloud-storage)
    - [Canva](https://canva.com/)
    - [DropZone](https://aptonic.com/)
