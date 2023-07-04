@@ -11,7 +11,7 @@
 2. Install Applications
 
    ```bash
-   brew install --cask iterm2 google-chrome firefox opera min github sourcetree discord keycastr grammarly grammarly-desktop microsoft-teams microsoft-word microsoft-outlook onedrive canva dropzone alt-tab monitorcontrol appcleaner cleanshot rectangle
+   brew install --cask iterm2 google-chrome firefox opera min github sourcetree discord keycastr grammarly grammarly-desktop microsoft-teams microsoft-word microsoft-outlook onedrive canva dropzone alt-tab monitorcontrol appcleaner cleanshot rectangle craft
    ```
 
    - [iTerm2](https://iterm2.com/)
@@ -36,6 +36,8 @@
    - [Rectangle](https://https://rectangleapp.com/)
    - [AppCleaner](https://freemacsoft.net/appcleaner/)
    - [CleanShot](https://getcleanshot.com/)
+   - [Craft](https://craft.do)
+     I strongly suggest you to use while taking notes or documenting.
 
 3. Install Softwares
 
@@ -103,14 +105,16 @@
 
 6. Configure iTerm
 
-   1. Go to [this link](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/readme.md#macos).
-   2. Download the latest version of Hack Font.
+   1. Go to [this link](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/readme.md#macos) and [this link](https://github.com/IlanCosman/tide).
+   2. Download the latest version of Hack Font and MesloLGS NF Font.
    3. Open them with `Font Book` and click the `Install` button.
    4. Type `Command + ,` to open the Preferences.
-   5. Go to `Profile` > `Text` > `Font`, change the font value from `Menlo(Default)` to `Hack Nerd Font Mono`, and check the `Use ligatures` toggle button.
-   6. Go to `Profile` > `Colors`, change the theme to `Solarized Dark` that is placed bottom right.
-   7. Go to `Profile` > `Window`, change the `Trancparency` value to 38, check the `Blur` button, and change the `Blur` value to the max, which is 64.
-   8. Go to `Appearance` > `General`, and change the `Theme` to `Minimal`, and `Tab bar location` and `Status bar location` optional button to `Bottom`.
+   5. Go to `Profile` > `Text` > `Font`, change the font value from `Menlo(Default)` to `Hack Nerd Font Mono`.
+   6. Check the `Use ligatures` and `Use a different font for non-ASCII text` toggle button
+   7. Select `MesloLGS NF` Font.
+   8. Go to `Profile` > `Colors`, change the theme to `Solarized Dark` that is placed bottom right.
+   9. Go to `Profile` > `Window`, change the `Trancparency` value to 38, check the `Blur` button, and change the `Blur` value to the max, which is 64.
+   10. Go to `Appearance` > `General`, and change the `Theme` to `Minimal`, and `Tab bar location` and `Status bar location` optional button to `Bottom`.
 
 7. Clone this repository and change directory.
 
