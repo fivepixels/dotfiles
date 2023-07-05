@@ -6,7 +6,6 @@ if (not status) then return end
 bufferline.setup({
   options = {
     mode = "tabs",
-    themable = false,
     numbers = "none",
     truncate_names = false,
     diagnostics = 'nvim_lsp',
@@ -17,7 +16,7 @@ bufferline.setup({
     show_tab_indicators = true,
     show_buffer_close_icons = false,
     show_duplicate_prefix = false,
-    separator_style = "thin",
+    separator_style = "slant",
     enforce_regular_tabs = true,
     always_show_bufferline = true,
     hover = {
@@ -43,7 +42,8 @@ bufferline.setup({
     fill = {
       bg = '#073642'
     }
-  },})
+  },
+})
 
 local keymap = vim.keymap
 local opts = {}
