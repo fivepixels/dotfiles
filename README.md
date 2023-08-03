@@ -11,7 +11,7 @@
 2. Install Applications
 
    ```bash
-   brew install --cask iterm2 google-chrome firefox opera min github sourcetree discord keycastr grammarly grammarly-desktop microsoft-teams microsoft-word microsoft-outlook onedrive canva dropzone alt-tab monitorcontrol appcleaner cleanshot rectangle craft
+   brew install --cask iterm2 google-chrome firefox opera min github sourcetree discord keycastr grammarly grammarly-desktop microsoft-teams microsoft-word microsoft-outlook onedrive canva dropzone alt-tab monitorcontrol appcleaner cleanshot rectangle craft whatsapp miro
    ```
 
    - [iTerm2](https://iterm2.com/)
@@ -38,6 +38,8 @@
    - [CleanShot](https://getcleanshot.com/)
    - [Craft](https://craft.do)
      I strongly suggest you to use while taking notes or documenting.
+   - [Whatsapp](https://www.whatsapp.com/)
+   - [Miro](https://miro.com/)
 
 3. Install Softwares
 
