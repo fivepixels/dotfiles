@@ -12,7 +12,7 @@ set -g theme_hostname always
 
 # Aliases
 alias start-coding "brew update && brew upgrade"
-alias list "exa -a -B -b -i -g -h -l -m -s type -U --git --header --icons"
+alias list "exa -a -h -l -s type --git --header --icons --no-permissions --no-user --no-filesize --no-time"
 alias remove "rm -rf ~/.local/share/nvim/swap && rm ~/.local/state/nvim/lsp.log"
 alias g git
 alias gitignore-fix "git rm -rf --cached . && git add"
