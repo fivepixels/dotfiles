@@ -33,7 +33,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     underline = true,
     update_in_insert = true,
-    virtual_text = { spacing = 4, prefix = "\u{ea71}" },
+    virtual_text = { spacing = 7, prefix = "\u{ea71}" },
     severity_sort = true,
   }
 )
@@ -45,6 +45,7 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "2" })
 end
 
+-- Configure VIM Diagnostic
 vim.diagnostic.config({
   virtual_text = {
     prefix = '●'

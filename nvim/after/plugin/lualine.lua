@@ -3,6 +3,7 @@ if (not status) then return end
 
 -- https://github.com/nvim-lualine/lualine.nvim 
 
+-- Configure Lualine
 lualine.setup({
 options = {
     icons_enabled = true,
@@ -20,8 +21,13 @@ options = {
       path = 1
     } },
     lualine_x = {
-      { 'diagnostics', sources = { "nvim_diagnostic" }, symbols = { error = ' ', warn = ' ', info = ' ',
-        hint = ' ' } },
+      {
+        'diagnostics',
+        sources = { "nvim_diagnostic" },
+        symbols = { error = ' ', warn = ' ', info = ' ',
+        hint = ' '
+        }
+      },
       'encoding',
       'filetype'
     },

@@ -3,6 +3,7 @@ if (not status) then return end
 
 -- https://github.com/onsails/lspkind.nvim
 
+-- Cofigure LspKind
 lspkind.init({
   mode = 'symbol',
   preset = 'codicons',

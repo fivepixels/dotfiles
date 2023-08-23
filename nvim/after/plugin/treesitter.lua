@@ -3,6 +3,7 @@ if (not status) then return end
 
 -- https://github.com/nvim-treesitter/nvim-treesitter
 
+-- Configure Treesitter
 ts.setup {
   highlight = {
     enable = true,

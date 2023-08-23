@@ -4,9 +4,6 @@ local lspkind = require 'lspkind'
 
 -- https://github.com/hrsh7th/cmp-nvim-lsp
 
----@diagnostic disable-next-line: undefined-global
-local vim = vim;
-
 local function formatForTailwindCSS(entry, vim_item)
   if vim_item.kind == 'Color' and entry.completion_item.documentation then
     local _, _, r, g, b = string.find(entry.completion_item.documentation, '^rgb%((%d+), (%d+), (%d+)')
@@ -25,6 +22,7 @@ local function formatForTailwindCSS(entry, vim_item)
   return vim_item
 end
 
+-- Configure CMP
 cmp.setup({
   snippet = {
     expand = function(args)

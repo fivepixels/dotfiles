@@ -1,6 +1,9 @@
 local status, lazy = pcall(require, 'lazy')
 if (not status) then return end
 
+-- https://github.com/folke/lazy.nvim
+
+-- Configure Lazy
 lazy.setup({
   -- LSP Configuration
   "neovim/nvim-lspconfig",

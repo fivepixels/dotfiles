@@ -14,8 +14,9 @@ telescope.load_extension("http")
 local fb_actions = require 'telescope'.extensions.file_browser.actions
 local function show_http_list ()
   require 'telescope'.extensions.http.list()
-end 
+end
 
+-- Configure Telescope
 telescope.setup({
   defaults = {
     winblen = 80,
@@ -61,62 +62,66 @@ local function telescope_buffer_dir()
   return vim.fn.expand('%:p:h')
 end
 
+local nmap = function(keys, func, desc)
+  if desc then
+    desc = 'Telescope: ' .. desc
+  end
+
+  vim.keymap.set('n', keys, func, { desc = desc })
+end
+
 local keymap = vim.keymap
-keymap.set("n", "ff", function()
-  telescope.extensions.file_browser.file_browser({
-    path = "%:p:h",
-    cwd = telescope_buffer_dir(),
-    respect_gitignore = false,
-    hidden = true,
-    grouped = true,
-    previewer = true,
-    layout_strategy = "horizontal",
-    layout_config = { width = 130, height = 40 }
-  })
-end)
 
-keymap.set('n', 'fe',
+nmap(
+  "<leader>ff",
   function()
-    builtin.find_files({
-      no_ignore = false,
+    telescope.extensions.file_browser.file_browser({
+      path = "%:p:h",
+      cwd = telescope_buffer_dir(),
+      respect_gitignore = false,
       hidden = true,
+      grouped = true,
+      previewer = true,
+      layout_strategy = "horizontal",
+      layout_config = { width = 130, height = 40 }
     })
-  end)
+  end,
+  "[F]ind [F]iles"
+)
 
-keymap.set('n', 'fd', function()
-  builtin.diagnostics()
-end)
+nmap(
+  "<leader>fd",
+  function ()
+    builtin.diagnostics()
+  end,
+  "[F]ind [D]iagnostics"
+)
 
-keymap.set('n', 'fw', function()
-  builtin.current_buffer_fuzzy_find({})
-end)
-
-keymap.set("n", "ff", function()
-  telescope.extensions.file_browser.file_browser({
-    path = "%:p:h",
-    cwd = telescope_buffer_dir(),
-    respect_gitignore = false,
-    hidden = true,
-    grouped = true,
-    previewer = true,
-    layout_strategy = "horizontal",
-    layout_config = { width = 130, height = 40 }
-  })
-end)
+nmap(
+  "<leader>fw",
+  function ()
+    builtin.current_buffer_fuzzy_find({})
+  end,
+  "[F]ind [W]ord"
+)
 
 -- Git
-keymap.set('n', 'gf', function()
-  builtin.git_files({
-    show_untracked = true
-  })
-end)
-keymap.set('n', 'gm', function()
-  builtin.git_bcommits({
-    git_command = { "git", "log", "--pretty=oneline", "--abbrev-commit", "--", "." }
-  })
-end)
-keymap.set('n', 'gs', function()
-  builtin.git_status({})
-end)
+nmap(
+  "<leader>gm",
+  function ()
+    builtin.git_bcommits({
+      git_command = { "git", "log", "--pretty=oneline", "--abbrev-commit", "--", "." }
+    })
+  end,
+  "Find [G]it [M]essage"
+)
+
+nmap(
+  '<leader>gs',
+  function()
+    builtin.git_status({})
+  end,
+  "Find [G]it [S]tatus"
+)
 
 vim.keymap.set("n", "<leader>ht", show_http_list)

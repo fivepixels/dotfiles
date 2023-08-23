@@ -3,6 +3,7 @@ if (not status) then return end
 
 -- https://github.com/akinsho/bufferline.nvim
 
+-- Configure Bufferline
 bufferline.setup({
   options = {
     mode = "tabs",
@@ -17,7 +18,7 @@ bufferline.setup({
     show_buffer_close_icons = false,
     show_duplicate_prefix = false,
     separator_style = "slant",
-    enforce_regular_tabs = true,
+    enforce_regular_tabs = false,
     always_show_bufferline = true,
     hover = {
       enabled = true,
@@ -45,9 +46,13 @@ bufferline.setup({
   },
 })
 
+-- Keymaps
 local keymap = vim.keymap
 
-keymap.set('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>')
-keymap.set('n', '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>')
-keymap.set('n', 'tn', ':tabnew<Return>')
-keymap.set('n', 'tx', ':tabclose<Return>')
+-- Switch between tabs
+keymap.set('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>') -- Left
+keymap.set('n', '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>') -- Right
+
+-- Create and Remove tabs
+keymap.set('n', 'tn', ':tabnew<Return>') -- Create
+keymap.set('n', 'tx', ':tabclose<Return>') -- Remove

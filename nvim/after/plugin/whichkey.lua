@@ -6,4 +6,5 @@ if (not status) then return end
 vim.o.timeout = true
 vim.o.timeoutlen = 500
 
+-- Configure WhichKey
 which.register({})

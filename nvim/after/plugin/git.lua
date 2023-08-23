@@ -5,8 +5,10 @@ if (not status_for_git or not status_for_signs) then return end
 -- https://github.com/dinhhuy258/git.nvim
 -- https://github.com/lewis6991/gitsigns.nvim
 
+-- Configure Git
 git.setup({ })
 
+-- Configure GitSigns
 gitsigns.setup({
   signs = {
     add          = { text = '+' },

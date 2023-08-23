@@ -1,6 +1,8 @@
 local status, nvimtree = pcall(require, "nvim-tree")
 if (not status) then return end
 
+-- https://github.com/nvim-tree/nvim-tree.lua
+
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
@@ -13,7 +15,6 @@ local function nvim_on_attach(bufnr)
     return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
   end
 
-  -- api.config.mappings.default_on_attach(bufnr)
   vim.keymap.set("n", "K", api.node.show_info_popup, get_opts("Hover Info"))
   vim.keymap.set("n", "<CR>", api.node.open.edit, get_opts("Open the file Vertically"))
   vim.keymap.set("n", "<C-s>", api.node.open.horizontal, get_opts("Open the file Vertically"))
@@ -60,5 +61,8 @@ nvimtree.setup({
   on_attach = nvim_on_attach
 })
 
-vim.keymap.set("n", "<leader>nt", "<cmd>NvimTreeToggle<CR>", {desc = "Open Nvim"})
-vim.keymap.set("n", "<leader>nf", "<cmd>NvimTreeFocus<CR>", {desc = "Focus Nvim"})
+-- Keymaps
+local keymap = vim.keymap
+
+keymap.set("n", "<leader>nt", "<cmd>NvimTreeToggle<CR>", {desc = "Open Nvim"})
+keymap.set("n", "<leader>nf", "<cmd>NvimTreeFocus<CR>", {desc = "Focus Nvim"})
