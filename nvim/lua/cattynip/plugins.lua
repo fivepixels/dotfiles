@@ -47,6 +47,7 @@ lazy.setup({
   "lukas-reineke/indent-blankline.nvim",
   "norcalli/nvim-colorizer.lua",
   "tjdevries/colorbuddy.nvim",
+  "nvimdev/lspsaga.nvim",
 
   -- Commenting
   "numToStr/Comment.nvim",

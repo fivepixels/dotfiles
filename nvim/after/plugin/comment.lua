@@ -4,7 +4,7 @@ if (not status) then return end
 -- https://github.com/numToStr/Comment.nvim
 
 -- Configure Comment
-comment.setup {
+comment.setup({
   pre_hook = function(ctx)
     if vim.bo.filetype == 'typescriptreact' then
       local U = require('Comment.utils')
@@ -23,4 +23,4 @@ comment.setup {
       })
     end
   end,
-}
+})

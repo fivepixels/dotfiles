@@ -25,6 +25,8 @@ ts.setup {
     "javascript",
     "typescript",
     "tsx",
+    "markdown",
+    "markdown_inline"
  },
   autotag = {
     enable = true,
