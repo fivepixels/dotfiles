@@ -51,6 +51,7 @@ lazy.setup({
 
   -- Commenting
   "numToStr/Comment.nvim",
+  "JoosepAlviste/nvim-ts-context-commentstring",
 
   -- Automatic Pairation
   "windwp/nvim-autopairs",
