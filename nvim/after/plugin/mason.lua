@@ -10,9 +10,16 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protoc
 local servers = {
   gopls = {},
   pyright = {},
-  tsserver = {},
-  html = { filetypes = { 'html', 'twig', 'hbs'} },
-  cssls = {},
+  tsserver = {
+    filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+    cmd = { "typescript-language-server", "--stdio" }
+  },
+  html = { filetypes = { 'html', 'twig', 'hbs' } },
+  cssls = {
+    less = {
+      validate = true
+    }
+  },
   cssmodules_ls = {},
   diagnosticsls = {},
   dotls = {},
@@ -20,15 +27,29 @@ local servers = {
   graphql = {},
   jsonls = {},
   sqlls = {},
-  tailwindcss = {},
+  tailwindcss = {
+    filetypes = {
+      "astro",
+      "astro-markdown",
+      "html",
+      "markdown",
+      "css",
+      "less",
+      "postcss",
+      "sass",
+      "scss",
+      "rescript",
+      "typescript",
+      "typescriptreact"
+    }
+  },
   vimls = {},
-
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
       telemetry = { enable = true },
       diagnostics = {
-        globals = {'vim'},
+        globals = { 'vim' },
       },
     },
   },
@@ -54,6 +75,19 @@ local ensure_installed_servers = {
   "vimls",
 }
 
+-- The function that allows you to format the file automatically when you save a file.
+local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
+local enable_format_on_save = function(_, bufnr)
+  vim.api.nvim_clear_autocmds({ group = augroup_format, buffer = bufnr })
+  vim.api.nvim_create_autocmd("BufWritePre", {
+    group = augroup_format,
+    buffer = bufnr,
+    callback = function()
+      vim.lsp.buf.format({ bufnr = bufnr })
+    end,
+  })
+end
+
 -- The function that set the keymaps for us automatically
 local on_attach = function(_, bufnr)
   local nmap = function(keys, func, desc)
@@ -67,6 +101,8 @@ local on_attach = function(_, bufnr)
   nmap('<leader>gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
   nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
   nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+
+  enable_format_on_save(_, bufnr);
 
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     vim.lsp.buf.format()
@@ -88,7 +124,7 @@ mason.setup({
 -- Mason Lspconfig Configuration
 mason_lspconfig.setup {
   ensure_installed = ensure_installed_servers,
-  automatic_installation = true,
+  automatic_installation = false,
   diagnostics = { globals = { 'vim' } }
 }
 
@@ -103,3 +139,10 @@ mason_lspconfig.setup_handlers {
     }
   end
 }
+
+vim.cmd [[
+  augroup FormatAutogroup
+  autocmd!
+  autocmd BufWritePost * FormatWrite
+  augroup END
+]]

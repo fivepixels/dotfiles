@@ -86,8 +86,6 @@ keymap.set('n', '<leader>lh', '<Cmd>Lspsaga hover_doc<CR>', opts) -- Hover Docum
 keymap.set('n', '<leader>lo', '<Cmd>Lspsaga outline<CR>', opts) -- Outline
 keymap.set('n', '<leader>lr', '<Cmd>Lspsaga rename<CR>', opts) -- Rename
 vim.keymap.set({ "n", "v" }, "<leader>lc", "<cmd>Lspsaga code_action<CR>") -- Code Action
-keymap.set('n', '<leader>lr', '<Cmd>Lspsaga rename<CR>', opts) -- Rename
-
 keymap.set('i', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
 
 -- Move to Next/Prev Diagnostic
