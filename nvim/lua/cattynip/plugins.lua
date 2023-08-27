@@ -9,12 +9,12 @@ lazy.setup({
   "neovim/nvim-lspconfig",
 
   -- Mason Families
-  "williamboman/mason.nvim", -- Managers for LSP servers, DAP servers, Linters and Fomatters
+  "williamboman/mason.nvim",           -- Managers for LSP servers, DAP servers, Linters and Fomatters
   "williamboman/mason-lspconfig.nvim", -- LSP Servers
-  "mfussenegger/nvim-dap", -- DAP Servers
-  "rcarriga/nvim-dap-ui", -- UI for DAP
-  "mfussenegger/nvim-lint", -- Linter
-  "mhartington/formatter.nvim", -- Formatter
+  "mfussenegger/nvim-dap",             -- DAP Servers
+  "rcarriga/nvim-dap-ui",              -- UI for DAP
+  "mfussenegger/nvim-lint",            -- Linter
+  "mhartington/formatter.nvim",        -- Formatter
 
   -- Autocompletions
   "hrsh7th/nvim-cmp",
@@ -33,7 +33,7 @@ lazy.setup({
 
   -- Telescope Extensions
   "nvim-telescope/telescope-file-browser.nvim", -- File Browser
-  "barrett-ruth/telescope-http.nvim", -- Https Status Codes Dictionary
+  "barrett-ruth/telescope-http.nvim",           -- Https Status Codes Dictionary
 
   -- Mapping Suggestion
   "folke/which-key.nvim",
@@ -48,6 +48,11 @@ lazy.setup({
   "norcalli/nvim-colorizer.lua",
   "tjdevries/colorbuddy.nvim",
   "nvimdev/lspsaga.nvim",
+  {
+    "j-hui/fidget.nvim",
+    tag = "legacy",
+    event = "LspAttach",
+  },
 
   -- Commenting
   "numToStr/Comment.nvim",

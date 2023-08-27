@@ -44,7 +44,7 @@ lspsaga.setup({
       tabe = 't',
       tabnew = 't',
       close = '<C-c>',
-      quit = '<C-q>',
+      quit = 'q',
       shuttle = 'r',
     }
   },
@@ -69,7 +69,7 @@ lspsaga.setup({
     in_select = false,
     auto_save = true,
     keys = {
-      quit = '<C-q>',
+      quit = 'q',
       select = 's',
     },
   },
@@ -78,20 +78,29 @@ lspsaga.setup({
 -- Maps
 local diagnostic = require("lspsaga.diagnostic")
 local keymap = vim.keymap
-local opts = { noremap = true, silent = true }
 
-keymap.set('n', '<leader>lf', '<Cmd>Lspsaga finder<CR>', opts) -- Finder
-keymap.set('n', '<leader>lp', '<Cmd>Lspsaga peek_definition<CR>', opts) -- Peek Definition
-keymap.set('n', '<leader>lh', '<Cmd>Lspsaga hover_doc<CR>', opts) -- Hover Documentation
-keymap.set('n', '<leader>lo', '<Cmd>Lspsaga outline<CR>', opts) -- Outline
-keymap.set('n', '<leader>lr', '<Cmd>Lspsaga rename<CR>', opts) -- Rename
-vim.keymap.set({ "n", "v" }, "<leader>lc", "<cmd>Lspsaga code_action<CR>") -- Code Action
-keymap.set('i', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+local nmap = function(keys, func, desc)
+  if desc then
+    desc = 'Lspsaga: ' .. desc
+  end
+
+  vim.keymap.set('n', keys, func, { noremap = true, silent = true, desc = desc })
+end
+
+nmap('<leader>lf', '<Cmd>Lspsaga finder<CR>', "[L]spsaga [F]inder")                                      -- Finder
+nmap('<leader>lp', '<Cmd>Lspsaga peek_definition<CR>', "[L]spsaga [P]eek definition")                    -- Peek Definition
+nmap('<leader>lg', '<Cmd>Lspsaga goto_definition<CR>', "[L]spsaga [G]oto definition")                    -- Goto Definition
+nmap('<leader>lh', '<Cmd>Lspsaga hover_doc<CR>', "[L]spsaga [H]over Documentation")                      -- Hover Documentation
+nmap('<leader>lo', '<Cmd>Lspsaga outline<CR>', "[L]spsaga [O]utline")                                    -- Outline
+nmap('<leader>lr', '<Cmd>Lspsaga rename<CR>', "[L]spsaga [R]ename")                                      -- Rename
+keymap.set('i', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', { noremap = true, silent = true }) -- Signature Help
+vim.keymap.set({ "n", "v" }, "<leader>lc", "<cmd>Lspsaga code_action<CR>",
+  { noremap = true, silent = true, desc = "Lspsaga: [L]spsaga [C]ode Action" })                          -- Code Action
 
 -- Move to Next/Prev Diagnostic
 keymap.set('n', '<C-n>', function()
   diagnostic:goto_prev({ severity = vim.diagnostic.severity.ERROR })
 end, opts) -- Next
-keymap.set('n', '<C-p>', function ()
+keymap.set('n', '<C-p>', function()
   diagnostic:goto_next({ severity = vim.diagnostic.severity.ERROR })
 end, opts) --  Prev

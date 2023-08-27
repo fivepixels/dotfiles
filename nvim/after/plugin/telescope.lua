@@ -12,17 +12,17 @@ telescope.load_extension("file_browser")
 telescope.load_extension("http")
 
 local fb_actions = require 'telescope'.extensions.file_browser.actions
-local function show_http_list ()
+local function show_http_list()
   require 'telescope'.extensions.http.list()
 end
 
 -- Configure Telescope
 telescope.setup({
   defaults = {
-    winblen = 80,
+    winblen = 60,
     wrape_results = true,
     prompt_prefix = " ➜ ",
-    selection_caret = " ➜ ",
+    selection_caret = "➜ ",
     path_display = {
       "smart"
     },
@@ -43,19 +43,20 @@ telescope.setup({
         ["/"] = function()
           vim.cmd('startinsert')
         end,
+      },
     },
-  },
-  extensions = {
-    file_browser = {
-      theme = "ivy",
-      hijack_netrw = true,
+    extensions = {
+      file_browser = {
+        theme = "ivy",
+        hijack_netrw = true,
+      },
+      http = {
+        open_url = 'open %s'
+      },
+      emoji = {},
     },
-    http = {
-      open_url = 'open %s'
-    },
-    emoji = {},
-  },
-}})
+  }
+})
 
 -- Set the keymaps
 local function telescope_buffer_dir()
@@ -70,10 +71,8 @@ local nmap = function(keys, func, desc)
   vim.keymap.set('n', keys, func, { desc = desc })
 end
 
-local keymap = vim.keymap
-
 nmap(
-  "<leader>ff",
+  "ff",
   function()
     telescope.extensions.file_browser.file_browser({
       path = "%:p:h",
@@ -90,38 +89,71 @@ nmap(
 )
 
 nmap(
-  "<leader>fd",
-  function ()
+  "fd",
+  function()
     builtin.diagnostics()
   end,
   "[F]ind [D]iagnostics"
 )
 
 nmap(
-  "<leader>fw",
-  function ()
+  "fb",
+  function()
+    builtin.buffers()
+  end,
+  "[F]ind [B]uffers"
+)
+
+nmap(
+  "fw",
+  function()
     builtin.current_buffer_fuzzy_find({})
   end,
   "[F]ind [W]ord"
 )
 
+-- Man
+nmap(
+  "fm",
+  function()
+    builtin.man_pages()
+  end,
+  "[F]ind [M]anual pages"
+)
+
+nmap(
+  "ft",
+  function()
+    builtin.help_tags()
+  end,
+  "[F]ind [T]ags"
+)
+
 -- Git
 nmap(
-  "<leader>gm",
-  function ()
+  "fgc",
+  function()
     builtin.git_bcommits({
       git_command = { "git", "log", "--pretty=oneline", "--abbrev-commit", "--", "." }
     })
   end,
-  "Find [G]it [M]essage"
+  "[F]ind [G]it [C]ommits including all commits"
 )
 
 nmap(
-  '<leader>gs',
+  "fgb",
+  function()
+    builtin.get_branches()
+  end,
+  "[F]ind [G]it [B]ranches"
+)
+
+nmap(
+  'fgs',
   function()
     builtin.git_status({})
   end,
-  "Find [G]it [S]tatus"
+  "[F]ind [G]it [S]tatus"
 )
 
 vim.keymap.set("n", "<leader>ht", show_http_list)
