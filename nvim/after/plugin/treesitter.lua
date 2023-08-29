@@ -26,8 +26,9 @@ ts.setup {
     "typescript",
     "tsx",
     "markdown",
-    "markdown_inline"
- },
+    "markdown_inline",
+    "dart"
+  },
   autotag = {
     enable = true,
   },

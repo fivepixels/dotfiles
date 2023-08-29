@@ -116,6 +116,8 @@ local on_attach = function(_, bufnr)
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, '[W]orkspace [L]ist Folders')
 
+  enable_format_on_save()
+
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
@@ -148,9 +150,55 @@ mason_lspconfig.setup_handlers {
       settings = servers[server_name],
       filetypes = (servers[server_name] or {}).filetypes,
     }
-  end
+  end,
 }
 
+-- -- Dart Setting
+require("lspconfig").dartls.setup({})
+
+-- local status, flutter = pcall(require, "flutter-tools")
+-- if (not status) then return end
+--
+-- -- Configure Flutter
+-- flutter.setup({
+--   ui = {
+--     notification_style = "rounded"
+--   },
+--   decorations = {
+--     statusline = {
+--       app_version = true,
+--       device = true,
+--       project_config = false,
+--     },
+--   },
+--   debugger = {
+--     enabled = false,
+--   },
+--   widget_guides = {
+--     enabled = true,
+--   },
+--   dev_tools = {
+--     auto_open_browser = true,
+--   },
+--   outline = {
+--     auto_open = true
+--   },
+--   lsp = {
+--     color = {
+--       enabled = true,
+--       background = true,
+--       background_color = { r = 184, g = 79, b = 78 }
+--     },
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+--   },
+--   -- flutter_path = "/opt/homebrew/Cellar/dart/bin/dart"
+-- })
+
+--         "/opt/homebrew/opt/dart/libexec"
+-- /opt/homebrew/Cellar/dart/bin/dart
+
+-- Format setting
 vim.cmd [[
   augroup FormatAutogroup
   autocmd!

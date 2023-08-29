@@ -134,7 +134,7 @@ nmap(
   "fgc",
   function()
     builtin.git_bcommits({
-      git_command = { "git", "log", "--pretty=oneline", "--abbrev-commit", "--", "." }
+      git_command = { "git", "log", "--pretty=oneline", "--", "." }
     })
   end,
   "[F]ind [G]it [C]ommits including all commits"
