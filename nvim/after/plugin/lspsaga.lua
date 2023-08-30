@@ -53,7 +53,7 @@ lspsaga.setup({
     open_cmd = '!chrome',
   },
   lightbulb = {
-    enable = true,
+    enable = false,
   },
   outline = {
     win_position = "left",

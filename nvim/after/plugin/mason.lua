@@ -153,50 +153,25 @@ mason_lspconfig.setup_handlers {
   end,
 }
 
--- -- Dart Setting
-require("lspconfig").dartls.setup({})
 
--- local status, flutter = pcall(require, "flutter-tools")
--- if (not status) then return end
---
--- -- Configure Flutter
--- flutter.setup({
---   ui = {
---     notification_style = "rounded"
---   },
---   decorations = {
---     statusline = {
---       app_version = true,
---       device = true,
---       project_config = false,
---     },
---   },
---   debugger = {
---     enabled = false,
---   },
---   widget_guides = {
---     enabled = true,
---   },
---   dev_tools = {
---     auto_open_browser = true,
---   },
---   outline = {
---     auto_open = true
---   },
---   lsp = {
---     color = {
---       enabled = true,
---       background = true,
---       background_color = { r = 184, g = 79, b = 78 }
---     },
---     on_attach = on_attach,
---     capabilities = capabilities,
---   },
---   -- flutter_path = "/opt/homebrew/Cellar/dart/bin/dart"
--- })
-
---         "/opt/homebrew/opt/dart/libexec"
--- /opt/homebrew/Cellar/dart/bin/dart
+-- Dart Setting
+require 'lspconfig'.dartls.setup {
+  cmd = { "dart", "language-server", "--protocol=lsp" },
+  filetypes = { "dart" },
+  init_options = {
+    closingLabels = true,
+    flutterOutline = true,
+    onlyAnalyzeProjectsWithOpenFiles = true,
+    outline = true,
+    suggestFromUnimportedLibraries = true
+  },
+  settings = {
+    dart = {
+      completeFunctionCalls = true,
+      showTodos = true
+    }
+  },
+}
 
 -- Format setting
 vim.cmd [[
