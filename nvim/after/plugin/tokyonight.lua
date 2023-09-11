@@ -5,8 +5,8 @@ if (not status) then return end
 
 -- Configure Tokyonight Theme
 tokyonight.setup({
-  style = "night"
+  style = "night",
 })
 
 -- Apply the theme
-vim.cmd[[colorscheme tokyonight]]
+vim.cmd [[colorscheme tokyonight]]
