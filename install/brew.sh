@@ -7,7 +7,7 @@ touch ~/.zshrc
 brew install --cask iterm2 github sourcetree 
 brew install --cask google-chrome firefox opera min
 brew install --cask discord grammarly grammarly-desktop
-brew install --cask microsoft-teams microsoft-word microsoft-outlook onedrive
+brew install --cask microsoft-teams microsoft-word microsoft-outlook microsoft-onenote onedrive
 brew install --cask canva alt-tab rectangle
 brew install --cask craft whatsapp miro
 
