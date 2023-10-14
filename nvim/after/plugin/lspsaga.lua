@@ -88,7 +88,7 @@ local nmap = function(keys, func, desc)
 end
 
 nmap('<leader>lf', '<Cmd>Lspsaga finder<CR>', "[L]spsaga [F]inder")                                      -- Finder
-nmap('<leader>lp', '<Cmd>Lspsaga peek_definition<CR>', "[L]spsaga [P]eek definition")                    -- Peek Definition
+nmap('<leader>lp', '<Cmd>Lspsaga peek_type_definition<CR>', "[L]spsaga [P]eek definition")               -- Peek Definition
 nmap('<leader>lg', '<Cmd>Lspsaga goto_definition<CR>', "[L]spsaga [G]oto definition")                    -- Goto Definition
 nmap('<leader>lh', '<Cmd>Lspsaga hover_doc<CR>', "[L]spsaga [H]over Documentation")                      -- Hover Documentation
 nmap('<leader>lo', '<Cmd>Lspsaga outline<CR>', "[L]spsaga [O]utline")                                    -- Outline
@@ -100,7 +100,7 @@ vim.keymap.set({ "n", "v" }, "<leader>lc", "<cmd>Lspsaga code_action<CR>",
 -- Move to Next/Prev Diagnostic
 keymap.set('n', '<C-n>', function()
   diagnostic:goto_prev({ severity = vim.diagnostic.severity.ERROR })
-end, opts) -- Next
+end) -- Next
 keymap.set('n', '<C-p>', function()
   diagnostic:goto_next({ severity = vim.diagnostic.severity.ERROR })
-end, opts) --  Prev
+end) --  Prev

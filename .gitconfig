@@ -39,10 +39,10 @@
   protocol = ssh
 [github]
 	user = cattynip
-	email = cattynip@gmail.com
+	email = hi@cattynip.dev
 [user]
   user = cattynip
-	email = cattynip@gmail.com
+	email = hi@cattynip.dev
 [diff]
   tool = nvimdiff
 [difftool "nvimdiff"]
@@ -57,4 +57,4 @@
 	required = true
 	process = git-lfs filter-process
 [ghq]
-  root = ~/.ghq
+  root = ~/Documents/projects

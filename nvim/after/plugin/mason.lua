@@ -96,10 +96,6 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
 
-  nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-  nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-  nmap('<leader>gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
-  nmap('<leader>gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
   nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
   nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
@@ -153,7 +149,20 @@ mason_lspconfig.setup_handlers {
   end,
 }
 
--- Format setting
+require("lspconfig")["dartls"].setup({
+  on_attach = on_attach,
+  settings = {
+    dart = {
+      analysisExcludedFolders = {
+        vim.fn.expand("$HOME/AppData/Local/Pub/Cache"),
+        vim.fn.expand("$HOME/.pub-cache"),
+        vim.fn.expand("/opt/homebrew/"),
+        vim.fn.expand("$HOME/tools/flutter/"),
+      }
+    }
+  }
+})
+
 vim.cmd [[
   augroup FormatAutogroup
   autocmd!

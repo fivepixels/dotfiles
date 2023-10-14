@@ -53,8 +53,14 @@ cmp.setup({
     })
   },
   window = {
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
+    completion = {
+      border = "rounded",
+      winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:PmenuSel",
+    },
+    documentation = {
+      border = "rounded",
+      winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:PmenuSel",
+    },
   }
 })
 

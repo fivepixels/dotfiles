@@ -89,7 +89,7 @@ nmap(
 )
 
 nmap(
-  "fd",
+  "<leader>fd",
   function()
     builtin.diagnostics()
   end,
@@ -97,7 +97,7 @@ nmap(
 )
 
 nmap(
-  "fb",
+  "<leader>fb",
   function()
     builtin.buffers()
   end,
@@ -105,7 +105,7 @@ nmap(
 )
 
 nmap(
-  "fw",
+  "<leader>fw",
   function()
     builtin.current_buffer_fuzzy_find({})
   end,
@@ -114,7 +114,7 @@ nmap(
 
 -- Man
 nmap(
-  "fm",
+  "<leader>fm",
   function()
     builtin.man_pages()
   end,
@@ -122,7 +122,7 @@ nmap(
 )
 
 nmap(
-  "ft",
+  "<leader>ft",
   function()
     builtin.help_tags()
   end,
@@ -131,7 +131,7 @@ nmap(
 
 -- Git
 nmap(
-  "fgc",
+  "<leader>gc",
   function()
     builtin.git_bcommits({
       git_command = { "git", "log", "--pretty=oneline", "--", "." }
@@ -141,7 +141,7 @@ nmap(
 )
 
 nmap(
-  "fgb",
+  "<leader>gb",
   function()
     builtin.get_branches()
   end,
@@ -149,7 +149,7 @@ nmap(
 )
 
 nmap(
-  'fgs',
+  '<leader>gs',
   function()
     builtin.git_status({})
   end,

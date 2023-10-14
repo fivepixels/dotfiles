@@ -11,7 +11,7 @@ local api = require "nvim-tree.api"
 
 -- Keymap Settings
 local function nvim_on_attach(bufnr)
-  local function get_opts (desc)
+  local function get_opts(desc)
     return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
   end
 
@@ -64,5 +64,5 @@ nvimtree.setup({
 -- Keymaps
 local keymap = vim.keymap
 
-keymap.set("n", "<leader>nt", "<cmd>NvimTreeToggle<CR>", {desc = "Open Nvim"})
-keymap.set("n", "<leader>nf", "<cmd>NvimTreeFocus<CR>", {desc = "Focus Nvim"})
+keymap.set("n", "<leader>nt", "<cmd>NvimTreeToggle<CR>", { desc = "Open Nvim" })
+keymap.set("n", "<leader>nf", "<cmd>NvimTreeFocus<CR>", { desc = "Focus Nvim" })

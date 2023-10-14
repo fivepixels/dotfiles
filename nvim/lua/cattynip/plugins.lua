@@ -5,10 +5,8 @@ if (not status) then return end
 
 -- Configure Lazy
 lazy.setup({
-  -- LSP Configuration
+  -- LSP
   "neovim/nvim-lspconfig",
-
-  -- Mason Families
   "williamboman/mason.nvim",           -- Managers for LSP servers, DAP servers, Linters and Fomatters
   "williamboman/mason-lspconfig.nvim", -- LSP Servers
   "mfussenegger/nvim-dap",             -- DAP Servers
@@ -39,7 +37,7 @@ lazy.setup({
   "folke/which-key.nvim",
 
   -- Style Managements
-  "folke/tokyonight.nvim",
+  "navarasu/onedark.nvim",
   "nvim-lualine/lualine.nvim",
   "nvim-tree/nvim-web-devicons",
   "nvim-treesitter/nvim-treesitter",
@@ -66,4 +64,13 @@ lazy.setup({
   "dinhhuy258/git.nvim",
   "lewis6991/gitsigns.nvim",
   "sindrets/diffview.nvim",
+
+  -- Flutter
+  'akinsho/flutter-tools.nvim',
+  lazy = false,
+  dependencies = {
+    'nvim-lua/plenary.nvim',
+    'stevearc/dressing.nvim', -- optional for vim.ui.select
+  },
+  config = true,
 })

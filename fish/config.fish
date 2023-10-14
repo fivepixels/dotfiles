@@ -11,18 +11,11 @@ set -g theme_hide_hostname no
 set -g theme_hostname always
 
 # Aliases
-alias start-coding "brew update && brew upgrade"
-alias list "exa -a -h -l -s type --git --header --icons --no-permissions --no-user --no-filesize --no-time"
+alias asdf "brew update && brew upgrade"
+alias list "eza -a  -l -s type --git --header --icons --no-user --no-filesize --no-time"
 alias remove "rm -rf ~/.local/share/nvim/swap && rm ~/.local/state/nvim/lsp.log"
 alias g git
-alias gitignore-fix "git rm -rf --cached . && git add"
-alias vim nvim
-
-# Tmux
-alias tl "tmux ls"
-alias tn "tmux new -s"
-alias ta "tmux a -t"
-alias tk "tmux kill-session -t"
+alias v nvim
 
 set -gx EDITOR nvim
 set -gx PATH bin $PATH

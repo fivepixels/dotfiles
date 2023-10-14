@@ -2,7 +2,6 @@ sudo softwareupdate --install-rosetta --agree-to-license
 
 brew tap dart-lang/dart
 brew install dart
-brew install --cask flutter
 
 cd ~/development
 unzip ~/Downloads/flutter_macos_arm64_3.13.1-stable.zip

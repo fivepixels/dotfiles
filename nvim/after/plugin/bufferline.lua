@@ -24,35 +24,15 @@ bufferline.setup({
       enabled = true,
     },
   },
-  highlights = {
-    separator = {
-      fg = '#073642',
-      bg = '#002b36',
-    },
-    separator_selected = {
-      fg = '#073642',
-    },
-    background = {
-      fg = '#657b83',
-      bg = '#002b36'
-    },
-    buffer_selected = {
-      fg = '#fdf6e3',
-      bold = true,
-    },
-    fill = {
-      bg = '#073642'
-    }
-  },
 })
 
 -- Keymaps
 local keymap = vim.keymap
 
 -- Switch between tabs
-keymap.set('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>') -- Left
+keymap.set('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>')   -- Left
 keymap.set('n', '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>') -- Right
 
 -- Create and Remove tabs
-keymap.set('n', 'tn', ':tabnew<Return>') -- Create
+keymap.set('n', 'tn', ':tabnew<Return>')   -- Create
 keymap.set('n', 'tx', ':tabclose<Return>') -- Remove
