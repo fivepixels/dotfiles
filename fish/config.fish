@@ -2,6 +2,8 @@ set fish_greeting """
 Welcome to Fish shell, Cattynip. Enjoy your commands and codes.
 """
 
+export PATH="$PATH:`pwd`/flutter/bin"
+
 # Theme
 set -gx TERM xterm-256color
 set -g theme_color_scheme terminal-dark
@@ -16,6 +18,7 @@ alias list "eza -a  -l -s type --git --header --icons --no-user --no-filesize --
 alias remove "rm -rf ~/.local/share/nvim/swap && rm ~/.local/state/nvim/lsp.log"
 alias g git
 alias v nvim
+alias c clear
 
 set -gx EDITOR nvim
 set -gx PATH bin $PATH
