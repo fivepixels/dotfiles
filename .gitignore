@@ -72,11 +72,11 @@ Pods/
 .config/karabiner/automatic_backups
 
 # Etc
-/envman/*
-/planetscale/*
-/yarn/*
-/iterm2/*
-/fish/functions/*
-/fish/completions/*
-/fish/conf.d/*
-/fish/fish_variables
+envman/*
+planetscale/*
+yarn/*
+iterm2/*
+fish/functions/*
+fish/completions/*
+fish/conf.d/*
+fish/fish_variables

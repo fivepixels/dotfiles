@@ -156,4 +156,4 @@ nmap(
   "[F]ind [G]it [S]tatus"
 )
 
-vim.keymap.set("n", "<leader>ht", show_http_list)
+vim.keymap.set("n", "<leader>fh", show_http_list)

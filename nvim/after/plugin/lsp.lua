@@ -1,10 +1,12 @@
 local status_for_mason, mason = pcall(require, "mason")
 local status_for_mason_lspconfig, mason_lspconfig = pcall(require, 'mason-lspconfig')
-if (not status_for_mason or not status_for_mason_lspconfig) then return end
+local status_for_flutter, flutter = pcall(require, "flutter-tools");
+if (not status_for_mason or not status_for_mason_lspconfig or not status_for_flutter) then return end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- https://github.com/williamboman/mason.nvim#installation
+-- https://github.com/akinsho/flutter-tools.nvim
 
 -- The servers that are running on NVIM
 local servers = {
@@ -149,19 +151,70 @@ mason_lspconfig.setup_handlers {
   end,
 }
 
-require("lspconfig")["dartls"].setup({
-  on_attach = on_attach,
-  settings = {
-    dart = {
-      analysisExcludedFolders = {
-        vim.fn.expand("$HOME/AppData/Local/Pub/Cache"),
-        vim.fn.expand("$HOME/.pub-cache"),
-        vim.fn.expand("/opt/homebrew/"),
-        vim.fn.expand("$HOME/tools/flutter/"),
-      }
+flutter.setup {
+  ui = {
+    border = "rounded",
+    notification_style = 'native'
+  },
+  decorations = {
+    statusline = {
+      app_version = true,
+      device = true,
+      project_config = true,
+    }
+  },
+  debugger = {
+    enabled = false,
+    run_via_dap = false,
+    exception_breakpoints = {},
+  },
+  -- flutter_path = "~/development/flutter",
+  -- flutter_lookup_cmd = "/opt/homebrew/bin",
+  root_patterns = { "README.md", ".git", "pubspec.yaml" },
+  fvm = false,
+  widget_guides = {
+    enabled = true,
+  },
+  closing_tags = {
+    highlight = "ErrorMsg",
+    prefix = '●',
+    enabled = true
+  },
+  dev_log = {
+    enabled = true,
+    notify_errors = true,
+    open_cmd = "tabedit",
+  },
+  dev_tools = {
+    autostart = true,
+    auto_open_browser = true,
+  },
+  outline = {
+    open_cmd = "30vnew",
+    auto_open = true,
+  },
+  lsp = {
+    color = {
+      enabled = true,
+      background = true,
+      background_color = { r = 33, g = 38, b = 55 },
+      foreground = false,
+      virtual_text = true,
+      virtual_text_str = "■",
+    },
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+      enableSdkFormatter = true,
+      showTodos = true,
+      renameFilesWithClasses = "always",
+      enableSnippets = true,
+      updateImportsOnRename = true,
+      documentation = "summary",
+      includeDependenciesInWorkspaceSymbols = true,
     }
   }
-})
+}
 
 vim.cmd [[
   augroup FormatAutogroup

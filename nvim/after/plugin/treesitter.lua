@@ -12,7 +12,6 @@ treesitter.setup {
     enable = true,
   },
   ensure_installed = {
-    "bash",
     "fish",
     "lua",
     "json",
