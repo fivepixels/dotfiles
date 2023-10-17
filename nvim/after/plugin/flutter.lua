@@ -1,68 +1,12 @@
--- local status, flutter = pcall("flutter-tools");
--- if (not status) then return end
---
--- -- https://github.com/akinsho/flutter-tools.nvim
---
--- -- alternatively you can override the default configs
--- flutter.setup {
---   ui = {
---     border = "rounded",
---     notification_style = 'native'
---   },
---   decorations = {
---     statusline = {
---       app_version = true,
---       device = true,
---       project_config = true,
---     }
---   },
---   debugger = {
---     enabled = false,
---     run_via_dap = false,
---     exception_breakpoints = {},
---   },
---   flutter_path = "~/development/flutter",
---   flutter_lookup_cmd = "/opt/homebrew/bin",
---   root_patterns = { "README.md", ".git", "pubspec.yaml" },
---   fvm = false,
---   widget_guides = {
---     enabled = true,
---   },
---   closing_tags = {
---     highlight = "ErrorMsg",
---     prefix = '●',
---     enabled = true
---   },
---   dev_log = {
---     enabled = true,
---     notify_errors = true,
---     open_cmd = "tabedit",
---   },
---   dev_tools = {
---     autostart = true,
---     auto_open_browser = true,
---   },
---   outline = {
---     open_cmd = "30vnew",
---     auto_open = true,
---   },
---   lsp = {
---     color = {
---       enabled = true,
---       background = true,
---       background_color = { r = 33, g = 38, b = 55 },
---       foreground = false,
---       virtual_text = true,
---       virtual_text_str = "■",
---     },
---     on_attach = my_custom_on_attach,
---     capabilities = my_custom_capabilities,
---     capabilities = function(config)
---       config.specificThingIDontWant = false
---       return config
---     end,
---     settings = {
---       enableSdkFormatter = true
---     }
---   }
--- }
+local keymap = vim.keymap;
+
+local nmap = function(keys, func, desc)
+  if desc then
+    desc = 'Flutter: ' .. desc
+  end
+
+  vim.keymap.set('n', keys, func, { desc = desc })
+end
+
+nmap('<leader>flr', ':FlutterRun<CR>', 'Run this project')
+nmap('<leader>rr', ':FlutterRestart<CR>', 'Restart this project')

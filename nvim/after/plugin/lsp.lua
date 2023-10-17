@@ -164,20 +164,17 @@ flutter.setup {
     }
   },
   debugger = {
-    enabled = false,
-    run_via_dap = false,
+    enabled = true,
+    run_via_dap = true,
     exception_breakpoints = {},
   },
-  -- flutter_path = "~/development/flutter",
-  -- flutter_lookup_cmd = "/opt/homebrew/bin",
   root_patterns = { "README.md", ".git", "pubspec.yaml" },
   fvm = false,
   widget_guides = {
     enabled = true,
   },
   closing_tags = {
-    highlight = "ErrorMsg",
-    prefix = '●',
+    prefix = '> ',
     enabled = true
   },
   dev_log = {
@@ -190,8 +187,8 @@ flutter.setup {
     auto_open_browser = true,
   },
   outline = {
-    open_cmd = "30vnew",
-    auto_open = true,
+    open_cmd = "10vnew",
+    auto_open = false,
   },
   lsp = {
     color = {
