@@ -13,12 +13,24 @@ set -g theme_hide_hostname no
 set -g theme_hostname always
 
 # Aliases
-alias asdf "brew update && brew upgrade"
-alias list "eza -a  -l -s type --git --header --icons --no-user --no-filesize --no-time"
+alias asdf "brew update && brew upgrade && flutter upgrade"
+alias l "eza -a  -l -s type --git --header --icons --no-user --no-filesize --no-time"
+alias t "find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 alias remove "rm -rf ~/.local/share/nvim/swap && rm ~/.local/state/nvim/lsp.log"
+alias to "touch"
+alias mk "mkdir"
+alias cdp "cd ../"
 alias g git
 alias v nvim
 alias c clear
+
+# Aliases for Flutter
+alias si "open -a Simulator"
+alias fr "flutter run lib/main.dart"
+alias fpa "flutter pub add"
+alias fpr "flutter pub remove"
+alias fpu "flutter pub upgrade"
+alias fpg "flutter pub get"
 
 set -gx EDITOR nvim
 set -gx PATH bin $PATH
