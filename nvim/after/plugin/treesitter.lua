@@ -13,6 +13,7 @@ treesitter.setup {
   },
   ensure_installed = {
     "fish",
+    "bash",
     "lua",
     "json",
     "toml",
@@ -24,7 +25,7 @@ treesitter.setup {
     "tsx",
     "markdown",
     "markdown_inline",
-    "dart"
+    "dart",
   },
   autotag = {
     enable = true,

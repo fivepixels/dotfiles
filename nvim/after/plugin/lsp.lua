@@ -174,7 +174,7 @@ flutter.setup {
     enabled = true,
   },
   closing_tags = {
-    prefix = '> ',
+    prefix = '// ',
     enabled = true
   },
   dev_log = {
@@ -213,10 +213,11 @@ flutter.setup {
   }
 }
 
-vim.cmd [[
-  augroup FormatAutogroup
-  autocmd!
-  autocmd BufWritePost * FormatWrite
-  augroup END
-]]
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+
+-- vim.cmd [[
+--   augroup FormatAutogroup
+--   autocmd!
+--   autocmd BufWritePost * FormatWrite
+--   augroup END
+-- ]]
+-- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]

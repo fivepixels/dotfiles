@@ -10,3 +10,4 @@ end
 
 nmap('<leader>flr', ':FlutterRun<CR>', 'Run this project')
 nmap('<leader>rr', ':FlutterRestart<CR>', 'Restart this project')
+

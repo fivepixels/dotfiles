@@ -9,8 +9,16 @@ diffview.setup({})
 -- Keymaps
 local keymap = vim.keymap
 
-keymap.set("n", "<leader>do", "<cmd>DiffviewOpen<CR>")
-keymap.set("n", "<leader>dc", "<cmd>DiffviewClose<CR>")
-keymap.set("n", "<leader>dr", "<cmd>DiffviewRefresh<CR>")
-keymap.set("n", "<leader>dh", "<cmd>DiffviewFileHistory<CR>")
-keymap.set("n", "<leader>dl", "<cmd>DiffviewLog<CR>")
+local nmap = function(keys, func, desc)
+  if desc then
+    desc = 'Diffview: ' .. desc
+  end
+
+  keymap.set('n', keys, func, { noremap = true, silent = true, desc = desc })
+end
+
+
+nmap('<leader>do', '<cmd>DiffviewOpen<CR>', '[D]iffview [O]pen')
+nmap('<leader>dc', '<cmd>DiffviewClose<CR>', '[D]iffview [C]lose')
+nmap('<leader>dr', '<cmd>DiffviewRefresh<CR>', '[D]iffview [R]efresh')
+nmap('<leader>do', '<cmd>DiffviewFileHistory<CR>', '[D]iffview File [H]istory')
