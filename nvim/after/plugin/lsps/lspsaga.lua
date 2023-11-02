@@ -55,14 +55,6 @@ lspsaga.setup({
   lightbulb = {
     enable = false,
   },
-  outline = {
-    win_position = "left",
-    keys = {
-      toggle_or_jump = '<CR>',
-      jump = '<C-j>',
-      quit = 'q',
-    }
-  },
   rename = {
     in_select = false,
     auto_save = true,
@@ -89,14 +81,13 @@ nmap('<leader>lf', '<Cmd>Lspsaga finder<CR>', "[L]spsaga [F]inder")             
 nmap('<leader>lp', '<Cmd>Lspsaga peek_type_definition<CR>', "[L]spsaga [P]eek definition") -- Peek Definition
 nmap('<leader>lg', '<Cmd>Lspsaga goto_definition<CR>', "[L]spsaga [G]oto definition")      -- Goto Definition
 nmap('<leader>lh', '<Cmd>Lspsaga hover_doc<CR>', "[L]spsaga [H]over Documentation")        -- Hover Documentation
-nmap('<leader>lo', '<Cmd>Lspsaga outline<CR>', "[L]spsaga [O]utline")                      -- Outline
 nmap('<leader>lr', '<Cmd>Lspsaga rename<CR>', "[L]spsaga [R]ename")                        -- Rename
-nmap('<C-n>', '<Cmd>Lspsaga diagnostic_jump_next<CR>', "[L]spsaga Jump [N]ext")            -- Rename
-nmap('<C-p>', '<Cmd>Lspsaga diagnostic_jump_prev<CR>', "[L]spsaga Jump [P]revious")        -- Rename
+nmap('<C-n>', '<Cmd>Lspsaga diagnostic_jump_next<CR>', "[L]spsaga Jump [N]ext")            -- Go to the next error
+nmap('<C-p>', '<Cmd>Lspsaga diagnostic_jump_prev<CR>', "[L]spsaga Jump [P]revious")        -- Go to the previous error
 keymap.set('i', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>',
   { noremap = true, silent = true, desc = "Lspsaga: [L]spsaga Signature Help" })           -- Signature Help
 keymap.set({ "n", "v" }, "<leader>lc", "<cmd>Lspsaga code_action<CR>",
-  { noremap = true, silent = true, desc = "Lspsaga: [L]spsaga [C]ode Action" })            -- Code Action
+  { noremap = true, silent = true, desc = "Lspsaga: [L]spsaga [C]ode Action" })            -- Code
 
 -- Move to Next/Prev Diagnostic
 keymap.set('n', '<C-n>', function()

@@ -1,1 +1,1 @@
-brew install --cask google-chrome firefox opera min arc
+brew install --cask google-chrome firefox opera min

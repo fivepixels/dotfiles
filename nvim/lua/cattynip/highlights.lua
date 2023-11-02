@@ -13,4 +13,3 @@ vim.cmd [[
   augroup END
   autocmd ColorScheme * highlight Visual cterm=reverse gui=reverse
 ]]
-

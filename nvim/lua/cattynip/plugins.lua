@@ -7,19 +7,17 @@ if (not status) then return end
 lazy.setup({
   -- LSP
   "neovim/nvim-lspconfig",
-  "williamboman/mason.nvim",           -- Managers for LSP servers, DAP servers, Linters and Fomatters
-  "williamboman/mason-lspconfig.nvim", -- LSP Servers
-  "mfussenegger/nvim-dap",             -- DAP Servers
-  "rcarriga/nvim-dap-ui",              -- UI for DAP
-  "mfussenegger/nvim-lint",            -- Linter
-  "mhartington/formatter.nvim",        -- Formatter
+  "nvimtools/none-ls.nvim",
+  "L3MON4D3/LuaSnip",
+  "mfussenegger/nvim-lint",
+  "mhartington/formatter.nvim",
+
+  "williamboman/mason.nvim",
+  "williamboman/mason-lspconfig.nvim",
 
   -- Autocompletions
   "hrsh7th/nvim-cmp",
-  "L3MON4D3/LuaSnip",
-  "saadparwaiz1/cmp_luasnip",
   "hrsh7th/cmp-nvim-lsp",
-  "rafamadriz/friendly-snippets",
   "onsails/lspkind.nvim",
 
   -- File Explorers
@@ -30,19 +28,19 @@ lazy.setup({
   "nvim-tree/nvim-tree.lua",
 
   -- Telescope Extensions
-  "nvim-telescope/telescope-file-browser.nvim", -- File Browser
-  "barrett-ruth/telescope-http.nvim",           -- Https Status Codes Dictionary
+  "nvim-telescope/telescope-file-browser.nvim",
+  "barrett-ruth/telescope-http.nvim",
 
   -- Mapping Suggestion
   "folke/which-key.nvim",
 
   -- Style Managements
-  "navarasu/onedark.nvim",
+  'svrana/neosolarized.nvim',
+  'tjdevries/colorbuddy.nvim',
   "nvim-lualine/lualine.nvim",
   "nvim-tree/nvim-web-devicons",
   "nvim-treesitter/nvim-treesitter",
   "akinsho/nvim-bufferline.lua",
-  "lukas-reineke/indent-blankline.nvim",
   "norcalli/nvim-colorizer.lua",
   "tjdevries/colorbuddy.nvim",
   "nvimdev/lspsaga.nvim",

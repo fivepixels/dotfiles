@@ -21,4 +21,4 @@ end
 nmap('<leader>do', '<cmd>DiffviewOpen<CR>', '[D]iffview [O]pen')
 nmap('<leader>dc', '<cmd>DiffviewClose<CR>', '[D]iffview [C]lose')
 nmap('<leader>dr', '<cmd>DiffviewRefresh<CR>', '[D]iffview [R]efresh')
-nmap('<leader>do', '<cmd>DiffviewFileHistory<CR>', '[D]iffview File [H]istory')
+nmap('<leader>dh', '<cmd>DiffviewFileHistory<CR>', '[D]iffview File [H]istory')

@@ -7,7 +7,6 @@ if (not status) then return end
 lspkind.init({
   mode = 'symbol',
   preset = 'codicons',
-  override = {},
   symbol_map = {
     Text = "󰉿",
     Method = "󰆧",

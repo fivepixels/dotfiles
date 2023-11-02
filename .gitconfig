@@ -20,6 +20,7 @@
   ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
   pl = "!git pull origin $(git rev-parse --abbrev-ref HEAD)"
   st = status
+  sa = stash
   br = branch
   ba = branch -a
   bm = branch --merged
@@ -31,30 +32,34 @@
   type = cat-file -t
   dump = cat-file -p
   find = "!f() { git log --pretty=format:\"%h %cd [%cn] %s%d\" --date=relative -S'pretty' -S\"$@\" | peco | awk '{print $1}' | xargs -I {} git diff {}^ {}; }; f"
-  # edit conflicted file on merge
   edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
-  # add conflicted file on merge
   add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
 [hub]
   protocol = ssh
 [github]
-	user = cattynip
-	email = hi@cattynip.dev
-[user]
   user = cattynip
-	email = hi@cattynip.dev
+  email = hi@cattynip.dev
+[user]
+  name = cattynip
+  email = hi@cattynip.dev
 [diff]
   tool = nvimdiff
-[difftool "nvimdiff"]
-	cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "nvimdiff"]
-	cmd = nvim -d \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	required = true
 	process = git-lfs filter-process
 [ghq]
-  root = ~/Documents/projects
+  root = ~/.ghq
+[difftool "nvimdiff"]
+  cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
+[mergetool "nvimdiff"]
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
+
