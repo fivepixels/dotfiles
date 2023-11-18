@@ -59,7 +59,7 @@ return {
 	{
 		"rcarriga/nvim-notify",
 		opts = {
-			timeout = 5000,
+			timeout = 1000,
 		},
 	},
 
@@ -94,19 +94,16 @@ return {
 		},
 	},
 
-	-- statusline
 	{
 		"nvim-lualine/lualine.nvim",
 		event = "VeryLazy",
 		opts = {
 			options = {
-				-- globalstatus = false,
 				theme = "solarized_dark",
 			},
 		},
 	},
 
-	-- filename
 	{
 		"b0o/incline.nvim",
 		dependencies = { "craftzdog/solarized-osaka.nvim" },
@@ -144,7 +141,7 @@ return {
 		opts = {
 			plugins = {
 				gitsigns = true,
-				tmux = true,
+				tmux = false,
 				kitty = { enabled = false, font = "+2" },
 			},
 		},

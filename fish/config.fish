@@ -17,8 +17,8 @@ alias asdf "brew update && brew upgrade && flutter upgrade"
 alias l "eza -a  -l -s type --git --header --icons --no-user --no-filesize --no-time"
 alias t "find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 alias remove "rm -rf ~/.local/share/nvim/swap && rm ~/.local/state/nvim/lsp.log"
-alias to "touch"
-alias mk "mkdir"
+alias to touch
+alias mk mkdir
 alias cdp "cd ../"
 alias g git
 alias v nvim
@@ -42,15 +42,15 @@ set -gx PATH $GOPATH/bin $PATH
 
 # NVM
 function __check_rvm --on-variable PWD --description 'Do nvm stuff'
-  status --is-command-substitution; and return
+    status --is-command-substitution; and return
 
-  if test -f .nvmrc; and test -r .nvmrc;
-    nvm use
-  else
-  end
+    if test -f .nvmrc; and test -r .nvmrc
+        nvm use
+    else
+    end
 end
 
 set LOCAL_CONFIG (dirname (status --current-filename))/config-local.fish
 if test -f $LOCAL_CONFIG
-  source $LOCAL_CONFIG
+    source $LOCAL_CONFIG
 end

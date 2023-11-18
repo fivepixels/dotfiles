@@ -46,10 +46,10 @@ return {
 		config = function()
 			local bracketed = require("mini.bracketed")
 			bracketed.setup({
-				file = { suffix = "" },
-				window = { suffix = "" },
-				quickfix = { suffix = "" },
-				yank = { suffix = "" },
+				file = { suffix = "f" },
+				window = { suffix = "w" },
+				quickfix = { suffix = "q" },
+				yank = { suffix = "y" },
 				treesitter = { suffix = "n" },
 			})
 		end,
@@ -57,6 +57,7 @@ return {
 
 	-- Better increase/descrease
 	{
+		--1
 		"monaqa/dial.nvim",
     -- stylua: ignore
     keys = {
@@ -80,10 +81,16 @@ return {
 
 	{
 		"simrat39/symbols-outline.nvim",
-		keys = { { "<leader>sl", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
+		keys = {
+			{
+				"<leader>so",
+				"<cmd>SymbolsOutline<cr>",
+				desc = "Symbols Outline",
+			},
+		},
 		cmd = "SymbolsOutline",
 		opts = {
-			position = "right",
+			position = "left",
 		},
 	},
 

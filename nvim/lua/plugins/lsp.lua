@@ -1,5 +1,4 @@
 return {
-	-- tools
 	{
 		"williamboman/mason.nvim",
 		keymaps = {},
@@ -17,7 +16,6 @@ return {
 		end,
 	},
 
-	-- lsp servers
 	{
 		"neovim/nvim-lspconfig",
 		opts = {
@@ -89,7 +87,7 @@ return {
 								enable = true,
 								setType = true,
 								paramType = true,
-								paramName = "Disable",
+								paramName = "Enable",
 								semicolon = "Enable",
 								arrayIndex = "Enable",
 							},

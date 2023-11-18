@@ -1,53 +1,130 @@
-local keymap = vim.keymap
+-- This file is automatically loaded by lazyvim.config.init
+local Util = require("lazyvim.util")
 
-local opts = { noremap = true, silent = true }
+-- DO NOT USE THIS IN YOU OWN CONFIG!!
+-- use `vim.keymap.set` instead
+local map = Util.safe_keymap_set
 
-keymap.set("n", "x", '"_x')
+-- Better up/down
+map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+map({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
--- Increment/decrement
-keymap.set("n", "+", "<C-a>")
-keymap.set("n", "-", "<C-x>")
+-- Move to window using the <ctrl> hjkl keys
+map("n", "sh", "<C-w>h", { desc = "Go to left window", remap = true })
+map("n", "sj", "<C-w>j", { desc = "Go to lower window", remap = true })
+map("n", "sk", "<C-w>k", { desc = "Go to upper window", remap = true })
+map("n", "sl", "<C-w>l", { desc = "Go to right window", remap = true })
 
--- Delete a word backwards
-keymap.set("n", "dw", 'vb"_d')
+-- Resize window using <ctrl> arrow keys
+map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
+map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
+map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
+map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
 
--- Select all
-keymap.set("n", "<C-a>", "gg<S-v>G")
+-- Move Lines
+map("n", "<S-n>", "<cmd>m .+1<cr>==", { desc = "Move down" })
+map("n", "<S-p>", "<cmd>m .-2<cr>==", { desc = "Move up" })
+map("i", "<S-n>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
+map("i", "<S-p>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
+map("v", "<S-n>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+map("v", "<S-p>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
--- Disable continuations
-keymap.set("n", "<Leader>o", "o<Esc>^Da", opts)
-keymap.set("n", "<Leader>O", "O<Esc>^Da", opts)
+-- Clear search with <esc>
+map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
 
--- Jumplist
-keymap.set("n", "<C-m>", "<C-i>", opts)
+-- Clear search, diff update and redraw
+-- taken from runtime/lua/_editor.lua
+map(
+	"n",
+	"<leader>ur",
+	"<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
+	{ desc = "Redraw / clear hlsearch / diff update" }
+)
 
--- New tab
-keymap.set("n", "tn", ":tabedit<Return>")
-keymap.set("n", "tx", ":tabclose<Return>")
-keymap.set("n", "<tab>", ":tabnext<Return>", opts)
-keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
+-- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
+map("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next search result" })
+map("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
+map("o", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
+map("n", "N", "'nN'[v:searchforward].'zv'", { expr = true, desc = "Prev search result" })
+map("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
+map("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
 
--- Split window
-keymap.set("n", "ss", ":split<Return>", opts)
-keymap.set("n", "sv", ":vsplit<Return>", opts)
-keymap.set("n", "su", ":w<Return>", opts)
-keymap.set("n", "sp", ":q<Return>", opts)
+-- Add undo break-points
+map("i", ",", ",<c-g>u")
+map("i", ".", ".<c-g>u")
+map("i", ";", ";<c-g>u")
 
--- Move window
-keymap.set("n", "sh", "<C-w>h")
-keymap.set("n", "sk", "<C-w>k")
-keymap.set("n", "sj", "<C-w>j")
-keymap.set("n", "sl", "<C-w>l")
+-- Save and Quit files
+map("n", "su", "<cmd>:w<cr><esc>", { desc = "Save the current file" })
+map("n", "so", "<cmd>:source %<cr><esc>", { desc = "Configure the current file" })
+map("n", "sp", "<cmd>:wq!<cr><esc>", { desc = "Save and Quit from the current file" })
 
--- Diagnostics
-keymap.set("n", "<C-n>", function()
-	vim.diagnostic.goto_next()
-end, opts)
+-- Better indenting
+map("v", "<", "<gv")
+map("v", ">", ">gv")
 
-keymap.set("n", "<C-p>", function()
-	vim.diagnostic.goto_prev()
-end, opts)
+-- Lazy
+map("n", "<leader>ll", "<cmd>Lazy<cr>", { desc = "Lazy" })
 
-keymap.set("n", "<leader>r", function()
-	require("cattynip.utils").replaceHexWithHSL()
-end)
+-- formatting
+map({ "n", "v" }, "<leader>cf", function()
+	Util.format({ force = true })
+end, { desc = "Format" })
+
+-- diagnostic
+local diagnostic_goto = function(next, severity)
+	local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
+	severity = severity and vim.diagnostic.severity[severity] or nil
+	return function()
+		go({ severity = severity })
+	end
+end
+map("n", "<leader>dn", diagnostic_goto(true), { desc = "Next Diagnostic" })
+map("n", "<leader>dp", diagnostic_goto(false), { desc = "Prev Diagnostic" })
+map("n", "<leader>den", diagnostic_goto(true, "ERROR"), { desc = "Next Error" })
+map("n", "<leader>dep", diagnostic_goto(false, "ERROR"), { desc = "Prev Error" })
+map("n", "<leader>dwn", diagnostic_goto(true, "WARN"), { desc = "Next Warning" })
+map("n", "<leader>dwp", diagnostic_goto(false, "WARN"), { desc = "Prev Warning" })
+
+-- Stylua: ignore start
+
+-- lazygit
+map("n", "<leader>gg", function()
+	Util.terminal({ "lazygit" }, { cwd = Util.root(), esc_esc = false, ctrl_hjkl = false })
+end, { desc = "Lazygit (root dir)" })
+map("n", "<leader>gG", function()
+	Util.terminal({ "lazygit" }, { esc_esc = false, ctrl_hjkl = false })
+end, { desc = "Lazygit (cwd)" })
+
+-- Quit
+map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
+
+-- Highlights under cursor
+map("n", "<leader>ui", vim.show_pos, { desc = "Inspect Pos" })
+
+-- floating terminal
+map("n", "<leader>ft", function()
+	Util.terminal()
+end, { desc = "Terminal (cwd)" })
+
+-- Terminal Mappings
+map("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
+map("t", "<C-h>", "<cmd>wincmd h<cr>", { desc = "Go to left window" })
+map("t", "<C-j>", "<cmd>wincmd j<cr>", { desc = "Go to lower window" })
+map("t", "<C-k>", "<cmd>wincmd k<cr>", { desc = "Go to upper window" })
+map("t", "<C-l>", "<cmd>wincmd l<cr>", { desc = "Go to right window" })
+map("t", "<C-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })
+map("t", "<c-_>", "<cmd>close<cr>", { desc = "which_key_ignore" })
+
+-- Windows
+map("n", "sp", "<C-W>c", { desc = "Delete window", remap = true })
+map("n", "sv", "<C-W>v", { desc = "Split window right", remap = true })
+map("n", "ss", "<C-W>s", { desc = "Split window below", remap = true })
+
+-- Tabs
+map("n", "tn", "<cmd>tabnew<cr>", { desc = "New Tab" })
+map("n", "tx", "<cmd>tabclose<cr>", { desc = "Close Tab" })
+map("n", "<Tab>", "<cmd>tabnext<cr>", { desc = "Next Tab" })
+map("n", "<S-Tab>", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
