@@ -1,7 +1,9 @@
 return {
 	{
 		"williamboman/mason.nvim",
-		keymaps = {},
+		keymaps = {
+			{ "<leader>m", "<cmd>Mason<cr>", desc = "Open Mason" },
+		},
 		opts = function(_, opts)
 			vim.list_extend(opts.ensure_installed, {
 				"stylua",
@@ -22,6 +24,7 @@ return {
 			inlay_hints = { enabled = true },
 			---@type lspconfig.options
 			servers = {
+				eslint = {},
 				cssls = {},
 				tailwindcss = {
 					root_dir = function(...)
@@ -32,14 +35,14 @@ return {
 					root_dir = function(...)
 						return require("lspconfig.util").root_pattern(".git")(...)
 					end,
-					single_file_support = false,
+					single_file_support = true,
 					settings = {
 						typescript = {
 							inlayHints = {
 								includeInlayParameterNameHints = "literal",
-								includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+								includeInlayParameterNameHintsWhenArgumentMatchesName = true,
 								includeInlayFunctionParameterTypeHints = true,
-								includeInlayVariableTypeHints = false,
+								includeInlayVariableTypeHints = true,
 								includeInlayPropertyDeclarationTypeHints = true,
 								includeInlayFunctionLikeReturnTypeHints = true,
 								includeInlayEnumMemberValueHints = true,
@@ -48,7 +51,7 @@ return {
 						javascript = {
 							inlayHints = {
 								includeInlayParameterNameHints = "all",
-								includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+								includeInlayParameterNameHintsWhenArgumentMatchesName = true,
 								includeInlayFunctionParameterTypeHints = true,
 								includeInlayVariableTypeHints = true,
 								includeInlayPropertyDeclarationTypeHints = true,
@@ -67,7 +70,6 @@ return {
 					},
 				},
 				lua_ls = {
-					-- enabled = false,
 					single_file_support = true,
 					settings = {
 						Lua = {
@@ -132,7 +134,13 @@ return {
 					},
 				},
 			},
-			setup = {},
+			setup = {
+				eslint = function()
+					require("lazyvim.util").lsp.on_attach(function(client)
+						client.server_capabilities.documentFormattingProvider = true
+					end)
+				end,
+			},
 		},
 	},
 }

@@ -26,8 +26,6 @@ map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window w
 -- Move Lines
 map("n", "<S-n>", "<cmd>m .+1<cr>==", { desc = "Move down" })
 map("n", "<S-p>", "<cmd>m .-2<cr>==", { desc = "Move up" })
-map("i", "<S-n>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
-map("i", "<S-p>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
 map("v", "<S-n>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 map("v", "<S-p>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
@@ -81,8 +79,8 @@ local diagnostic_goto = function(next, severity)
 		go({ severity = severity })
 	end
 end
-map("n", "<leader>dn", diagnostic_goto(true), { desc = "Next Diagnostic" })
-map("n", "<leader>dp", diagnostic_goto(false), { desc = "Prev Diagnostic" })
+map("n", "<C-n>", diagnostic_goto(true), { desc = "Next Diagnostic" })
+map("n", "<C-p>", diagnostic_goto(false), { desc = "Prev Diagnostic" })
 map("n", "<leader>den", diagnostic_goto(true, "ERROR"), { desc = "Next Error" })
 map("n", "<leader>dep", diagnostic_goto(false, "ERROR"), { desc = "Prev Error" })
 map("n", "<leader>dwn", diagnostic_goto(true, "WARN"), { desc = "Next Warning" })
@@ -119,7 +117,7 @@ map("t", "<C-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })
 map("t", "<c-_>", "<cmd>close<cr>", { desc = "which_key_ignore" })
 
 -- Windows
-map("n", "sp", "<C-W>c", { desc = "Delete window", remap = true })
+map("n", "sp", "<cmd>:q!<cr>", { desc = "Delete window", remap = true })
 map("n", "sv", "<C-W>v", { desc = "Split window right", remap = true })
 map("n", "ss", "<C-W>s", { desc = "Split window below", remap = true })
 
