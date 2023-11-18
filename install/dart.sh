@@ -6,5 +6,4 @@ brew install dart
 cd ~/development
 unzip ~/Downloads/flutter_macos_arm64_3.13.1-stable.zip
 
-export PATH="$PATH:`pwd`/flutter/bin"
-
+export PATH="$PATH:$(pwd)/flutter/bin"
