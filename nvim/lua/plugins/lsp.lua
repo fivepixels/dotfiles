@@ -1,9 +1,6 @@
 return {
   {
     "williamboman/mason.nvim",
-    keymaps = {
-      { "<leader>m", "<cmd>Mason<cr>", desc = "Open Mason" },
-    },
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, {
         "stylua",
@@ -145,31 +142,78 @@ return {
   },
 
   {
-    "smjonas/inc-rename.nvim",
-    cmd = "IncRename",
-    config = true,
-    opts = {
-      cmd_name = "Rename",
-      hl_group = "Substitute",
-      preview_empty_name = false,
-      show_message = true,
-      input_buffer_type = nil,
-      post_hook = nil,
+    "nvimdev/lspsaga.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
     },
-  },
-
-  {
-    "simrat39/symbols-outline.nvim",
-    keys = {
-      {
-        "<leader>so",
-        "<cmd>SymbolsOutline<cr>",
-        desc = "Symbols Outline",
+    opts = {
+      ui = {
+        border = "rounded",
+        code_action = " ",
+        keys = {
+          scroll_up = "<C-u>",
+          scroll_down = "<C-d>",
+        },
       },
-    },
-    cmd = "SymbolsOutline",
-    opts = {
-      position = "right",
+      symbol_in_winbar = {
+        enable = true,
+      },
+      definition = {
+        keys = {
+          edit = "<CR>",
+          vsplit = "v",
+          split = "s",
+          tabe = "t",
+          quit = "q",
+          close = "<C-c>",
+        },
+      },
+      diagnostic = {
+        extend_relatedInformation = true,
+        keys = {
+          exec_action = "<CR>",
+          toggle_or_jump = "<C-t>",
+          quit = "q",
+          quit_in_show = "",
+        },
+      },
+      finder = {
+        max_height = 1,
+        left_width = 0.2,
+        right_width = 0.6,
+        keys = {
+          toggle_or_open = "<CR>",
+          vsplit = "v",
+          split = "s",
+          tabe = "t",
+          tabnew = "t",
+          close = "<C-c>",
+          quit = "q",
+          shuttle = "r",
+        },
+      },
+      hover_doc = {
+        open_link = "<C-w>e",
+        open_cmd = "!chrome",
+      },
+      lightbulb = {
+        enable = false,
+      },
+      rename = {
+        in_select = false,
+        auto_save = true,
+        keys = {
+          quit = "q",
+          select = "s",
+        },
+      },
+      outline = {
+        close_after_jump = true,
+        keys = {
+          jump = "i",
+        },
+      },
     },
   },
 }

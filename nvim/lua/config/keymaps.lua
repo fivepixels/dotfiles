@@ -1,9 +1,10 @@
 local Util = require("lazyvim.util")
 local map = Util.safe_keymap_set
 
-vim.keymap.del("n", "s")
-vim.keymap.del("n", "f")
-vim.keymap.del("n", "t")
+-- vim.keymap.del("n", "s")
+-- vim.keymap.del("n", "f")
+-- vim.keymap.del("n", "t")
+-- vim.keymap.del("n", "<leader>ll")
 map("i", "<C-c>", "<Esc>")
 
 -- Move between Windows
@@ -13,8 +14,8 @@ map("n", "<C-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
 map("n", "<C-l>", "<C-w>l", { desc = "Go to right window", remap = true })
 
 -- Create Windows
-map("n", "<C-c>s", "<C-W>s", { desc = "[C]reate window [S]plit", remap = true })
-map("n", "<C-c>v", "<C-W>v", { desc = "[C]reate window [V]split", remap = true })
+map("n", "ss", "<C-W>s", { desc = "[C]reate window [S]plit", remap = true })
+map("n", "sv", "<C-W>v", { desc = "[C]reate window [V]split", remap = true })
 
 -- Resize window using <ctrl> arrow keys
 map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
@@ -91,5 +92,20 @@ map("t", "<C-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })
 map("t", "<c-_>", "<cmd>close<cr>", { desc = "which_key_ignore" })
 
 -- Lazy & Mason
-map('n', '<leader>ll', '<cmd>Lazy<CR>')
-map('n', '<leader>mm', '<cmd>Mason<CR>')
+map('n', '<leader>la', '<cmd>Lazy<CR>')
+map('n', '<leader>lm', '<cmd>Mason<CR>')
+
+-- Lspsaga
+map("n", '<leader>lf', '<Cmd>Lspsaga finder<CR>', {desc = "[L]spsaga [F]inder"})                      
+map("n", '<leader>lp', '<Cmd>Lspsaga peek_type_definition<CR>', {desc = "[L]spsaga [P]eek definition"})
+map("n", '<leader>lg', '<Cmd>Lspsaga goto_definition<CR>', {desc = "[L]spsaga [G]oto definition"})      
+map("n", '<leader>lh', '<Cmd>Lspsaga hover_doc<CR>', {desc = "[L]spsaga [H]over Documentation"})
+map("n", '<leader>lr', '<Cmd>Lspsaga rename<CR>', {desc = "[L]spsaga [R]ename"})
+map("n", '<leader>lo', '<Cmd>Lspsaga outline<CR>', {desc = "[L]spsaga [O]utline"})
+map("n", '<C-n>', '<Cmd>Lspsaga diagnostic_jump_next<CR>', {desc = "[L]spsaga Jump [N]ext"})
+map("n", '<C-p>', '<Cmd>Lspsaga diagnostic_jump_prev<CR>', {desc = "[L]spsaga Jump [P]revious"})
+
+map('i', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>',
+  { noremap = true, silent = true, desc = "[L]spsaga Signature Help" })
+map({ "n", "v" }, "<leader>lc", "<cmd>Lspsaga code_action<CR>",
+  { noremap = true, silent = true, desc = "[L]spsaga [C]ode Action" })
