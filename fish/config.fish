@@ -21,6 +21,7 @@ alias to touch
 alias mk mkdir
 alias cdp "cd ../"
 alias g git
+alias gitignore-not-working "git rm -rf --cached . && git add ."
 alias v nvim
 alias c clear
 
