@@ -1,10 +1,6 @@
 local Util = require("lazyvim.util")
 local map = Util.safe_keymap_set
 
--- vim.keymap.del("n", "s")
--- vim.keymap.del("n", "f")
--- vim.keymap.del("n", "t")
--- vim.keymap.del("n", "<leader>ll")
 map("i", "<C-c>", "<Esc>")
 
 -- Move between Windows
@@ -105,7 +101,7 @@ map("n", '<leader>lo', '<Cmd>Lspsaga outline<CR>', {desc = "[L]spsaga [O]utline"
 map("n", '<C-n>', '<Cmd>Lspsaga diagnostic_jump_next<CR>', {desc = "[L]spsaga Jump [N]ext"})
 map("n", '<C-p>', '<Cmd>Lspsaga diagnostic_jump_prev<CR>', {desc = "[L]spsaga Jump [P]revious"})
 
-map('i', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>',
+map('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>',
   { noremap = true, silent = true, desc = "[L]spsaga Signature Help" })
 map({ "n", "v" }, "<leader>lc", "<cmd>Lspsaga code_action<CR>",
   { noremap = true, silent = true, desc = "[L]spsaga [C]ode Action" })
