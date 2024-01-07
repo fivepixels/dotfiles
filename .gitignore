@@ -62,14 +62,15 @@ Pods/
 .atom/storage
 
 # Fish local config
-.config/fish/conf.d/
-.config/fish/completions/
+.config/fish/conf.d/*
+.config/fish/completions/*
 .config/fish/config-local.fish
-.config/fish/functions/
+.config/fish/functions/*
 .config/fish/fish_variables
 
 # Karabiner
-.config/karabiner/automatic_backups
+.config/karabiner/assets/*
+.config/karabiner/automatic_backups/*
 
 # Etc
 iterm2
@@ -84,3 +85,4 @@ fish/functions/*
 fish/completions/*
 fish/conf.d/*
 fish/fish_variables
+flutter/*

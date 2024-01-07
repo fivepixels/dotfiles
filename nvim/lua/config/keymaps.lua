@@ -4,24 +4,26 @@ local map = Util.safe_keymap_set
 map("i", "<C-c>", "<Esc>")
 
 -- Move between Windows
-map("n", "<C-h>", "<C-w>h", { desc = "Go to left window", remap = true })
-map("n", "<C-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
-map("n", "<C-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
-map("n", "<C-l>", "<C-w>l", { desc = "Go to right window", remap = true })
+map("n", "sh", "<C-w>h", { desc = "", remap = true })
+map("n", "sj", "<C-w>j", { desc = "", remap = true })
+map("n", "sk", "<C-w>k", { desc = "", remap = true })
+map("n", "sl", "<C-w>l", { desc = "", remap = true })
 
 -- Create Windows
-map("n", "ss", "<C-W>s", { desc = "[C]reate window [S]plit", remap = true })
-map("n", "sv", "<C-W>v", { desc = "[C]reate window [V]split", remap = true })
+map("n", "ss", "<C-W>s", { desc = "", remap = true })
+map("n", "sv", "<C-W>v", { desc = "", remap = true })
+
+-- Save file
+map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "", remap = true })
+map({ "i", "x", "n", "s" }, "<C-q>", "<cmd>q<cr><esc>", { desc = "", remap = true })
+map("n", "su", "<cmd>w<cr><esc>", { desc = "", remap = true })
+map("n", "sp", "<cmd>wq!<cr><esc>", { desc = "", remap = true })
 
 -- Resize window using <ctrl> arrow keys
 map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
 map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
 map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
 map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
-
--- Save file
-map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
-map({ "i", "x", "n", "s" }, "<C-q>", "<cmd>q<cr><esc>", { desc = "Save file" })
 
 -- Move Lines
 map("n", "<leader>mj", "<cmd>m .+1<cr>==", { desc = "[M]ove " })
@@ -105,3 +107,6 @@ map('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>',
   { noremap = true, silent = true, desc = "[L]spsaga Signature Help" })
 map({ "n", "v" }, "<leader>lc", "<cmd>Lspsaga code_action<CR>",
   { noremap = true, silent = true, desc = "[L]spsaga [C]ode Action" })
+
+map('n', '<leader>zi', '<cmd>:lua vim.g.neovide_scale_factor=vim.g.neovide_scale_factor + 0.1<CR>', {silent = true})
+map('n', '<leader>zo', '<cmd>:lua vim.g.neovide_scale_factor=vim.g.neovide_scale_factor - 0.1<CR>', {silent = true})

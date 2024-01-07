@@ -11,6 +11,7 @@ return {
         "tailwindcss-language-server",
         "typescript-language-server",
         "css-lsp",
+        "sqlls",
       })
     end,
   },
@@ -63,6 +64,41 @@ return {
           settings = {
             yaml = {
               keyOrdering = false,
+            },
+          },
+        },
+        dartls = {},
+        sqlls = {
+          settings = {
+            connections = {
+              {
+                name = "sql-language-server",
+                adapter = "mysql",
+                host = "localhost",
+                port = 3307,
+                user = "username",
+                password = "password",
+                database = "mysql-development",
+                projectPaths = { "/Users/joe-re/src/sql-language-server" },
+                ssh = {
+                  user = "ubuntu",
+                  remoteHost = "ec2-xxx-xxx-xxx-xxx.ap-southeast-1.compute.amazonaws.com",
+                  dbHost = "127.0.0.1",
+                  port = 3306,
+                  identityFile = "~/.ssh/id_rsa",
+                  passphrase = "123456",
+                },
+              },
+              {
+                name = "postgres-project",
+                adapter = "postgres",
+                host = "localhost",
+                port = 5432,
+                user = "postgres",
+                password = "pg_pass",
+                database = "pg_test",
+                projectPaths = { "/Users/joe-re/src/postgres_project" },
+              },
             },
           },
         },

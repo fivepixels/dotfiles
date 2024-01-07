@@ -3,6 +3,9 @@ Welcome to Fish shell, Cattynip. Enjoy your commands and codes.
 """
 
 export PATH="$PATH:`pwd`/flutter/bin"
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/postgresql@16/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/postgresql@16/include"
 
 # Theme
 set -gx TERM xterm-256color
@@ -16,13 +19,14 @@ set -g theme_hostname always
 alias asdf "brew update && brew upgrade && flutter upgrade"
 alias l "eza -a  -l -s type --git --header --icons --no-user --no-filesize --no-time"
 alias t "find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
-alias remove "rm -rf ~/.local/share/nvim/swap && rm ~/.local/state/nvim/lsp.log"
+alias remove "rm -rf ~/.local/share/nvim/swap && rm ~/.local/state/nvim/lsp.log && rm -rf ~/.local/state/nvim/swap"
 alias to touch
 alias mk mkdir
 alias cdp "cd ../"
 alias g git
 alias gitignore-not-working "git rm -rf --cached . && git add ."
 alias v nvim
+alias vd neovide
 alias c clear
 
 # Aliases for Flutter

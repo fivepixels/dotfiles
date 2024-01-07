@@ -21,13 +21,11 @@ return {
         "sql",
         "svelte",
       },
-
       query_linter = {
         enable = true,
         use_virtual_text = true,
         lint_events = { "BufWrite", "CursorHold" },
       },
-
       playground = {
         enable = true,
         disable = {},
@@ -45,6 +43,10 @@ return {
           goto_node = "<cr>",
           show_help = "?",
         },
+      },
+      indent = {
+        enable = true,
+        disable = { "dart", ... },
       },
     },
     config = function(_, opts)
