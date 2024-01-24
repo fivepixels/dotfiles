@@ -86,3 +86,5 @@ fish/completions/*
 fish/conf.d/*
 fish/fish_variables
 flutter/*
+
+nvim/plugin
