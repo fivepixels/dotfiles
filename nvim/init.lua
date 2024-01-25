@@ -1,4 +1,1 @@
-require("cattynip.base")
-require("cattynip.highlights")
-require("cattynip.maps")
-require("cattynip.plugins")
+print("Welcome to Cattynip's Neovim!")
