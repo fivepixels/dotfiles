@@ -26,7 +26,7 @@ alias cdp "cd ../"
 alias g git
 alias gitignore-not-working "git rm -rf --cached . && git add ."
 alias v nvim
-alias vd neovide
+alias nv neovide
 alias c clear
 
 # Aliases for Flutter
