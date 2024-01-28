@@ -18,7 +18,7 @@ set -g theme_hostname always
 # Aliases
 alias asdf "brew update && brew upgrade && flutter upgrade"
 alias l "eza -a -l -s type --git --header --icons --no-user --no-filesize --no-time"
-alias t "eza --tree"
+alias t "eza -a --tree --level"
 alias remove "rm -rf ~/.local/share/nvim/swap && rm ~/.local/state/nvim/lsp.log && rm -rf ~/.local/state/nvim/swap"
 alias to touch
 alias mk mkdir
