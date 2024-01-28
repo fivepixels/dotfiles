@@ -1,19 +1,15 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
-		lazypath,
-	})
-end
-vim.opt.rtp:prepend(lazypath)
+vim.opt.rtp:prepend("~/.local/share/nvim/lazy/lazy.nvim")
 
-require("lazy").setup({
+local status, lazy = pcall(require, "lazy")
+if not status then
+	print(
+		"install lazy first. open the terminal and type `sh ~/.config/install/development.sh`. that script will download lazy for you"
+	)
+	return
+end
+
+lazy.setup({
 	spec = {
-		-- add LazyVim and import its plugins
 		{
 			"LazyVim/LazyVim",
 			import = "lazyvim.plugins",
@@ -25,7 +21,6 @@ require("lazy").setup({
 				},
 			},
 		},
-		-- import any extras modules here
 		{ import = "lazyvim.plugins.extras.linting.eslint" },
 		{ import = "lazyvim.plugins.extras.formatting.prettier" },
 		{ import = "lazyvim.plugins.extras.lang.typescript" },
@@ -34,7 +29,6 @@ require("lazy").setup({
 		{ import = "lazyvim.plugins.extras.lang.rust" },
 		{ import = "lazyvim.plugins.extras.lang.tailwind" },
 		{ import = "lazyvim.plugins.extras.coding.copilot" },
-		{ import = "lazyvim.plugins.extras.dap.core" },
 		{ import = "lazyvim.plugins.extras.vscode" },
 		{ import = "lazyvim.plugins.extras.util.mini-hipatterns" },
 		{ import = "lazyvim.plugins.extras.test.core" },
@@ -46,10 +40,9 @@ require("lazy").setup({
 		lazy = false,
 		version = false,
 	},
-	dev = {
-		path = "~/.ghq/github.com",
-	},
-	checker = { enabled = true }, -- automatically check for plugin updates
+	install = { colorscheme = { "solarized-osaka" } },
+	checker = { enabled = true },
+	debug = false,
 	performance = {
 		cache = {
 			enabled = true,
@@ -60,7 +53,6 @@ require("lazy").setup({
 				"matchit",
 				"matchparen",
 				"netrwPlugin",
-				"rplugin",
 				"tarPlugin",
 				"tohtml",
 				"tutor",
@@ -68,12 +60,4 @@ require("lazy").setup({
 			},
 		},
 	},
-	ui = {
-		custom_keys = {
-			["<localleader>d"] = function(plugin)
-				dd(plugin)
-			end,
-		},
-	},
-	debug = false,
 })

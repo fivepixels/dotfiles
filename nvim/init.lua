@@ -1,1 +1,1 @@
-print("Welcome to Cattynip's Neovim!")
+require("config.lazy")

@@ -1,20 +1,6 @@
 return {
 	-- tools
-	{
-		"williamboman/mason.nvim",
-		opts = function(_, opts)
-			vim.list_extend(opts.ensure_installed, {
-				"stylua",
-				"selene",
-				"luacheck",
-				"shellcheck",
-				"shfmt",
-				"tailwindcss-language-server",
-				"typescript-language-server",
-				"css-lsp",
-			})
-		end,
-	},
+	{ "williamboman/mason.nvim" },
 
 	-- lsp servers
 	{
@@ -57,6 +43,10 @@ return {
 								includeInlayEnumMemberValueHints = true,
 							},
 						},
+					},
+					keys = {
+						{ "<leader>lo", "<cmd>TypescriptOrganizeImports<CR>", desc = "lsp: organize imports" },
+						{ "<leader>lc", "<cmd>TypescriptRenameFile<CR>", desc = "lsp: rename file" },
 					},
 				},
 				html = {},
