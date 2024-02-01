@@ -16,6 +16,7 @@ brew install --cask craft miro canva
 brew install --cask alt-tab rectangle karabiner-elements
 brew install --cask grammarly grammarly-desktop
 brew install --cask microsoft-teams microsoft-word microsoft-outlook microsoft-onenote microsoft-excel microsoft-powerpoint onedrive
+brew install --cask visual-studio-code
 
 # install softwares for development
 brew install node nvm git yarn neovim neovide mysql-client
