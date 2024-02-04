@@ -24,7 +24,11 @@ return {
       inlay_hints = { enabled = false },
       servers = {
         cssls = {},
-        astro = {},
+        astro = {
+          root_dir = function(...)
+            return require("lspconfig.util").root_pattern(".git")(...)
+          end,
+        },
         tailwindcss = {
           root_dir = function(...)
             return require("lspconfig.util").root_pattern(".git")(...)

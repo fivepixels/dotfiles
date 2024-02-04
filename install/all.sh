@@ -1,26 +1,15 @@
-# TOUCH
-
-# prevent the errors occuring from Homebrew
-touch ~/.zshrc
-
-# install Homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
 # DEVELOPMENT
 
-# install applications for development
+brew install ripgrep fd eza postgresql@16 fish
+brew install node nvm git yarn neovim neovide mysql-client
 brew install --cask iterm2 github sourcetree pgadmin4 flutter
+brew install --cask alt-tab rectangle karabiner-elements
+
 brew install --cask google-chrome firefox opera min arc
 brew install --cask discord whatsapp
 brew install --cask craft miro canva
-brew install --cask alt-tab rectangle karabiner-elements
 brew install --cask grammarly grammarly-desktop
 brew install --cask microsoft-teams microsoft-word microsoft-outlook microsoft-onenote microsoft-excel microsoft-powerpoint onedrive
-brew install --cask visual-studio-code
-
-# install softwares for development
-brew install node nvm git yarn neovim neovide mysql-client
-brew install ripgrep fd eza postgresql@16 fish
 
 # install fira fonts
 brew tap homebrew/cask-fonts
@@ -50,6 +39,9 @@ cd ~/development
 unzip ~/Downloads/flutter_macos_arm64_3.13.1-stable.zip
 
 export PATH="$PATH:$(pwd)/flutter/bin"
+
+# set mac defaults
+sh ./macconfig.sh
 
 cd
 

@@ -16,7 +16,7 @@ set -g theme_hide_hostname no
 set -g theme_hostname always
 
 # Aliases
-alias asdf "brew update && brew upgrade && flutter upgrade"
+alias asdf "brew update && brew upgrade"
 alias l "eza -a -l -s type --git --header --icons --no-user --no-filesize --no-time"
 alias t "eza -a --tree --level"
 alias remove "rm -rf ~/.local/share/nvim/swap && rm ~/.local/state/nvim/lsp.log && rm -rf ~/.local/state/nvim/swap"
@@ -28,6 +28,12 @@ alias gitignore-not-working "git rm -rf --cached . && git add ."
 alias v nvim
 alias nv neovide
 alias c clear
+
+# Aliases for Yarn
+alias ya "yarn add"
+alias yi "yarn install"
+alias yr "yarn remove"
+alias yc "yarn create"
 
 # Aliases for Flutter
 alias si "open -a Simulator"
