@@ -1,7 +1,5 @@
 local map = vim.keymap.set
 
-vim.cmd([[ mapclear ]])
-
 vim.mapleader = " "
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -45,16 +43,15 @@ map("n", "<S-k>", "<cmd>-5<cr>", { desc = "document: go down for five lines" })
 map("v", "<", "<gv", { desc = "document: insert a new indent front" })
 map("v", ">", ">gv", { desc = "document: remove an indent from front" })
 
-map({ "n", "i" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
-
 -- managers
-map("n", "<leader>ml", "<cmd>Lazy<cr>", { desc = "managers: open a window for lazy" })
+map("n", "<leader>ml", "<cmd>Lazy<cr>", { desc = "managers: open a window for Lazy" })
 map("n", "<leader>mm", "<cmd>Mason<cr>", { desc = "managers: open a window for mason" })
 
--- diagnostics
+-- diagnostic
 map("n", "<C-n>", function()
-	vim.diagnostic.goto_next()
-end, { desc = "diagnostic: move to the next warning or error" })
+  vim.diagnostic.goto_next()
+end, { desc = "diagnostic: go to the next warning or error" })
+
 map("n", "<C-p>", function()
-	vim.diagnostic.goto_prev()
-end, { desc = "diagnostic: move to the previous warning or error" })
+  vim.diagnostic.goto_prev()
+end, { desc = "diagnostic: go to the previous warning or error" })
