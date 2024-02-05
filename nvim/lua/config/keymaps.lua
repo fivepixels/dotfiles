@@ -31,9 +31,6 @@ map("v", "y", '"+y', { desc = "document: better copy" })
 map("n", "Y", '"+Y', { desc = "document: better copy" })
 map("x", "p", '"_dP', { desc = "document: better paste" })
 
-map("n", "<S-j>", "<cmd>m .+1<cr>==", { desc = "document: move the selected line down" })
-map("n", "<S-k>", "<cmd>m .-2<cr>==", { desc = "document: move the selected line up" })
-
 map("v", "<S-j>", ":m '>+1<cr>gv=gv", { desc = "document: move the selected lines down" })
 map("v", "<S-k>", ":m '<-2<cr>gv=gv", { desc = "document: move the selected lines down" })
 
