@@ -31,11 +31,11 @@ map("v", "y", '"+y', { desc = "document: better copy" })
 map("n", "Y", '"+Y', { desc = "document: better copy" })
 map("x", "p", '"_dP', { desc = "document: better paste" })
 
-map("v", "<S-j>", ":m '>+1<cr>gv=gv", { desc = "document: move the selected lines down" })
-map("v", "<S-k>", ":m '<-2<cr>gv=gv", { desc = "document: move the selected lines down" })
+map("v", "<C-j>", ":m '>+1<cr>gv=gv", { desc = "document: move the selected lines down" })
+map("v", "<C-k>", ":m '<-2<cr>gv=gv", { desc = "document: move the selected lines down" })
 
-map("n", "<S-j>", "<cmd>+5<cr>", { desc = "document: go down for five lines" })
-map("n", "<S-k>", "<cmd>-5<cr>", { desc = "document: go down for five lines" })
+map("n", "<C-j>", "<cmd>+5<cr>", { desc = "document: go down for five lines" })
+map("n", "<C-k>", "<cmd>-5<cr>", { desc = "document: go down for five lines" })
 
 map("v", "<", "<gv", { desc = "document: insert a new indent front" })
 map("v", ">", ">gv", { desc = "document: remove an indent from front" })
@@ -43,12 +43,3 @@ map("v", ">", ">gv", { desc = "document: remove an indent from front" })
 -- managers
 map("n", "<leader>ml", "<cmd>Lazy<cr>", { desc = "managers: open a window for Lazy" })
 map("n", "<leader>mm", "<cmd>Mason<cr>", { desc = "managers: open a window for mason" })
-
--- diagnostic
-map("n", "<C-n>", function()
-  vim.diagnostic.goto_next()
-end, { desc = "diagnostic: go to the next warning or error" })
-
-map("n", "<C-p>", function()
-  vim.diagnostic.goto_prev()
-end, { desc = "diagnostic: go to the previous warning or error" })

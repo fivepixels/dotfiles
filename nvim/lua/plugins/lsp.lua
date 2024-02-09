@@ -1,5 +1,4 @@
 return {
-  -- tools
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)
@@ -17,7 +16,6 @@ return {
     end,
   },
 
-  -- lsp servers
   {
     "neovim/nvim-lspconfig",
     opts = {
@@ -137,6 +135,121 @@ return {
         },
       },
       setup = {},
+    },
+  },
+
+  {
+    "nvimdev/lspsaga.nvim",
+    keys = {
+      {
+        "<leader>lf",
+        "<cmd>Lspsaga outgoing_calls<cr>",
+        desc = "plugin > lspsaga: outgoing calls",
+      },
+      {
+        "<leader>lf",
+        "<cmd>Lspsaga outgoing_calls<cr>",
+        desc = "plugin > lspsaga: outgoing calls",
+      },
+      {
+        "<leader>lc",
+        "<cmd>Lspsaga code_action<cr>",
+        desc = "plugin > lspsaga: code actions",
+      },
+      {
+        "<leader>ld",
+        "<cmd>Lspsaga peek_definition<cr>",
+        desc = "plugin > lspsaga: go to definition",
+      },
+      {
+        "<C-n>",
+        "<cmd>Lspsaga diagnostic_jump_next<cr>",
+        desc = "plugin > lspsaga: jump to the next diagnostic",
+      },
+      {
+        "<C-p>",
+        "<cmd>Lspsaga diagnostic_jump_prev<cr>",
+        desc = "plugin > lspsaga: jump to the previous diagnostic",
+      },
+      {
+        "<leader>lf",
+        "<cmd>Lspsaga finder ++normal<cr>",
+        desc = "plugin > lspsaga: open a finder",
+      },
+      {
+        "<leader>lh",
+        "<cmd>Lspsaga hover_doc<cr>",
+        desc = "plugin > lspsaga: open a hover doc",
+      },
+      {
+        "<leader>lH",
+        "<cmd>Lspsaga hover_doc ++keep<cr>",
+        desc = "plugin > lspsaga: keep a hover doc open",
+      },
+      {
+        "<leader>lr",
+        "<cmd>Lspsaga rename<cr>",
+        desc = "plugin > lspsaga: rename a variable",
+      },
+    },
+    opts = {
+      callhierarchy = {
+        keys = {
+          edit = "<C-e>",
+          vsplit = "<C-v>",
+          split = "<C-s>",
+          tabe = "<C-t>",
+          quit = "q",
+          shuttle = "<C-r>",
+          toggle_or_req = "u",
+          close = "<C-c>",
+        },
+      },
+      code_action = {
+        num_shortcut = false,
+        show_server_name = true,
+        extend_gitsigns = true,
+      },
+      definition = {
+        keys = {
+          edit = "<C-e>",
+          vsplit = "<C-v>",
+          split = "<C-s>",
+          tabe = "<C-t>",
+          quit = "q",
+          close = "<C-c>",
+        },
+      },
+      diagnostic = {
+        extend_relatedInformation = true,
+      },
+      finder = {
+        default = "tyd+def+ref+imp",
+        open_link = "<C-i>",
+        keys = {
+          shuttle = "<C-r>",
+          toggle_or_open = "<cr>",
+          vsplit = "<C-v>",
+          split = "<C-s>",
+          tabe = "<C-t>",
+          tabnew = "<C-t>",
+          quit = "q",
+          close = "<C-c>",
+        },
+      },
+      rename = {
+        auto_save = true,
+        keys = {
+          quit = "<C-c>",
+        },
+      },
+      ui = {
+        expand = "",
+        collapse = "",
+        code_action = " ",
+        actionfix = "",
+        lines = { "╰", "┣", "│", "─", "╭" },
+      },
     },
   },
 }
