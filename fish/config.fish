@@ -43,6 +43,32 @@ alias fpr "flutter pub remove"
 alias fpu "flutter pub upgrade"
 alias fpg "flutter pub get"
 
+# Aliases for web
+# alias devmode "open -a GitHub\ Desktop && og"
+# start forks 
+function start
+
+end
+
+function og
+    set -l url "https://github.com"
+
+    if set -q argv[1]
+        set url $url/$argv[1]
+    end
+
+    if set -q argv[2]
+        set url $url/$argv[2]
+    end
+
+    open $url -a "Google Chrome"
+end
+
+alias o open
+alias oy "open https://youtube.com/ -a Google\ Chrome"
+alias ogh "open -a GitHub\ Desktop"
+alias oa "open https://albertcollege.edsby.com/ -a Google\ Chrome"
+
 set -gx EDITOR nvim
 set -gx PATH bin $PATH
 set -gx PATH ~/bin $PATH

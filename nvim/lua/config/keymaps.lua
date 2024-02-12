@@ -43,3 +43,16 @@ map("v", ">", ">gv", { desc = "document: remove an indent from front" })
 -- managers
 map("n", "<leader>ml", "<cmd>Lazy<cr>", { desc = "managers: open a window for Lazy" })
 map("n", "<leader>mm", "<cmd>Mason<cr>", { desc = "managers: open a window for mason" })
+
+-- Neovide
+
+local change_scale_factor = function(delta)
+  vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta
+end
+
+vim.keymap.set("n", "<C-=>", function()
+  change_scale_factor(1.25)
+end)
+vim.keymap.set("n", "<C-->", function()
+  change_scale_factor(1 / 1.25)
+end)
