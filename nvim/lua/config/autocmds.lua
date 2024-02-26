@@ -21,7 +21,7 @@ vim.cmd([[ let g:astro_typescript = 'enable' ]])
 vim.cmd([[ let g:astro_stylus = 'enable' ]])
 
 if vim.g.neovide then
-  vim.o.guifont = "FiraCode Nerd Font Mono"
+  vim.o.guifont = "Hack Nerd Font Mono"
 
   -- Window
   local transparency = 0.5
@@ -30,7 +30,7 @@ if vim.g.neovide then
   vim.g.neovide_window_blurred = true
   vim.g.neovide_floating_blur_amount_x = 5.0
   vim.g.neovide_floating_blur_amount_y = 5.0
-  vim.g.neovide_scale_factor = 1.2
+  vim.g.neovide_scale_factor = 1.35
 
   -- Animation
   vim.g.neovide_scroll_animation_length = 0.1

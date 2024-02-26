@@ -175,26 +175,6 @@
                                     "key_code": "up_arrow"
                                 }
                             ]
-                        },
-                        {
-                            "from": {
-                                "key_code": "right_control"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "right_arrow"
-                                }
-                            ]
-                        },
-                        {
-                            "from": {
-                                "key_code": "right_command"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "left_arrow"
-                                }
-                            ]
                         }
                     ],
                     "treat_as_built_in_keyboard": false

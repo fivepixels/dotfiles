@@ -142,16 +142,6 @@ return {
     "nvimdev/lspsaga.nvim",
     keys = {
       {
-        "<leader>lf",
-        "<cmd>Lspsaga outgoing_calls<cr>",
-        desc = "plugin > lspsaga: outgoing calls",
-      },
-      {
-        "<leader>lf",
-        "<cmd>Lspsaga outgoing_calls<cr>",
-        desc = "plugin > lspsaga: outgoing calls",
-      },
-      {
         "<leader>lc",
         "<cmd>Lspsaga code_action<cr>",
         desc = "plugin > lspsaga: code actions",
@@ -173,7 +163,7 @@ return {
       },
       {
         "<leader>lf",
-        "<cmd>Lspsaga finder ++normal<cr>",
+        "<cmd>Lspsaga finder<cr>",
         desc = "plugin > lspsaga: open a finder",
       },
       {
@@ -182,17 +172,15 @@ return {
         desc = "plugin > lspsaga: open a hover doc",
       },
       {
-        "<leader>lH",
-        "<cmd>Lspsaga hover_doc ++keep<cr>",
-        desc = "plugin > lspsaga: keep a hover doc open",
-      },
-      {
         "<leader>lr",
         "<cmd>Lspsaga rename<cr>",
         desc = "plugin > lspsaga: rename a variable",
       },
     },
     opts = {
+      breadcrumbs = {
+        enable = true,
+      },
       callhierarchy = {
         keys = {
           edit = "<C-e>",

@@ -46,14 +46,3 @@ sh ./macconfig.sh
 cd
 
 echo "DONE! Installed everything!"
-echo "If you want to install fish plugins, you may have to open the fish shell by typing 'fish' and install them by typing '
-# Install Fisher
-curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source 
-fisher install jorgebucaran/fisher
-
-# Install Plugins for Fish
-fisher install jethrokuan/z IlanCosman/tide@v5
-
-# Configure Tide
-tide configure
-'"
