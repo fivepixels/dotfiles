@@ -1,48 +1,24 @@
-# DEVELOPMENT
+sh ./touch.sh # install homebrew
+sh ./macconfig.sh # change configurations for mac
 
-brew install ripgrep fd eza postgresql@16 fish
-brew install node nvm git yarn neovim neovide mysql-client
-brew install --cask iterm2 github sourcetree pgadmin4 flutter
-brew install --cask alt-tab rectangle karabiner-elements
+# installing softwares and applications for development
+brew install fish ripgrep fd eza -q
+brew install node nvm git yarn neovim neovide mysql-client -q
+brew install --cask iterm2 github sourcetree pgadmin4 flutter -q
+brew install --cask alt-tab rectangle karabiner-elements -q
 
-brew install --cask google-chrome
-brew install --cask discord whatsapp
-brew install --cask craft miro canva
-brew install --cask grammarly grammarly-desktop
-brew install --cask microsoft-teams microsoft-word microsoft-outlook microsoft-onenote microsoft-excel microsoft-powerpoint onedrive
-
-# install fira fonts
-brew tap homebrew/cask-fonts
-brew install --cask font-fira-code
+# installing applications for entertainment and academics
+brew install --cask google-chrome -q
+brew install --cask discord whatsapp -q
+brew install --cask craft miro canva -q
+brew install --cask grammarly grammarly-desktop -q
+brew install --cask microsoft-teams microsoft-word microsoft-outlook microsoft-onenote microsoft-excel microsoft-powerpoint onedrive -q
 
 # install lazy
 rm -rf ~/.local/share/nvim/lazy
 git clone git@github.com:folke/lazy.nvim.git --filter=blob:none --branch=stable ~/.local/share/nvim/lazy/lazy.nvim
 
-# install fish
-fish ~/.config/install/fish/plugins.sh
-
-# install flutter
-brew remove dart
-brew remove dart-sdk
-sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
-sudo xcodebuild -runFirstLaunch
-sudo xcodebuild -license
-xcodebuild -downloadPlatform iOS
-
-# install dart
-sudo softwareupdate --install-rosetta --agree-to-license
-
-brew tap dart-lang/dart
-brew install dart
-
-cd ~/development
-unzip ~/Downloads/flutter_macos_arm64_3.13.1-stable.zip
-
-export PATH="$PATH:$(pwd)/flutter/bin"
-
-# set mac defaults
-sh ./macconfig.sh
+sh ./fish.sh # install plugins for fish
 
 cd
 
