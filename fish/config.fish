@@ -43,6 +43,8 @@ alias fpr "flutter pub remove"
 alias fpu "flutter pub upgrade"
 alias fpg "flutter pub get"
 
+alias renvim "rm -rf /Users/cattynip/.local/share/nvim/ & rm -rf /Users/cattynip/.local/share/nvim.bak/"
+
 # Aliases for web
 # alias devmode "open -a GitHub\ Desktop && og"
 # start forks 

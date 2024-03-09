@@ -5,7 +5,7 @@ brew install node nvm git yarn neovim neovide mysql-client
 brew install --cask iterm2 github sourcetree pgadmin4 flutter
 brew install --cask alt-tab rectangle karabiner-elements
 
-brew install --cask google-chrome firefox opera min arc
+brew install --cask google-chrome
 brew install --cask discord whatsapp
 brew install --cask craft miro canva
 brew install --cask grammarly grammarly-desktop
@@ -16,7 +16,8 @@ brew tap homebrew/cask-fonts
 brew install --cask font-fira-code
 
 # install lazy
-git clone --filter=blob:none https://github.com/folke/lazy.nvim.git --branch=stable ~/.local/share/nvim/lazy/lazy.nvim
+rm -rf ~/.local/share/nvim/lazy
+git clone git@github.com:folke/lazy.nvim.git --filter=blob:none --branch=stable ~/.local/share/nvim/lazy/lazy.nvim
 
 # install fish
 fish ~/.config/install/fish/plugins.sh
