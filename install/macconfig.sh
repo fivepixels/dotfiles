@@ -5,7 +5,7 @@ defaults write com.apple.dock "autohide" -bool "true" && killall Dock
 defaults write com.apple.dock "static-only" -bool "true" && killall Dock
 
 # Finder
-defaults write com.apple.finder "QuitMenuItem" -bool "true" && killall Finder
+defaults write com.apple.finder "QuitMenuItem" -bool "false" && killall Finder
 defaults write NSGlobalDomain "AppleShowAllExtensions" -bool "true" && killall Finder
 defaults write com.apple.finder "AppleShowAllFiles" -bool "true" && killall Finder
 defaults write com.apple.finder "ShowPathbar" -bool "true" && killall Finder

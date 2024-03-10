@@ -12,11 +12,12 @@ brew install --cask google-chrome -q
 brew install --cask discord whatsapp -q
 brew install --cask craft miro canva -q
 brew install --cask grammarly grammarly-desktop -q
+brew install --cask obs -q
 brew install --cask microsoft-teams microsoft-word microsoft-outlook microsoft-onenote microsoft-excel microsoft-powerpoint onedrive -q
 
 # install lazy
-rm -rf ~/.local/share/nvim/lazy
-git clone git@github.com:folke/lazy.nvim.git --filter=blob:none --branch=stable ~/.local/share/nvim/lazy/lazy.nvim
+rm -rf ~/.local/share/nvim/pckr
+git clone https://github.com/lewis6991/pckr.nvim --filter=blob:none --branch=stable ~/.local/share/nvim/lazy/lazy.nvim
 
 sh ./fish.sh # install plugins for fish
 
