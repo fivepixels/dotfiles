@@ -16,12 +16,10 @@ none.setup({
 		none.builtins.completion.vsnip,
 
 		none.builtins.diagnostics.actionlint,
-		none.builtins.diagnostics.commitlint,
 		none.builtins.diagnostics.cppcheck,
 		none.builtins.diagnostics.djlint,
 		none.builtins.diagnostics.dotenv_linter,
 		none.builtins.diagnostics.fish,
-		none.builtins.diagnostics.gitlint,
 		none.builtins.diagnostics.golangci_lint,
 		none.builtins.diagnostics.markdownlint,
 		-- none.builtins.diagnostics.mdl,
