@@ -1,5 +1,7 @@
 local map = vim.keymap.set
 
+vim.cmd([[ mapclear ]])
+
 -- tab
 map("n", "<leader>te", "<cmd>tabedit<cr>")
 map("n", "<leader>tq", "<cmd>tabclose<cr>")
@@ -34,14 +36,29 @@ map("n", "<leader>ra", "@q")
 map("v", "<C-j>", ":m '>+1<cr>gv=gv")
 map("v", "<C-k>", ":m '<-2<cr>gv=gv")
 
-map("n", "<C-j>", "<cmd>+8<cr>")
-map("n", "<C-k>", "<cmd>-8<cr>")
-
 map("v", "<", "<gv")
 map("v", ">", ">gv")
 
+map("i", "<C-h>", "<esc>hi")
+map("i", "<C-j>", "<esc>ji")
+map("i", "<C-k>", "<esc>ki")
+map("i", "<C-l>", "<esc>li")
+
+map("i", "<C-i>", "<esc>I")
+map("i", "<C-a>", "<esc>A")
+map("i", "<C-d>", "<bs>")
+map("i", "<C-o>", "<esc>o")
+
+map("i", "<C-w>", "<esc>lwi")
+map("i", "<C-b>", "<esc>hbi")
+
+map("n", "<S-l>", "$")
+map("n", "<S-h>", "^")
+map("n", "<S-j>", "<cmd>+8<cr>")
+map("n", "<S-k>", "<cmd>-8<cr>")
+
 -- managers
-map("n", "<leader>ml", "<cmd>Lazy<cr>")
+map("n", "<leader>mp", "<cmd>Pckr status<cr>")
 map("n", "<leader>mm", "<cmd>Mason<cr>")
 
 -- disable cursors
