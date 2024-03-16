@@ -35,6 +35,11 @@ alias yi "yarn install"
 alias yr "yarn remove"
 alias yc "yarn create"
 
+# Aliases for pnpm
+alias p pnpm
+alias pi "pnpm install"
+alias pr "pnpm remove"
+
 # Aliases for Flutter
 alias si "open -a Simulator"
 alias fr "flutter run lib/main.dart"
