@@ -28,7 +28,7 @@ cmp.setup({
 		documentation = cmp.config.window.bordered(),
 	},
 	sources = cmp.config.sources({
-		-- { name = "nvim_lsp" },
+		{ name = "nvim_lsp" },
 		{ name = "path" },
 		{ name = "luasnip" },
 	}, {
@@ -80,7 +80,7 @@ cmp.setup({
 			}
 
 			if icons[item.kind] then
-				item.kind = icons[item.kind] .. item.kind
+				item.kind = icons[item.kind] .. string.upper(string.sub(item.kind, 1, 4))
 			end
 
 			return require("tailwindcss-colorizer-cmp").formatter(entry, item)
@@ -99,16 +99,14 @@ cmp.setup({
 	},
 })
 
--- Set configuration for specific filetype.
 cmp.setup.filetype("gitcommit", {
 	sources = cmp.config.sources({
-		{ name = "git" }, -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
+		{ name = "git" },
 	}, {
 		{ name = "buffer" },
 	}),
 })
 
--- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline({ "/", "?" }, {
 	mapping = cmp.mapping.preset.cmdline(),
 	sources = {

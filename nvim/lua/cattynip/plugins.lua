@@ -64,13 +64,13 @@ require("pckr").add({
 	"b0o/SchemaStore.nvim", -- json
 	"roobert/tailwindcss-colorizer-cmp.nvim", -- tailwindcss
 	"Saecki/crates.nvim", -- rust
-	{
-		"iamcco/markdown-preview.nvim",
-		run = "cd app && npm install",
-		setup = function()
-			vim.g.mkdp_filetypes = { "markdown" }
-		end,
-		ft = { "markdown" },
-	}, -- markdown
+	-- {
+	-- 	"iamcco/markdown-preview.nvim",
+	-- 	run = "cd app && npm install",
+	-- 	setup = function()
+	-- 		vim.g.mkdp_filetypes = { "markdown" }
+	-- 	end,
+	-- 	ft = { "markdown" },
+	-- }, -- markdown
 	"ckolkey/ts-node-action", -- typescript
 })

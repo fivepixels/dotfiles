@@ -55,7 +55,6 @@ none.setup({
 		none.builtins.formatting.mdformat,
 		none.builtins.formatting.pg_format,
 		none.builtins.formatting.prettier,
-		none.builtins.formatting.prettierd,
 		none.builtins.formatting.pyink,
 		none.builtins.formatting.sqlfluff,
 		none.builtins.formatting.sqlfmt,
