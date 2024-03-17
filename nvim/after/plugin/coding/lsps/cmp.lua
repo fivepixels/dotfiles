@@ -142,7 +142,7 @@ cmp.setup({
 		comparators = {
 			lspkind_comparator({
 				kind_priority = {
-					Field = 11,
+					Field = 13,
 					Property = 11,
 					Constant = 10,
 					Enum = 10,
@@ -162,7 +162,7 @@ cmp.setup({
 					Keyword = 2,
 					Constructor = 1,
 					Interface = 1,
-					Snippet = 15,
+					Snippet = 12,
 					Text = 1,
 					TypeParameter = 1,
 					Unit = 1,

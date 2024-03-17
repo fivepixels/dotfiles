@@ -1,4 +1,4 @@
-require("cattynip.base")
-require("cattynip.keymaps")
-require("cattynip.plugins")
-require("cattynip.autocmds")
+require("fivepixels.base")
+require("fivepixels.keymaps")
+require("fivepixels.plugins")
+require("fivepixels.autocmds")

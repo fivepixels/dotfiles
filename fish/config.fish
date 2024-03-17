@@ -69,7 +69,7 @@ alias oy "open https://youtube.com/ -a Google\ Chrome"
 alias ogh "open -a GitHub\ Desktop"
 alias oa "open https://albertcollege.edsby.com/ -a Google\ Chrome"
 
-set -gx EDITOR nvim
+set -gx EDITOR vim
 set -gx PATH bin $PATH
 set -gx PATH ~/bin $PATH
 set -gx PATH ~/.local/bin $PATH
