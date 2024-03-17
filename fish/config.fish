@@ -28,17 +28,10 @@ alias gitignore-not-working "git rm -rf --cached . && git add ."
 alias v nvim
 alias nv neovide
 alias c clear
-
-# Aliases for Yarn
-alias ya "yarn add"
-alias yi "yarn install"
-alias yr "yarn remove"
-alias yc "yarn create"
-
-# Aliases for pnpm
+alias y yarn
 alias p pnpm
-alias pi "pnpm install"
-alias pr "pnpm remove"
+alias n npm
+alias b bun
 
 # Aliases for Flutter
 alias si "open -a Simulator"
