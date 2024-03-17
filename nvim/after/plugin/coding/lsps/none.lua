@@ -10,7 +10,6 @@ none.setup({
 		none.builtins.code_actions.gomodifytags,
 		none.builtins.code_actions.impl,
 
-		none.builtins.completion.luasnip,
 		none.builtins.completion.spell,
 		none.builtins.completion.tags,
 		none.builtins.completion.vsnip,
