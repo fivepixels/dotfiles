@@ -4,7 +4,7 @@ ai.setup({
   n_lines = 100,
   mappings = {
     around = "a",
-    inside = "i",
+    inside = "an",
     around_next = "an",
     inside_next = "in",
     around_last = "al",

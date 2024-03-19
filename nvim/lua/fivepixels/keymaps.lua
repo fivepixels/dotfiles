@@ -35,6 +35,8 @@ map("n", "<leader>ra", "@q")
 
 map("v", "<C-j>", ":m '>+1<cr>gv=gv")
 map("v", "<C-k>", ":m '<-2<cr>gv=gv")
+map("v", "<C-l>", "%")
+map("v", "<C-h>", "^")
 
 map("v", "<", "<gv")
 map("v", ">", ">gv")
@@ -58,7 +60,7 @@ map("n", "<S-j>", "<cmd>+8<cr>")
 map("n", "<S-k>", "<cmd>-8<cr>")
 
 -- managers
-map("n", "<leader>mp", "<cmd>Pckr status<cr>")
+map("n", "<leader>mj", "<cmd>Pckr status<cr>")
 map("n", "<leader>mm", "<cmd>Mason<cr>")
 
 -- disable cursors

@@ -32,6 +32,7 @@ alias y yarn
 alias p pnpm
 alias n npm
 alias b bun
+alias bu bunx
 
 # Aliases for Flutter
 alias si "open -a Simulator"

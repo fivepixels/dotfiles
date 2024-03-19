@@ -15,9 +15,9 @@ brew install --cask grammarly grammarly-desktop -q
 brew install --cask obs -q
 brew install --cask microsoft-teams microsoft-word microsoft-outlook microsoft-onenote microsoft-excel microsoft-powerpoint onedrive -q
 
-# install lazy
+# install pckr
 rm -rf ~/.local/share/nvim/pckr
-git clone https://github.com/lewis6991/pckr.nvim --filter=blob:none --branch=stable ~/.local/share/nvim/lazy/lazy.nvim
+git clone https://github.com/lewis6991/pckr.nvim --filter=blob:none --branch=stable ~/.local/share/nvim/pckr/pckr.nvim
 
 sh ./fish.sh # install plugins for fish
 

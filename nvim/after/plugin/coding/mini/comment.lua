@@ -16,6 +16,6 @@ ts_context.setup({
   enable_autocmd = false
 })
 
-vim.keymap.set("n", "mt", function() todo.jump_next() end)
-vim.keymap.set("n", "nt", function() todo.jump_prev() end)
+vim.keymap.set("n", "<leader>mn", function() todo.jump_next() end)
+vim.keymap.set("n", "<leader>mp", function() todo.jump_prev() end)
 vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>")

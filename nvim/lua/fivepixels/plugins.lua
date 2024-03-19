@@ -10,10 +10,10 @@ require("pckr").add({
 
   -- language servers
   "neovim/nvim-lspconfig",
-  "nvimtools/none-ls.nvim",
+  "nvimdev/lspsaga.nvim",
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
-  "nvimdev/lspsaga.nvim",
+  "mason-org/mason-registry",
 
   -- completion
   "hrsh7th/nvim-cmp",
@@ -21,10 +21,8 @@ require("pckr").add({
   "hrsh7th/cmp-buffer",
   "hrsh7th/cmp-path",
 
-  "SirVer/ultisnips",
-  "quangnguyen30192/cmp-nvim-ultisnips",
-  "honza/vim-snippets",
-
+  "L3MON4D3/LuaSnip",
+  "saadparwaiz1/cmp_luasnip",
   "rafamadriz/friendly-snippets",
 
   -- linting and formatting
@@ -63,10 +61,11 @@ require("pckr").add({
   "nvim-treesitter/nvim-treesitter-context",
 
   -- language specific
-  "mrcjkb/rustaceanvim",                   -- rust
-  "b0o/SchemaStore.nvim",                  -- json
+  "mrcjkb/rustaceanvim",                    -- rust
+  "b0o/SchemaStore.nvim",                   -- json
   "roobert/tailwindcss-colorizer-cmp.nvim", -- tailwindcss
-  "Saecki/crates.nvim",                    -- rust
+  "Saecki/crates.nvim",                     -- rust
+
   {
     "iamcco/markdown-preview.nvim",
     run = "cd app && npm install",
@@ -74,6 +73,5 @@ require("pckr").add({
       vim.g.mkdp_filetypes = { "markdown" }
     end,
     ft = { "markdown" },
-  },                       -- markdown
-  "ckolkey/ts-node-action", -- typescript
+  }, -- markdown
 })

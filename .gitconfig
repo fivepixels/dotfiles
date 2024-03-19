@@ -17,6 +17,7 @@
   co = checkout
   ci = commit
   ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
+  psf = "!git push origin $(git rev-parse --abbrev-ref HEAD) -f"
   pl = "!git pull origin $(git rev-parse --abbrev-ref HEAD)"
   st = status
   sa = stash
