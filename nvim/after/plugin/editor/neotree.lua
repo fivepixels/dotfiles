@@ -50,10 +50,6 @@ sidebar.setup({
       hide_dotfiles = false,
       hide_gitignored = false,
       hide_hidden = false,
-      hide_by_name = {
-        "node_modules",
-        "dist",
-      },
       always_show = {
         "package.json",
         "README.md",
@@ -76,4 +72,3 @@ sidebar.setup({
     },
   },
 })
-
