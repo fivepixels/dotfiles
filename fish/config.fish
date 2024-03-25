@@ -26,30 +26,13 @@ alias cdp "cd ../"
 alias g git
 alias gitignore-not-working "git rm -rf --cached . && git add ."
 alias v nvim
-alias nv neovide
 alias c clear
 alias y yarn
 alias p pnpm
 alias n npm
+alias f flutter
 alias b bun
 alias bu bunx
-
-# Aliases for Flutter
-alias si "open -a Simulator"
-alias fr "flutter run lib/main.dart"
-alias fpa "flutter pub add"
-alias fpr "flutter pub remove"
-alias fpu "flutter pub upgrade"
-alias fpg "flutter pub get"
-
-alias renvim "rm -rf /Users/cattynip/.local/share/nvim/ & rm -rf /Users/cattynip/.local/share/nvim.bak/"
-
-# Aliases for web
-# alias devmode "open -a GitHub\ Desktop && og"
-# start forks 
-function start
-
-end
 
 function og
     set -l url "https://github.com"
@@ -66,9 +49,7 @@ function og
 end
 
 alias o open
-alias oy "open https://youtube.com/ -a Google\ Chrome"
-alias ogh "open -a GitHub\ Desktop"
-alias oa "open https://albertcollege.edsby.com/ -a Google\ Chrome"
+alias oa "open -a"
 
 set -gx EDITOR vim
 set -gx PATH bin $PATH

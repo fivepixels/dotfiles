@@ -10,7 +10,6 @@ conform.setup({
     css = { "prettier" },
     scss = { "prettier" },
     less = { "prettier" },
-    html = { "prettier" },
 
     json = { "prettier" },
     jsonc = { "prettier" },
@@ -22,6 +21,8 @@ conform.setup({
     markdown = { "prettier" },
     ["markdown.mdx"] = { "prettier" },
     graphql = { "prettier" },
+
+    rust = { "rustfmt" }
   },
   format_on_save = {
     lsp_fallback = true,

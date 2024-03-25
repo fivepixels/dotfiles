@@ -1,5 +1,10 @@
-sh ./touch.sh # install homebrew
+sh ./touch.sh     # install homebrew
 sh ./macconfig.sh # change configurations for mac
+
+# downloading rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
+source "$HOME/.cargo/env.fish"
 
 # installing softwares and applications for development
 brew install fish ripgrep fd eza -q

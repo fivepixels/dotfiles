@@ -44,8 +44,8 @@ lspconfig["tsserver"].setup({
     client.server_capabilities.document_formatting = false
     client.server_capabilities.document_range_formatting = false
 
-    vim.keymap.set("n", "<leader>to", "<cmd>TypescriptOrganizeImports<cr>", opts)
-    vim.keymap.set("n", "<leader>tr", "<cmd>TypescriptRenameFile<cr>", opts)
+    map("n", "<leader>to", "<cmd>TypescriptOrganizeImports<cr>", opts)
+    map("n", "<leader>tr", "<cmd>TypescriptRenameFile<cr>", opts)
 
     on_attach(client, bufnr)
   end,
@@ -109,6 +109,90 @@ lspconfig["svelte"].setup({
   end,
 })
 
+-- rust
+require("crates").setup({
+  src = {
+    cmp = { enabled = true },
+  },
+})
+vim.g.rustaceanvim = {
+  server = {
+    on_attach = function(_, bufnr)
+      map("n", "<leader>cR", function()
+        vim.cmd.RustLsp("codeAction")
+      end, { desc = "Code Action", buffer = bufnr })
+      map("n", "<leader>dr", function()
+        vim.cmd.RustLsp("debuggables")
+      end, { desc = "Rust debuggables", buffer = bufnr })
+    end,
+    default_settings = {
+      -- rust-analyzer language server configuration
+      ["rust-analyzer"] = {
+        cargo = {
+          allFeatures = true,
+          loadOutDirsFromCheck = true,
+          runBuildScripts = true,
+        },
+        -- Add clippy lints for Rust.
+        checkOnSave = {
+          allFeatures = true,
+          command = "clippy",
+          extraArgs = { "--no-deps" },
+        },
+        procMacro = {
+          enable = true,
+          ignored = {
+            ["async-trait"] = { "async_trait" },
+            ["napi-derive"] = { "napi" },
+            ["async-recursion"] = { "async_recursion" },
+          },
+        },
+      }
+    }
+  }
+}
+
+vim.g.rustaceanvim = {
+  server = {
+    on_attach = function(client, bufnr)
+      map("n", "<leader>cR", function()
+        vim.cmd.RustLsp("codeAction")
+      end, { desc = "Code Action", buffer = bufnr })
+      map("n", "<leader>dr", function()
+        vim.cmd.RustLsp("debuggables")
+      end, { desc = "Rust debuggables", buffer = bufnr })
+
+      map("n", "<C-k>", function()
+        require("crates").show_popup()
+      end)
+
+      on_attach(client, bufnr);
+    end,
+    default_settings = {
+      ["rust-analyzer"] = {
+        cargo = {
+          allFeatures = true,
+          loadOutDirsFromCheck = true,
+          runBuildScripts = true,
+        },
+        checkOnSave = {
+          allFeatures = true,
+          command = "clippy",
+          extraArgs = { "--no-deps" },
+        },
+        procMacro = {
+          enable = true,
+          ignored = {
+            ["async-trait"] = { "async_trait" },
+            ["napi-derive"] = { "napi" },
+            ["async-recursion"] = { "async_recursion" },
+          },
+        },
+      },
+    },
+  }
+}
+
 -- prisma
 lspconfig["prismals"].setup({
   capabilities = capabilities,
@@ -126,7 +210,7 @@ lspconfig["graphql"].setup({
 lspconfig["pyright"].setup({
   capabilities = capabilities,
   on_attach = function(client, bufnr)
-    vim.keymap.set("n", "<leader>to", function()
+    map("n", "<leader>to", function()
       vim.lsp.buf.code_action({
         apply = true,
         context = {
@@ -242,6 +326,7 @@ lspconfig["yamlls"].setup({
   },
 })
 
+map("n", "<leader>cp", "<cmd>MarkdownPreview<cr>")
 lspconfig["marksman"].setup({
   capabilities = capabilities,
   on_attach = on_attach

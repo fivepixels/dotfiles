@@ -15,6 +15,13 @@ require("pckr").add({
   "williamboman/mason-lspconfig.nvim",
   "mason-org/mason-registry",
 
+  -- dap
+  "mfussenegger/nvim-dap",
+  "rcarriga/nvim-dap-ui",
+  "nvim-neotest/nvim-nio",
+  "theHamsta/nvim-dap-virtual-text",
+  "jay-babu/mason-nvim-dap.nvim",
+
   -- completion
   "hrsh7th/nvim-cmp",
   "hrsh7th/cmp-nvim-lsp",
@@ -61,17 +68,9 @@ require("pckr").add({
   "nvim-treesitter/nvim-treesitter-context",
 
   -- language specific
-  "mrcjkb/rustaceanvim",                    -- rust
   "b0o/SchemaStore.nvim",                   -- json
   "roobert/tailwindcss-colorizer-cmp.nvim", -- tailwindcss
+  "mrcjkb/rustaceanvim",                    -- rust
   "Saecki/crates.nvim",                     -- rust
-
-  {
-    "iamcco/markdown-preview.nvim",
-    run = "cd app && npm install",
-    setup = function()
-      vim.g.mkdp_filetypes = { "markdown" }
-    end,
-    ft = { "markdown" },
-  }, -- markdown
+  "iamcco/markdown-preview.nvim",
 })

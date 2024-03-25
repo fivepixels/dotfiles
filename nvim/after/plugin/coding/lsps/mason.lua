@@ -43,4 +43,4 @@ mason_lsp.setup({
   automatic_installation = true,
 })
 
--- MasonInstall isort black pylint markdownlint eslint_d prettier stylua
+-- MasonInstall isort black pylint eslint_d prettier stylua
