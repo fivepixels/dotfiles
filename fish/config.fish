@@ -51,6 +51,35 @@ end
 alias o open
 alias oa "open -a"
 
+function replace_word
+    set file $argv[1]
+    set old_word $argv[2]
+    set new_word $argv[3]
+
+    sed -i '' "s/$old_word/$new_word/g" $file
+end
+
+alias inita "echo \"a: title; b: description; c: github url\""
+
+function init
+  inita
+
+  mkdir $argv[1]
+  cd $argv[1]
+
+  cp ~/.config/example/typescript/* .
+  cp ~/.config/example/typescript/.* .
+
+  replace_word package.json "<a>" $argv[1]
+  replace_word README.md "<a>" $argv[1]
+  replace_word package.json "<b>" $argv[2]
+  replace_word README.md "<b>" $argv[2]
+
+  git init
+  git remote add origin $argv[3]
+  bun install
+end
+
 set -gx EDITOR vim
 set -gx PATH bin $PATH
 set -gx PATH ~/bin $PATH
