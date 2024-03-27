@@ -4,14 +4,31 @@
   "version": "0.0.1",
   "main": "index.ts",
   "type": "module",
+  "private": true,
   "license": "MIT",
-  "author": "Seo SO<hi@fivepixels.dev>",
-  "homepage": "",
-  "repository": "",
+  "homepage": "https://github.com/<c>/<d>",
   "keywords": [],
+  "author": {
+    "name": "Seol SO",
+    "url": "https://fivepixels.dev",
+    "email": "hi@fivepixels.dev"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/fivepixels"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/<c>/<d>"
+  },
+  "bugs": {
+    "url": "https://github.com/<c>/<d>/issues/new",
+    "email": "hi@fivepixels.dev"
+  },
   "scripts": {
     "format": "bunx prettier --write . && bunx eslint --fix ."
   },
+  "dependencies": {},
   "devDependencies": {
     "@types/bun": "latest",
     "@typescript-eslint/eslint-plugin": "^7.3.0",

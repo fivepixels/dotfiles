@@ -59,7 +59,7 @@ function replace_word
     sed -i '' "s/$old_word/$new_word/g" $file
 end
 
-alias inita "echo \"a: title; b: description; c: github url\""
+alias inita "echo \"a: title; b: description; c: github username; d: github repository name;\""
 
 function init
   inita
@@ -76,7 +76,7 @@ function init
   replace_word README.md "<b>" $argv[2]
 
   git init
-  git remote add origin $argv[3]
+  git remote add origin "git@github.com:"$argv[3]"/"$argv[4]".git"
   bun install
 end
 
