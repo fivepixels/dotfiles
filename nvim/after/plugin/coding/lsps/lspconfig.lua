@@ -326,6 +326,8 @@ lspconfig["yamlls"].setup({
   },
 })
 
+lspconfig.biome.setup({})
+
 map("n", "<leader>cp", "<cmd>MarkdownPreview<cr>")
 lspconfig["marksman"].setup({
   capabilities = capabilities,
