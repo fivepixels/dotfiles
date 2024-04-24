@@ -47,7 +47,7 @@ vim.opt.formatoptions:append { 'r' }
 vim.opt.clipboard:append { 'unnamedplus' }
 vim.opt.rtp:prepend(vim.fn.stdpath("data") .. "/lazy/lazy.nvim")
 
-vim.g.skip_ts_context_commentstring_module = true 
+vim.g.skip_ts_context_commentstring_module = true
 
 if vim.g.neovide then
   vim.o.guifont = "Hack Nerd Font Mono"

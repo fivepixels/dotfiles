@@ -17,7 +17,7 @@ set -g theme_hostname always
 
 # Aliases
 alias asdf "brew update && brew upgrade"
-alias l "eza -a -l -s type --git --header --icons --no-user --no-filesize --no-time"
+alias l "eza -a -l -s type --git --header --icons --no-user --no-time --color-scale --context --git-repos"
 alias t "eza -a --tree --level"
 alias remove "rm -rf ~/.local/share/nvim/swap && rm ~/.local/state/nvim/lsp.log && rm -rf ~/.local/state/nvim/swap"
 alias to touch
@@ -34,51 +34,10 @@ alias f flutter
 alias b bun
 alias bu bunx
 
-function og
-    set -l url "https://github.com"
+alias d "du -sh"
 
-    if set -q argv[1]
-        set url $url/$argv[1]
-    end
-
-    if set -q argv[2]
-        set url $url/$argv[2]
-    end
-
-    open $url -a "Google Chrome"
-end
-
-alias o open
-alias oa "open -a"
-
-function replace_word
-    set file $argv[1]
-    set old_word $argv[2]
-    set new_word $argv[3]
-
-    sed -i '' "s/$old_word/$new_word/g" $file
-end
-
-alias inita "echo \"a: title; b: description; c: github username; d: github repository name;\""
-
-function init
-  inita
-
-  mkdir $argv[1]
-  cd $argv[1]
-
-  cp ~/.config/example/typescript/* .
-  cp ~/.config/example/typescript/.* .
-
-  replace_word package.json "<a>" $argv[1]
-  replace_word README.md "<a>" $argv[1]
-  replace_word package.json "<b>" $argv[2]
-  replace_word README.md "<b>" $argv[2]
-
-  git init
-  git remote add origin "git@github.com:"$argv[3]"/"$argv[4]".git"
-  bun install
-end
+alias ogh "open -a GitHub\ Desktop"
+alias og "open -a Google\ Chrome"
 
 set -gx EDITOR vim
 set -gx PATH bin $PATH
