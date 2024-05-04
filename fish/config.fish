@@ -39,6 +39,8 @@ alias d "du -sh"
 alias ogh "open -a GitHub\ Desktop"
 alias og "open -a Google\ Chrome"
 
+alias start "cp -R ~/Documents/development/extra/template/templates/typescript/* ."
+
 set -gx EDITOR vim
 set -gx PATH bin $PATH
 set -gx PATH ~/bin $PATH
