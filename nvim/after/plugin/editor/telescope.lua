@@ -64,7 +64,7 @@ map("n", "<leader>ff", function()
     grouped = true,
     previewer = true,
     layout_strategy = "horizontal",
-    layout_config = { width = 130, height = 40 }
+    layout_config = { width = 100, height = 30 }
   })
 end)
 
