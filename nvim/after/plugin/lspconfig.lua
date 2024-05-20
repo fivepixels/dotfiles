@@ -4,7 +4,7 @@ local map = vim.keymap.set
 local tw = require("lspconfig.server_configurations.tailwindcss")
 
 local opts = { noremap = true, silent = true }
-local on_attach = function(client, bufnr)
+local on_attach = function(_, bufnr)
 	opts.buffer = bufnr
 
 	map("n", "<leader>lf", "<cmd>Lspsaga finder<cr>", opts)
@@ -38,7 +38,6 @@ lspconfig["html"].setup({
 lspconfig["tsserver"].setup({
 	capabilities = capabilities,
 	on_attach = function(client, bufnr)
-		local opts = { noremap = true, silent = true }
 		opts.buffer = bufnr
 
 		client.server_capabilities.document_formatting = false
@@ -109,90 +108,6 @@ lspconfig["svelte"].setup({
 	end,
 })
 
--- rust
-require("crates").setup({
-	src = {
-		cmp = { enabled = true },
-	},
-})
-vim.g.rustaceanvim = {
-	server = {
-		on_attach = function(_, bufnr)
-			map("n", "<leader>cR", function()
-				vim.cmd.RustLsp("codeAction")
-			end, { desc = "Code Action", buffer = bufnr })
-			map("n", "<leader>dr", function()
-				vim.cmd.RustLsp("debuggables")
-			end, { desc = "Rust debuggables", buffer = bufnr })
-		end,
-		default_settings = {
-			-- rust-analyzer language server configuration
-			["rust-analyzer"] = {
-				cargo = {
-					allFeatures = true,
-					loadOutDirsFromCheck = true,
-					runBuildScripts = true,
-				},
-				-- Add clippy lints for Rust.
-				checkOnSave = {
-					allFeatures = true,
-					command = "clippy",
-					extraArgs = { "--no-deps" },
-				},
-				procMacro = {
-					enable = true,
-					ignored = {
-						["async-trait"] = { "async_trait" },
-						["napi-derive"] = { "napi" },
-						["async-recursion"] = { "async_recursion" },
-					},
-				},
-			},
-		},
-	},
-}
-
-vim.g.rustaceanvim = {
-	server = {
-		on_attach = function(client, bufnr)
-			map("n", "<leader>cR", function()
-				vim.cmd.RustLsp("codeAction")
-			end, { desc = "Code Action", buffer = bufnr })
-			map("n", "<leader>dr", function()
-				vim.cmd.RustLsp("debuggables")
-			end, { desc = "Rust debuggables", buffer = bufnr })
-
-			map("n", "<C-k>", function()
-				require("crates").show_popup()
-			end)
-
-			on_attach(client, bufnr)
-		end,
-		default_settings = {
-			["rust-analyzer"] = {
-				cargo = {
-					allFeatures = true,
-					loadOutDirsFromCheck = true,
-					runBuildScripts = true,
-				},
-				checkOnSave = {
-					allFeatures = true,
-					command = "clippy",
-					extraArgs = { "--no-deps" },
-				},
-				procMacro = {
-					enable = true,
-					ignored = {
-						["async-trait"] = { "async_trait" },
-						["napi-derive"] = { "napi" },
-						["async-recursion"] = { "async_recursion" },
-					},
-				},
-			},
-		},
-	},
-}
-
 -- prisma
 lspconfig["prismals"].setup({
 	capabilities = capabilities,
@@ -229,19 +144,21 @@ lspconfig["lua_ls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 	settings = {
-		{
+		single_file_support = true,
+		settings = {
 			Lua = {
 				workspace = {
 					checkThirdParty = false,
-					{
-						library = {
-							[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-							[vim.fn.stdpath("config") .. "/lua"] = true,
-						},
+				},
+				completion = {
+					workspaceWord = true,
+					callSnippet = "Both",
+				},
+				misc = {
+					parameters = {
+						-- "--log-level=trace",
 					},
 				},
-				codeLens = { enable = true },
-				completion = { workspaceWord = true, callSnippet = "Both" },
 				hint = {
 					enable = true,
 					setType = false,
@@ -250,12 +167,19 @@ lspconfig["lua_ls"].setup({
 					semicolon = "Disable",
 					arrayIndex = "Disable",
 				},
-				doc = { privateName = { "^_" } },
-				type = { castNumberToInteger = true },
+				doc = {
+					privateName = { "^_" },
+				},
+				type = {
+					castNumberToInteger = true,
+				},
 				diagnostics = {
-					globals = { "vim" },
 					disable = { "incomplete-signature-doc", "trailing-space" },
-					groupSeverity = { strong = "Warning", strict = "Warning" },
+					-- enable = false,
+					groupSeverity = {
+						strong = "Warning",
+						strict = "Warning",
+					},
 					groupFileStatus = {
 						["ambiguity"] = "Opened",
 						["await"] = "Opened",
@@ -273,10 +197,64 @@ lspconfig["lua_ls"].setup({
 					unusedLocalExclude = { "_*" },
 				},
 				format = {
-					defaultConfig = { indent_style = "space", indent_size = "2", continuation_indent_size = "2" },
+					enable = false,
+					defaultConfig = {
+						indent_style = "space",
+						indent_size = "2",
+						continuation_indent_size = "2",
+					},
 				},
 			},
 		},
+
+		-- {
+		-- Lua = {
+		-- 	workspace = {
+		-- 		checkThirdParty = false,
+		-- 		{
+		-- 			library = {
+		-- 				[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+		-- 				[vim.fn.stdpath("config") .. "/lua"] = true,
+		-- 			},
+		-- 		},
+		-- 	},
+		-- 	codeLens = { enable = true },
+		-- 	completion = { workspaceWord = true, callSnippet = "Both" },
+		-- 	hint = {
+		-- 		enable = true,
+		-- 		setType = false,
+		-- 		paramType = true,
+		-- 		paramName = "Disable",
+		-- 		semicolon = "Disable",
+		-- 		arrayIndex = "Disable",
+		-- 	},
+		-- 	doc = { privateName = { "^_" } },
+		-- 	type = { castNumberToInteger = true },
+		-- 	diagnostics = {
+		-- 		globals = { "vim" },
+		-- 		disable = { "incomplete-signature-doc", "trailing-space" },
+		-- 		groupSeverity = { strong = "Warning", strict = "Warning" },
+		-- 		groupFileStatus = {
+		-- 			["ambiguity"] = "Opened",
+		-- 			["await"] = "Opened",
+		-- 			["codestyle"] = "None",
+		-- 			["duplicate"] = "Opened",
+		-- 			["global"] = "Opened",
+		-- 			["luadoc"] = "Opened",
+		-- 			["redefined"] = "Opened",
+		-- 			["strict"] = "Opened",
+		-- 			["strong"] = "Opened",
+		-- 			["type-check"] = "Opened",
+		-- 			["unbalanced"] = "Opened",
+		-- 			["unused"] = "Opened",
+		-- 		},
+		-- 		unusedLocalExclude = { "_*" },
+		-- 	},
+		-- 	format = {
+		-- 		defaultConfig = { indent_style = "space", indent_size = "2", continuation_indent_size = "2" },
+		-- 	},
+		-- },
+		-- },
 	},
 })
 

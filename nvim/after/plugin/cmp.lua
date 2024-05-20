@@ -32,7 +32,6 @@ cmp.setup({
 		{ name = "luasnip" },
 		{ name = "nvim_lsp" },
 		{ name = "path" },
-		{ name = "crates" },
 	}, {
 		{ name = "buffer" },
 	}),
@@ -96,10 +95,3 @@ cmp.setup({
 	sorting = defaults.sorting,
 })
 
-cmp.setup.filetype("gitcommit", {
-	sources = cmp.config.sources({
-		{ name = "git" },
-	}, {
-		{ name = "buffer" },
-	}),
-})

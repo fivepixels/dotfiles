@@ -1,6 +1,16 @@
-local lualine = require("lualine")
+require("solarized-osaka").setup({
+  transparent = true,
+  styles = {
+    comments = {},
+    keywords = { italic = true },
+    functions = { italic = true, bold = true },
+    variables = { bold = true },
+  },
+  dim_inactive = true,
+  lualine_bold = true,
+})
 
-lualine.setup({
+require("lualine").setup({
   options = {
     theme = 'solarized_dark',
     component_separators = { left = ' ▎', right = ' ▎'},
@@ -16,3 +26,4 @@ lualine.setup({
   },
 })
 
+vim.cmd([[ colorscheme solarized-osaka-night ]])

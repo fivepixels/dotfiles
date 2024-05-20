@@ -1,12 +1,12 @@
-vim.cmd("autocmd!")
+vim.cmd([[ autocmd! ]])
 
-vim.mapleder = ' '
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.mapleder = " "
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
-vim.scriptencoding = 'utf-8'
-vim.opt.encoding = 'utf-8'
-vim.opt.fileencoding = 'utf-8'
+vim.scriptencoding = "utf-8"
+vim.opt.encoding = "utf-8"
+vim.opt.fileencoding = "utf-8"
 
 vim.opt.title = true
 vim.wo.number = true
@@ -27,24 +27,20 @@ vim.opt.showcmd = true
 vim.opt.cmdheight = 1
 vim.opt.hlsearch = true
 vim.opt.ignorecase = true
-vim.opt.inccommand = 'split'
+vim.opt.inccommand = "split"
 vim.opt.backup = false
-vim.opt.backupskip = { '/tmp/*', '/private/tmp/*' }
-vim.opt.backspace = { 'start', 'eol', 'indent' }
-vim.opt.shell = 'fish'
+vim.opt.backupskip = { "/tmp/*", "/private/tmp/*" }
+vim.opt.backspace = { "start", "eol", "indent" }
+vim.opt.shell = "fish"
 vim.opt.guicursor = "n-v-c-sm:block,ve:ver25,r-o:hor20"
-
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
 vim.opt.winblend = 0
-vim.opt.wildoptions = 'pum'
+vim.opt.wildoptions = "pum"
 vim.opt.pumblend = 5
-vim.opt.background = 'dark'
-
-vim.opt.path:append { '**' }
-vim.opt.wildignore:append { '*/node_modules/*' }
-vim.opt.formatoptions:append { 'r' }
-vim.opt.clipboard:append { 'unnamedplus' }
+vim.opt.background = "dark"
+vim.opt.path:append({ "**" })
+vim.opt.wildignore:append({ "*/node_modules/*" })
+vim.opt.formatoptions:append({ "r" })
+vim.opt.clipboard:append({ "unnamedplus" })
 vim.opt.rtp:prepend(vim.fn.stdpath("data") .. "/lazy/lazy.nvim")
-
-vim.g.skip_ts_context_commentstring_module = true
