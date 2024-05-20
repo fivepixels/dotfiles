@@ -56,8 +56,8 @@ map("i", "<C-b>", "<esc>hbi")
 
 map("n", "<S-l>", "$")
 map("n", "<S-h>", "^")
-map("n", "<S-j>", "<cmd>+8<cr>")
-map("n", "<S-k>", "<cmd>-8<cr>")
+map("n", "<S-j>", "<cmd>+9<cr>")
+map("n", "<S-k>", "<cmd>-7<cr>")
 
 -- managers
 map("n", "<leader>mj", "<cmd>Pckr status<cr>")
