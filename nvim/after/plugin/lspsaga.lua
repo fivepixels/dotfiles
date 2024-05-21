@@ -1,6 +1,4 @@
-local lspsaga = require("lspsaga")
-
-lspsaga.setup({
+require("lspsaga").setup({
   ui = {
     border = "rounded",
     code_action = "󰌶",

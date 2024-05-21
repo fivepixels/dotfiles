@@ -42,7 +42,3 @@ map("i", "<C-o>", "<esc>O")
 map("i", "<C-Enter>", "<esc>o")
 
 map("n", "<C-u>", "<cmd>DepsClean<cr><cmd>w<cr><cmd>DepsUpdate<cr><cmd>w<cr>")
-
-map("n", "<C-l>", function()
-	require("lint").try_lint()
-end)

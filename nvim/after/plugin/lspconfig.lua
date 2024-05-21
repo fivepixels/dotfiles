@@ -1,326 +1,186 @@
-local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local map = vim.keymap.set
+local lspconfig = require("lspconfig")
 local tw = require("lspconfig.server_configurations.tailwindcss")
+local map = vim.keymap.set
 
-local opts = { noremap = true, silent = true }
 local on_attach = function(_, bufnr)
-	opts.buffer = bufnr
+  local current_opts = { noremap = true, silent = true, buffer = bufnr }
 
-	map("n", "<leader>lf", "<cmd>Lspsaga finder<cr>", opts)
-	map("n", "<leader>lp", "<cmd>Lspsaga peek_definition<cr>", opts)
-	map("n", "<leader>lg", "<cmd>Lspsaga goto_definition<cr>", opts)
-	map("n", "<leader>lo", "<cmd>Lspsaga outline<cr>", opts)
-	map("n", "<leader>lr", "<cmd>Lspsaga rename<cr>", opts)
-	map("n", "<leader>ll", "<cmd>LspRestart<cr>", opts)
-	map({ "n", "v" }, "<leader>lc", "<cmd>Lspsaga code_action<cr>", opts)
+  local use_opts = function(desc)
+    return vim.tbl_extend("force", current_opts, { desc = desc })
+  end
 
-	map("n", "<C-k>", "<Cmd>Lspsaga hover_doc<CR>", opts)
-	map("n", "<C-r>", "<Cmd>Lspsaga rename<CR>", opts)
+  map("n", "<leader>lf", "<cmd>Lspsaga finder<cr>", use_opts("Open the finder"))
+  map("n", "<leader>lp", "<cmd>Lspsaga peek_definition<cr>", use_opts("Edit on the floating window"))
+  map("n", "<leader>lg", "<cmd>Lspsaga goto_definition<cr>", use_opts("Go to the definition"))
+  map("n", "<leader>lo", "<cmd>Lspsaga outline<cr>", use_opts("See the list of outline"))
+  map("n", "<leader>lr", "<cmd>Lspsaga rename<cr>", use_opts("Rename"))
+  map("n", "<leader>ll", "<cmd>LspRestart<cr>", use_opts("Restart the LSP"))
+  map("n", "<leader>lh", "<Cmd>Lspsaga hover_doc<CR>", use_opts("See simple documents"))
+  map({ "n", "v" }, "<leader>lc", "<cmd>Lspsaga code_action<cr>", use_opts("See code actions"))
 
-	map("n", "<C-n>", "<Cmd>Lspsaga diagnostic_jump_next<CR>", opts)
-	map("n", "<C-p>", "<Cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
+  map("n", "<C-n>", "<Cmd>Lspsaga diagnostic_jump_next<CR>", current_opts)
+  map("n", "<C-p>", "<Cmd>Lspsaga diagnostic_jump_prev<CR>", current_opts)
 end
 
 local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
 for type, icon in pairs(signs) do
-	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
--- html
-lspconfig["html"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
+local basicLspSetup = {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
+
+lspconfig["asm_lsp"].setup(basicLspSetup)
+
+-- WEB/APP
+lspconfig["html"].setup(basicLspSetup)
+lspconfig["htmx"].setup(basicLspSetup)
+lspconfig["cssls"].setup(basicLspSetup)
+lspconfig["cssmodules_ls"].setup(basicLspSetup)
+lspconfig["css_variables"].setup(basicLspSetup)
+lspconfig["somesass_ls"].setup(basicLspSetup)
+lspconfig["biome"].setup(basicLspSetup)
+lspconfig["astro"].setup(basicLspSetup)
+
+-- Bash
+lspconfig["bashls"].setup(basicLspSetup)
+
+-- C/C++/C#/Swift
+lspconfig["sourcekit"].setup(basicLspSetup)
+lspconfig["ccls"].setup(basicLspSetup)
+
+-- Dart
+lspconfig["dartls"].setup(basicLspSetup)
+
+-- Go
+-- lspconfig["golangci_lint_ls"].setup(basicLspSetup)
+-- lspconfig["gopls"].setup(basicLspSetup)
+
+-- Docker
+lspconfig["dockerls"].setup(basicLspSetup)
+
+-- SQLs/ORMs
+lspconfig["graphql"].setup(basicLspSetup)
+lspconfig["postgres_lsp"].setup(basicLspSetup)
+lspconfig["prismals"].setup(basicLspSetup)
+-- lspconfig["sqls"].setup(basicLspSetup)
+
+-- Nvim
+lspconfig["lua_ls"].setup(basicLspSetup)
+lspconfig["vimls"].setup(basicLspSetup)
+
+-- md
+-- lspconfig["marksman"].setup(basicLspSetup)
+
+-- python
+lspconfig["pyright"].setup(basicLspSetup)
+lspconfig["mojo"].setup(basicLspSetup)
+
+-- Rust
+lspconfig["rust_analyzer"].setup(basicLspSetup)
+
+-- WGSL Shading Langugae
+lspconfig["wgsl_analyzer"].setup(basicLspSetup)
+
+-- Zig
+lspconfig["zls"].setup(basicLspSetup)
+
+-- JSON/YAML
+lspconfig["jsonls"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
+    json = {
+      schemas = require("schemastore").json.schemas(),
+      validate = { enable = true },
+    },
+  },
+})
+
+lspconfig["yamlls"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
+    yaml = {
+      schemaStore = {
+        enable = false,
+        url = "",
+      },
+      schemas = require("schemastore").yaml.schemas(),
+    },
+  },
 })
 
 -- typescript
 lspconfig["tsserver"].setup({
-	capabilities = capabilities,
-	on_attach = function(client, bufnr)
-		opts.buffer = bufnr
+  capabilities = capabilities,
+  on_attach = function(client, bufnr)
+    local opts = { noremap = true, silent = true, buffer = bufnr }
+    opts.buffer = bufnr
 
-		client.server_capabilities.document_formatting = false
-		client.server_capabilities.document_range_formatting = false
+    client.server_capabilities.document_formatting = false
+    client.server_capabilities.document_range_formatting = false
 
-		map("n", "<leader>to", "<cmd>TypescriptOrganizeImports<cr>", opts)
-		map("n", "<leader>tr", "<cmd>TypescriptRenameFile<cr>", opts)
+    map("n", "<leader>to", "<cmd>TypescriptOrganizeImports<cr>", opts)
+    map("n", "<leader>tr", "<cmd>TypescriptRenameFile<cr>", opts)
 
-		on_attach(client, bufnr)
-	end,
-	single_file_support = false,
-	settings = {
-		completion = {
-			completeFunctionCalls = true,
-		},
-		typescript = {
-			inlayHints = {
-				includeInlayParameterNameHints = "literal",
-				includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-				includeInlayFunctionParameterTypeHints = true,
-				includeInlayVariableTypeHints = false,
-				includeInlayPropertyDeclarationTypeHints = true,
-				includeInlayFunctionLikeReturnTypeHints = true,
-				includeInlayEnumMemberValueHints = true,
-			},
-		},
-		javascript = {
-			inlayHints = {
-				includeInlayParameterNameHints = "all",
-				includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-				includeInlayFunctionParameterTypeHints = true,
-				includeInlayVariableTypeHints = true,
-				includeInlayPropertyDeclarationTypeHints = true,
-				includeInlayFunctionLikeReturnTypeHints = true,
-				includeInlayEnumMemberValueHints = true,
-			},
-		},
-	},
-})
-
--- css
-lspconfig["cssls"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
+    on_attach(client, bufnr)
+  end,
+  single_file_support = false,
+  settings = {
+    completion = {
+      completeFunctionCalls = true,
+    },
+    typescript = {
+      inlayHints = {
+        includeInlayParameterNameHints = "literal",
+        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayVariableTypeHints = false,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayEnumMemberValueHints = true,
+      },
+    },
+    javascript = {
+      inlayHints = {
+        includeInlayParameterNameHints = "all",
+        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayVariableTypeHints = true,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayEnumMemberValueHints = true,
+      },
+    },
+  },
 })
 
 -- tailwindcss
 lspconfig["tailwindcss"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-	filetypes = tw.default_config.filetypes,
+  capabilities = capabilities,
+  on_attach = on_attach,
+  filetypes = tw.default_config.filetypes,
 })
 
 -- svelte
 lspconfig["svelte"].setup({
-	capabilities = capabilities,
-	on_attach = function(client, bufnr)
-		vim.api.nvim_create_autocmd("BufWritePost", {
-			pattern = { "*.js", "*.ts" },
-			callback = function(ctx)
-				if client.name == "svelte" then
-					client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.file })
-				end
-			end,
-		})
+  capabilities = capabilities,
+  on_attach = function(client, bufnr)
+    vim.api.nvim_create_autocmd("BufWritePost", {
+      pattern = { "*.js", "*.ts" },
+      callback = function(ctx)
+        if client.name == "svelte" then
+          client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.file })
+        end
+      end,
+    })
 
-		on_attach(client, bufnr)
-	end,
+    on_attach(client, bufnr)
+  end,
 })
-
--- prisma
-lspconfig["prismals"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-
--- graphql
-lspconfig["graphql"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-	filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
-})
-
--- python
-lspconfig["pyright"].setup({
-	capabilities = capabilities,
-	on_attach = function(client, bufnr)
-		map("n", "<leader>to", function()
-			vim.lsp.buf.code_action({
-				apply = true,
-				context = {
-					only = { "source.organizeImports" },
-					diagnostics = {},
-				},
-			})
-		end)
-
-		on_attach(client, bufnr)
-	end,
-})
-
--- lua
-lspconfig["lua_ls"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-	settings = {
-		single_file_support = true,
-		settings = {
-			Lua = {
-				workspace = {
-					checkThirdParty = false,
-				},
-				completion = {
-					workspaceWord = true,
-					callSnippet = "Both",
-				},
-				misc = {
-					parameters = {
-						-- "--log-level=trace",
-					},
-				},
-				hint = {
-					enable = true,
-					setType = false,
-					paramType = true,
-					paramName = "Disable",
-					semicolon = "Disable",
-					arrayIndex = "Disable",
-				},
-				doc = {
-					privateName = { "^_" },
-				},
-				type = {
-					castNumberToInteger = true,
-				},
-				diagnostics = {
-					disable = { "incomplete-signature-doc", "trailing-space" },
-					-- enable = false,
-					groupSeverity = {
-						strong = "Warning",
-						strict = "Warning",
-					},
-					groupFileStatus = {
-						["ambiguity"] = "Opened",
-						["await"] = "Opened",
-						["codestyle"] = "None",
-						["duplicate"] = "Opened",
-						["global"] = "Opened",
-						["luadoc"] = "Opened",
-						["redefined"] = "Opened",
-						["strict"] = "Opened",
-						["strong"] = "Opened",
-						["type-check"] = "Opened",
-						["unbalanced"] = "Opened",
-						["unused"] = "Opened",
-					},
-					unusedLocalExclude = { "_*" },
-				},
-				format = {
-					enable = false,
-					defaultConfig = {
-						indent_style = "space",
-						indent_size = "2",
-						continuation_indent_size = "2",
-					},
-				},
-			},
-		},
-
-		-- {
-		-- Lua = {
-		-- 	workspace = {
-		-- 		checkThirdParty = false,
-		-- 		{
-		-- 			library = {
-		-- 				[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-		-- 				[vim.fn.stdpath("config") .. "/lua"] = true,
-		-- 			},
-		-- 		},
-		-- 	},
-		-- 	codeLens = { enable = true },
-		-- 	completion = { workspaceWord = true, callSnippet = "Both" },
-		-- 	hint = {
-		-- 		enable = true,
-		-- 		setType = false,
-		-- 		paramType = true,
-		-- 		paramName = "Disable",
-		-- 		semicolon = "Disable",
-		-- 		arrayIndex = "Disable",
-		-- 	},
-		-- 	doc = { privateName = { "^_" } },
-		-- 	type = { castNumberToInteger = true },
-		-- 	diagnostics = {
-		-- 		globals = { "vim" },
-		-- 		disable = { "incomplete-signature-doc", "trailing-space" },
-		-- 		groupSeverity = { strong = "Warning", strict = "Warning" },
-		-- 		groupFileStatus = {
-		-- 			["ambiguity"] = "Opened",
-		-- 			["await"] = "Opened",
-		-- 			["codestyle"] = "None",
-		-- 			["duplicate"] = "Opened",
-		-- 			["global"] = "Opened",
-		-- 			["luadoc"] = "Opened",
-		-- 			["redefined"] = "Opened",
-		-- 			["strict"] = "Opened",
-		-- 			["strong"] = "Opened",
-		-- 			["type-check"] = "Opened",
-		-- 			["unbalanced"] = "Opened",
-		-- 			["unused"] = "Opened",
-		-- 		},
-		-- 		unusedLocalExclude = { "_*" },
-		-- 	},
-		-- 	format = {
-		-- 		defaultConfig = { indent_style = "space", indent_size = "2", continuation_indent_size = "2" },
-		-- 	},
-		-- },
-		-- },
-	},
-})
-
-lspconfig["jsonls"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-	on_new_config = function(new_config)
-		new_config.settings.json.schemas = new_config.settings.json.schemas or {}
-		vim.list_extend(new_config.settings.json.schemas, require("schemastore").json.schemas())
-	end,
-	settings = {
-		json = {
-			format = {
-				enable = true,
-			},
-			schemas = require("schemastore").json.schemas(),
-			validate = { enable = true },
-		},
-	},
-})
-
-lspconfig["yamlls"].setup({
-	capabilities = {
-		textDocument = {
-			foldingRange = {
-				dynamicRegistration = false,
-				lineFoldingOnly = true,
-			},
-		},
-	},
-	on_attach = on_attach,
-	-- lazy-load schemastore when needed
-	on_new_config = function(new_config)
-		new_config.settings.yaml.schemas =
-			vim.tbl_deep_extend("force", new_config.settings.yaml.schemas or {}, require("schemastore").yaml.schemas())
-	end,
-	settings = {
-		redhat = { telemetry = { enabled = false } },
-		yaml = {
-			keyOrdering = false,
-			schemaStore = {
-				enable = false,
-				url = "",
-			},
-			validate = true,
-			schemas = require("schemastore").yaml.schemas(),
-		},
-	},
-})
-
--- vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
---   vim.lsp.diagnostic.on_publish_diagnostics,
---   {
---     underline = true,
---     virtual_text = {
---       spacing = 2,
---       severity_limit = 'Warning',
---     },
---     update_in_insert = true,
---   }
--- )
-
-lspconfig.biome.setup({})
-
-map("n", "<leader>cp", "<cmd>MarkdownPreview<cr>")
-lspconfig["marksman"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
+require("nvim-ts-autotag").setup({})
