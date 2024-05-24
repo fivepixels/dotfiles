@@ -10,31 +10,20 @@ require("solarized-osaka").setup({
   lualine_bold = true,
 })
 
-vim.cmd([[ colorscheme solarized-osaka-night ]])
-
 require("nvim-web-devicons").setup()
-
-vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = "*",
-  callback = function()
-    require("mini.trailspace").trim()
-    require("mini.trailspace").trim_last_lines()
-  end,
-})
-
-vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
-
 require("mini.comment").setup({})
 require("mini.trailspace").setup({})
 require("mini.cursorword").setup({})
 require("mini.statusline").setup()
 require("mini.notify").setup({})
-require("mini.splitjoin").setup({ mappings = { toggle = "gs" } })
 require("mini.notify").setup({})
-require("mini.tabline").setup({ tabpage_section = "right" })
+require("mini.pairs").setup({})
+
+require("mini.splitjoin").setup({ mappings = { toggle = "gs" } })
 require("mini.indentscope").setup({ symbol = "▎", options = { try_as_border = true } })
 require("mini.basics").setup({ options = { win_borders = "double" } })
-require("mini.pairs").setup({})
+require("mini.tabline").setup({ tabpage_section = "right" })
+
 require("mini.surround").setup({
   mappings = {
     add = "ga",
@@ -48,6 +37,7 @@ require("mini.surround").setup({
     suffix_next = "n",
   },
 })
+
 require("mini.move").setup({
   mappings = {
     left = "<C-h>",
@@ -60,6 +50,7 @@ require("mini.move").setup({
     line_up = "<C-k>",
   },
 })
+
 require("mini.clue").setup({
   clues = {},
   triggers = {
@@ -70,6 +61,7 @@ require("mini.clue").setup({
   },
   window = { delay = 0 },
 })
+
 require("mini.hipatterns").setup({
   tailwind = {
     enabled = true,
@@ -90,6 +82,7 @@ require("mini.hipatterns").setup({
   },
   delay = { text_change = 0, scroll = 50 },
 })
+
 require("mini.ai").setup({
   n_lines = 100,
   mappings = {
@@ -139,6 +132,20 @@ require("treesj").setup({
   max_join_length = 500,
 })
 
+require("ts_context_commentstring").setup({})
+
+vim.cmd([[ colorscheme solarized-osaka-night ]])
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = "*",
+  callback = function()
+    require("mini.trailspace").trim()
+    require("mini.trailspace").trim_last_lines()
+  end,
+})
+
+vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
+
 vim.keymap.set("n", "<leader>ji", function()
   require("treesj").toggle()
 end, { desc = "Toggle joining blocks" })
@@ -148,5 +155,3 @@ end, { desc = "Join blocks" })
 vim.keymap.set("n", "<leader>js", function()
   require("treesj").split()
 end, { desc = "Split blocks" })
-
-require("ts_context_commentstring").setup({})

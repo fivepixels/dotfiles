@@ -53,5 +53,6 @@ add("b0o/SchemaStore.nvim")
 add("Wansmer/treesj")
 add("prisma/vim-prisma")
 add("DavidAnson/markdownlint")
+add("iamcco/markdown-preview.nvim")
 
 add("nvim-lua/plenary.nvim")
