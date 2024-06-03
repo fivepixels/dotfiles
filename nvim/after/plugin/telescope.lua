@@ -55,7 +55,7 @@ telescope.load_extension("file_browser")
 
 local map = vim.keymap.set
 
-map("n", "<leader>ff", function()
+map("n", "<C-f>", function()
   telescope.extensions.file_browser.file_browser({
     path = "%:p:h",
     cwd = vim.fn.expand("%:p:h"),
@@ -75,6 +75,10 @@ end, { desc = "Find diagnostics" })
 map("n", "<leader>fw", function()
   builtin.current_buffer_fuzzy_find({})
 end, { desc = "Find words" })
+
+map("n", "<leader>fg", function()
+  builtin.git_files({})
+end, { desc = "Find git files" })
 
 map("n", "<leader>fc", function()
   builtin.git_bcommits({

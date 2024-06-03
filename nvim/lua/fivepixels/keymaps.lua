@@ -15,7 +15,7 @@ map("n", "<Tab>", "<cmd>bnext<cr>")
 map("n", "<S-Tab>", "<cmd>bprev<cr>")
 
 map("n", "su", "<cmd>w!<cr>", { desc = "Force Write" })
-map("n", "sp", "<cmd>q!<cr>", { desc = "Force Quit" })
+map("n", "sp", "<cmd>bd<cr>", { desc = "Force Quit" })
 map("n", "so", "<cmd>source %<cr>", { desc = "Source the current file" })
 
 map("n", "<C-a>", "gg<S-v>G")
