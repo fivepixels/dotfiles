@@ -1,0 +1,20 @@
+require("bufferline").setup({
+  options = {
+    mode = "tabs",
+    numbers = "none",
+    close_command = "false",
+    right_mouse_command = "false",
+    left_mouse_command = "false",
+    tab_size = 18,
+    diagnostics = "nvim_lsp",
+    diagnostics_update_in_insert = true,
+    color_icons = true,
+    show_buffer_icons = true,
+    show_buffer_close_icons = false,
+    show_close_icon = false,
+    show_tab_indicators = true,
+    show_duplicate_prefix = false,
+    duplicates_across_groups = false,
+    always_show_bufferline = true,
+  },
+})

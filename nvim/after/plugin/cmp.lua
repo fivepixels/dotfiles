@@ -1,13 +1,9 @@
 local cmp = require("cmp")
 local defaults = require("cmp.config.default")()
-local luasnip = require("luasnip")
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
-luasnip.setup({
-  history = true,
-  delete_check_events = "TextChanged",
-})
+-- require("luasnip").add_snippets(filetype, snippets)
 
 cmp.setup({
   completion = {
@@ -29,8 +25,8 @@ cmp.setup({
     documentation = cmp.config.window.bordered(),
   },
   sources = cmp.config.sources({
-    { name = "luasnip" },
     { name = "nvim_lsp" },
+    { name = "luasnip" },
     { name = "path" },
   }, {
     { name = "buffer" },

@@ -27,11 +27,11 @@
 [hub]
   protocol = ssh
 [github]
-  user = fivepixels
-  email = hi@fivepixels.dev
+  user = nuvut
+  email = hi@nuvut.dev
 [user]
-  name = fivepixels
-  email = hi@fivepixels.dev
+  name = nuvut
+  email = hi@nuvut.dev
 [diff]
   tool = nvimdiff
 [filter "lfs"]
@@ -48,7 +48,7 @@
 	trustExitCode = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
   trustExitCode = true

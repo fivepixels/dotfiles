@@ -22,37 +22,37 @@ add("echasnovski/mini.nvim")
 add("nvim-tree/nvim-web-devicons")
 add("craftzdog/solarized-osaka.nvim")
 
-add({
-  source = "nvim-treesitter/nvim-treesitter",
-  hooks = {
-    post_checkout = function()
-      vim.cmd("TSUpdate")
-    end,
-  },
-})
+add("nvim-treesitter/nvim-treesitter")
 add("nvim-treesitter/nvim-treesitter-context")
+add("JoosepAlviste/nvim-ts-context-commentstring")
 
 add("neovim/nvim-lspconfig")
+add("williamboman/mason.nvim")
+add("williamboman/mason-lspconfig.nvim")
 add("nvimdev/lspsaga.nvim")
 add("stevearc/conform.nvim")
 add("mfussenegger/nvim-lint")
-add("williamboman/mason.nvim")
-add("williamboman/mason-lspconfig.nvim")
 
 add("hrsh7th/nvim-cmp")
 add("hrsh7th/cmp-nvim-lsp")
+add("hrsh7th/cmp-path")
+add("hrsh7th/cmp-buffer")
+add("hrsh7th/cmp-cmdline")
+add("saadparwaiz1/cmp_luasnip")
 add("L3MON4D3/LuaSnip")
+add("rafamadriz/friendly-snippets")
 
 add("nvim-telescope/telescope.nvim")
 add("nvim-telescope/telescope-file-browser.nvim")
+add("akinsho/bufferline.nvim")
+add("nvim-neo-tree/neo-tree.nvim")
 
-add("JoosepAlviste/nvim-ts-context-commentstring")
 add("roobert/tailwindcss-colorizer-cmp.nvim")
 add("windwp/nvim-ts-autotag")
-add("b0o/SchemaStore.nvim")
 add("Wansmer/treesj")
-add("prisma/vim-prisma")
-add("DavidAnson/markdownlint")
-add("iamcco/markdown-preview.nvim")
-
+add("MunifTanjim/nui.nvim")
 add("nvim-lua/plenary.nvim")
+
+add("b0o/SchemaStore.nvim")
+add("prisma/vim-prisma")
+add("iamcco/markdown-preview.nvim")

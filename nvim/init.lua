@@ -1,3 +1,3 @@
-require("fivepixels.base")
-require("fivepixels.keymaps")
-require("fivepixels.plugins")
+require("nuvut.base")
+require("nuvut.keymaps")
+require("nuvut.plugins")

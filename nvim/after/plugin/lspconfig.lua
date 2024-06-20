@@ -37,8 +37,12 @@ local basicLspSetup = {
 lspconfig["asm_lsp"].setup(basicLspSetup)
 
 -- WEB/APP
-lspconfig["html"].setup(basicLspSetup)
-lspconfig["htmx"].setup(basicLspSetup)
+lspconfig["html"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  filetypes = { "html" },
+})
+
 lspconfig["cssls"].setup(basicLspSetup)
 lspconfig["cssmodules_ls"].setup(basicLspSetup)
 lspconfig["css_variables"].setup(basicLspSetup)
@@ -164,7 +168,27 @@ lspconfig["tsserver"].setup({
 lspconfig["tailwindcss"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
-  filetypes = tw.default_config.filetypes,
+  filetypes = {
+    "astro",
+    "astro-markdown",
+    "django-html",
+    "htmldjango",
+    "gohtml",
+    "gohtmltmpl",
+    "html",
+    "css",
+    "less",
+    "postcss",
+    "sass",
+    "scss",
+    "stylus",
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact",
+    "vue",
+    "svelte",
+  },
 })
 
 -- svelte

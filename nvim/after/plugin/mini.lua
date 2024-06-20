@@ -16,13 +16,11 @@ require("mini.trailspace").setup({})
 require("mini.cursorword").setup({})
 require("mini.statusline").setup()
 require("mini.notify").setup({})
-require("mini.notify").setup({})
 require("mini.pairs").setup({})
 
 require("mini.splitjoin").setup({ mappings = { toggle = "gs" } })
 require("mini.indentscope").setup({ symbol = "▎", options = { try_as_border = true } })
 require("mini.basics").setup({ options = { win_borders = "double" } })
-require("mini.tabline").setup({ tabpage_section = "right" })
 
 require("mini.surround").setup({
   mappings = {
@@ -116,7 +114,6 @@ require("mini.diff").setup({
   delay = {
     text_change = 200,
   },
-
   mappings = {
     apply = "",
     reset = "",
@@ -126,10 +123,6 @@ require("mini.diff").setup({
     goto_next = "",
     goto_last = "",
   },
-})
-
-require("treesj").setup({
-  max_join_length = 500,
 })
 
 require("ts_context_commentstring").setup({})
@@ -146,12 +139,11 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 
 vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
 
+require("treesj").setup({
+  max_join_length = 500,
+  use_default_keymaps = false,
+})
+
 vim.keymap.set("n", "<leader>ji", function()
   require("treesj").toggle()
 end, { desc = "Toggle joining blocks" })
-vim.keymap.set("n", "<leader>jj", function()
-  require("treesj").join()
-end, { desc = "Join blocks" })
-vim.keymap.set("n", "<leader>js", function()
-  require("treesj").split()
-end, { desc = "Split blocks" })
